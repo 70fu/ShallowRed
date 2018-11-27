@@ -15,6 +15,10 @@ public class HeuristicFunctions
 {
     private HeuristicFunctions(){}
 
+    /**
+     * 1 if you get an extra turn from it
+     * 0 otherwise
+     */
     public static void extraTurn(MancalaGame game, ArrayList<String> legalMoves, float weights[])
     {
         String move;
