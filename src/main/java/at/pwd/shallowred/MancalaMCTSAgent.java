@@ -122,7 +122,7 @@ public class MancalaMCTSAgent implements MancalaAgent {
 
     private MCTSTree expand(MCTSTree best) {
         List<String> legalMoves = best.game.getSelectableSlots();
-        return best.move(legalMoves.get(r.nextInt(legalMoves.size())));
+        return best.move(SelectionUtils.selectExpand(best.game,legalMoves));//best.move(legalMoves.get(r.nextInt(legalMoves.size())));
     }
 
     private WinState defaultPolicy(MancalaGame game) {
@@ -133,7 +133,7 @@ public class MancalaMCTSAgent implements MancalaAgent {
             String play;
             do {
                 List<String> legalMoves = game.getSelectableSlots();
-                play = legalMoves.get(r.nextInt(legalMoves.size()));
+                play = SelectionUtils.selectMove(game,legalMoves);//legalMoves.get(r.nextInt(legalMoves.size()));
             } while(game.selectSlot(play));
             game.nextPlayer();
 
@@ -145,6 +145,6 @@ public class MancalaMCTSAgent implements MancalaAgent {
 
     @Override
     public String toString() {
-        return "Monte Carlo Tree Search";
+        return "ShallowRed";
     }
 }
