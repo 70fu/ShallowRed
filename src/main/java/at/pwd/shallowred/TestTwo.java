@@ -1,6 +1,4 @@
 package at.pwd.shallowred;
 
-public class Test
-{
-    //HI
+public class TestTwo {
 }
