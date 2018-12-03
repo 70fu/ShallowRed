@@ -27,43 +27,8 @@ public class MancalaGame {
 
     private MancalaBoard board;
     private MancalaState state;
-    private String boardXml;
 
-    /**
-     * Registers MancalaGame to the GameFactory and initializes MancalaHumanAgent
-     */
-    public static void init() {
-        GameFactory.getInstance().register(GAME_NAME, MancalaGame.class);
-        MancalaHumanAgent.init();
-    }
 
-    @Override
-    public InputStream getViewXml() {
-        Map<String, String> params = new HashMap<>();
-        params.put("stones-per-slot", String.valueOf(board.getStonesPerSlot()));
-        return XSLTService.getInstance().execute(
-                GAME_BOARD_TRANFORMER,
-                new StreamSource(new StringReader(boardXml)),
-                params
-        );
-    }
-
-    @Override
-    public void loadBoard(InputStream boardStream) {
-        this.boardXml = XSLTService.convertStreamToString(boardStream);
-
-        Serializer serializer = new Persister();
-        try {
-            this.board = serializer.read(MancalaBoard.class, boardXml);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        this.state = new MancalaState(this.board);
-    }
-
-    /**
-     * Default constructor used by GameFactory
-     */
     public MancalaGame() {}
 
     /**
@@ -234,19 +199,16 @@ public class MancalaGame {
         return winState;
     }
 
-    @Override
     public MancalaBoard getBoard() {
         return board;
     }
 
-    @Override
     public int nextPlayer() {
         int player = (state.getCurrentPlayer() + 1) % getBoard().getPlayers().size();
         state.setCurrentPlayer(player);
         return player;
     }
 
-    @Override
     public MancalaState getState() {
         return state;
     }

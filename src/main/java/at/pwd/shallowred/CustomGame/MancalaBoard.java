@@ -18,8 +18,11 @@ public class MancalaBoard {
         slots = new int[14];
     }
 
-    int getNumFields(){
+    int getNumFieldsTotal(){
         return 14;
+    }
+    int getNumSlots(){
+        return 6;
     }
 
     /**
@@ -32,6 +35,11 @@ public class MancalaBoard {
 
     int getPlayerDepot(int playerID){
         return slots[6*playerID+1*playerID];
+    }
+
+
+    int getSlot(int playerID,int slot){
+        return slots[slot+playerID*7];
     }
 
 

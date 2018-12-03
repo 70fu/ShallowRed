@@ -1,5 +1,6 @@
 package at.pwd.shallowred.CustomGame;
 
+import at.pwd.boardgame.game.base.State;
 import javafx.beans.binding.BooleanExpression;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -10,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class MancalaState {
+public class MancalaState  implements State {
     /**
      * Class containing the number of stones for a depot/slot. This is used for binding in JavaFX
      */
@@ -69,9 +70,9 @@ public class MancalaState {
         }
     }
 
-    protected Map<String, StoneNumProperty> stones = new HashMap<>();
+    protected Map<Integer, StoneNumProperty> stones = new HashMap<>();
     private int currentPlayer = -1;
-    protected Map<String, PlayerTurnStateProperty> states = new HashMap<>();
+    protected Map<Integer, PlayerTurnStateProperty> states = new HashMap<>();
     protected Map<Integer, PlayerTurnStateProperty> playerStates = new HashMap<>();
 
     /**
@@ -88,14 +89,14 @@ public class MancalaState {
             PlayerTurnStateProperty oldState = state.playerStates.get(playerId);
             PlayerTurnStateProperty newState = oldState.copy();
             playerStates.put(playerId, newState);
-            for (String slot : state.states.keySet()) {
+            for (Integer slot : state.states.keySet()) {
                 if (state.states.get(slot) == oldState) {
                     states.put(slot, newState);
                 }
             }
         }
 
-        for (String key : state.stones.keySet()) {
+        for (Integer key : state.stones.keySet()) {
             stones.put(key, state.stones.get(key).copy());
         }
 
@@ -109,13 +110,19 @@ public class MancalaState {
      * @param board The board for which the state should be created
      */
     protected MancalaState(MancalaBoard board) {
-        /*for (Integer playerId : board.getPlayers()) {
+        //for (Integer playerId : board.getPlayers()) {
+        for(int playerId = 0;playerId<1;playerId++){
             PlayerTurnStateProperty s = new PlayerTurnStateProperty();
             playerStates.put(playerId, s);
-            for (MancalaBoard.Slot slot : board.getSlots()) {
+
+            /*for (MancalaBoard.Slot slot : board.getSlots()) {
                 if (slot.belongsToPlayer() == playerId) {
                     states.put(slot.getId(), s);
                 }
+            }*/
+
+            for(int si = 0;si<board.getNumFieldsTotal();si++){
+                states.put(si,board.getFields()[si]);
             }
         }
 
@@ -124,7 +131,7 @@ public class MancalaState {
         }
         for (MancalaBoard.PlayerDepot depot : board.getDepots()) {
             stones.put(depot.getId(), new StoneNumProperty(0));
-        }*/
+        }
     }
 
     /**
