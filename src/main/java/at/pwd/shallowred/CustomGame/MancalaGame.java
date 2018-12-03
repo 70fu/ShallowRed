@@ -1,16 +1,7 @@
 package at.pwd.shallowred.CustomGame;
 
-import at.pwd.boardgame.game.base.Game;
 import at.pwd.boardgame.game.base.WinState;
-import at.pwd.boardgame.game.mancala.agent.MancalaHumanAgent;
-import at.pwd.boardgame.services.GameFactory;
-import at.pwd.boardgame.services.XSLTService;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
-import javax.xml.transform.stream.StreamSource;
-import java.io.InputStream;
-import java.io.StringReader;
 import java.util.*;
 
 public class MancalaGame {
@@ -26,8 +17,6 @@ public class MancalaGame {
     public static final String GAME_NAME = "normal_mancala";
 
     private MancalaBoard board;
-    private MancalaState state;
-
 
     public MancalaGame() {}
 
@@ -36,7 +25,7 @@ public class MancalaGame {
      * @param game The game that should be copied.
      */
     public MancalaGame(MancalaGame game) {
-        this(game.getState(), game.getBoard());
+
     }
 
     /**
@@ -45,9 +34,9 @@ public class MancalaGame {
      *              stones on each slot). If not null the given state is used.
      * @param board The board that should be used for this MancalaGame
      */
-    public MancalaGame(MancalaState state, MancalaBoard board) {
+    public MancalaGame(MancalaBoard board) {
         this.board = board;
-        this.state = state != null ? new MancalaState(state) : new MancalaState(board);
+        //this.state = state != null ? new MancalaState(state) : new MancalaState(board);
     }
 
     /**
@@ -60,7 +49,7 @@ public class MancalaGame {
      * @param id The ID of the slot that has been selected
      * @return true ... the current player can play another turn, false ... the current player has to end his turn
      */
-    public boolean selectSlot(String id) {
+    public boolean selectSlot(int id) {
         int stones = state.stonesIn(id);
         int owner = board.getElement(id).getOwner();
 
@@ -209,7 +198,4 @@ public class MancalaGame {
         return player;
     }
 
-    public MancalaState getState() {
-        return state;
-    }
 }
