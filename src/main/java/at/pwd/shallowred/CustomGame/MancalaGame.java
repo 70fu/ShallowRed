@@ -1,201 +1,208 @@
 package at.pwd.shallowred.CustomGame;
 
-import at.pwd.boardgame.game.base.WinState;
-
-import java.util.*;
+import static at.pwd.shallowred.CustomGame.MancalaBoard.*;
 
 public class MancalaGame {
 
-    /**
-     * The transformer to create the view FXML
-     */
-    public static final String GAME_BOARD_TRANFORMER = "/mancala_board_transformer.xsl";
-
-    /**
-     * The name of this game
-     */
-    public static final String GAME_NAME = "normal_mancala";
-
     private MancalaBoard board;
-
-    public MancalaGame() {}
-
+    private int currentPlayer;
     /**
-     * Creates a semi deep copy of the given MancalaGame (State is copied, board is kept the same)
-     * @param game The game that should be copied.
+     * -1, if no winner, otherwise the player id of the winning player
+     *  2, for a draw
      */
-    public MancalaGame(MancalaGame game) {
+    private int winner = NOBODY;
+    public static final int NOBODY = -1;
+    public static final int DRAW = 2;
 
-    }
-
-    /**
-     * Creates a new MancalaGame
-     * @param state If null the default MancalaState of the board is generated (placing stones_per_slot many
-     *              stones on each slot). If not null the given state is used.
-     * @param board The board that should be used for this MancalaGame
-     */
-    public MancalaGame(MancalaBoard board) {
-        this.board = board;
-        //this.state = state != null ? new MancalaState(state) : new MancalaState(board);
+    public MancalaGame()
+    {
+        board = new MancalaBoard();
     }
 
     /**
-     * Selects the slot with the given ID and calculates the turn.
-     * If this ends the game. The final stones of the enemys player are placed in his
-     * depot too.
-     *
-     * Throws a RuntimeException if an invalid slot is selected
-     *
-     * @param id The ID of the slot that has been selected
-     * @return true ... the current player can play another turn, false ... the current player has to end his turn
+     * Creates an instance from given game
+     * @param game
      */
-    public boolean selectSlot(int id) {
-        int stones = state.stonesIn(id);
-        int owner = board.getElement(id).getOwner();
-
-        if (owner != state.getCurrentPlayer() || board.isDepot(id) || stones == 0) {
-            throw new RuntimeException("You cannot select this slot: " + id);
-        }
-
-        state.removeStones(id);
-        String currentId = board.next(id);
-        boolean playAnotherTurn = false;
-        while (stones > 0) {
-            // if this is the player depot of the enemy, do not put it in
-            boolean skip = false;
-            boolean ownDepot = false;
-            if (board.isDepot(currentId)) {
-                MancalaBoard.PlayerDepot depot = (MancalaBoard.PlayerDepot)board.getElement(currentId);
-                if (depot.getPlayer() != state.getCurrentPlayer()) {
-                    skip = true;
-                } else {
-                    ownDepot = true;
-                }
-            }
-
-            if (!skip) {
-                state.addStones(currentId, 1);
-                stones--;
-
-                boolean isLast = stones == 0;
-                boolean landedOnEmpty = state.stonesIn(currentId) == 1;
-                boolean landedOnOwn = board.getElement(currentId).getOwner() == state.getCurrentPlayer();
-                if (landedOnEmpty && landedOnOwn && isLast && !ownDepot) {
-                    // get the stones from enemys slot
-                    String enemy = board.getEnemySlotOf(currentId);
-                    int enemyStones = state.stonesIn(enemy);
-                    state.removeStones(currentId);
-                    state.removeStones(enemy);
-                    String depot = board.getDepotOf(currentId);
-                    state.addStones(depot, enemyStones + 1); // stones from enemy + own stone in slot
-                }
-
-                playAnotherTurn = isLast && ownDepot;
-            }
-            currentId = board.next(currentId);
-        }
-        if (playAnotherTurn) {
-            // finally check if already won => if no, then another round can be played
-            playAnotherTurn = checkIfPlayerWins().getState() == WinState.States.NOBODY;
-        }
-        return playAnotherTurn;
+    public MancalaGame(at.pwd.boardgame.game.mancala.MancalaGame game)
+    {
+        board = new MancalaBoard(game);
+        //TODO set current player
+        //TODO set winner
     }
 
     /**
-     * Returns a list of selectable slots for the current game state and current board
-     * @return A List containing all selectable slot IDs. If there is nothing selectable the list is empty
+     * Preconditions:
+     *      @param other, !=null
+     * Postconditions:
+     *      Copies given mancala game
+     *      @return this
      */
-    public List<String> getSelectableSlots() {
-        List<String> slots = new ArrayList<>();
-        for (MancalaBoard.Slot slot : board.getSlots()) {
-            // slot should belong to the current player and not be empty
-            if (slot.belongsToPlayer() == state.getCurrentPlayer() && state.stonesIn(slot.getId()) > 0) {
-                slots.add(slot.getId());
-            }
-        }
-        return slots;
+    public MancalaGame copy(MancalaGame other)
+    {
+        board.copy(other.board);
+        currentPlayer = other.currentPlayer;
+        winner = other.winner;
+
+        return this;
     }
 
     /**
-     * Helper class for determining who wins the game
+     * Preconditions:
+     *          @param id The ID of the slot that has been selected, there must be stones in it, 1<=id<=6, getStones(id)>0
+     * Postconditions:
+     *           Selects the slot with the given ID and calculates the turn.
+     *           If this ends the game. The final stones of the enemys player are placed in his/her
+     *           depot too.
+     *           @return true ... game has ended, false ... game has not been ended
      */
-    private class Entry implements Comparable<Entry> {
-        int num;
-        int playerId;
+    public boolean performTurn(int id) {
+        int slot = board.index(currentPlayer,id);
+        int stones = board.clearSlot(slot);
+        int[] slots = board.getFields();
 
-        Entry(int num, int playerId) {
-            this.num = num;
-            this.playerId = playerId;
+        //how many rounds can I make with stones
+        int rounds = stones/13;
+        //increase stone count in all slots by rounds, except for enemy depot
+        for(int x = 0;x<14;++x)
+            slots[x]+=rounds;
+        int enemyDepot = board.getPlayerDepot(getEnemyPlayer());
+        slots[enemyDepot]-=rounds;
+
+        //calculate remaining stones
+        stones-=13*rounds;
+        //if enemy depot, can be reached with the remaining stones, decrease enemy depot by 1, since it ill be increased with the loop below
+        //and grant an extra stone for the loop
+        if(stones-id>=7)
+        {
+            --slots[enemyDepot];
+            ++stones;
+        }
+        //distribute stones until stones run out or slot reaches -1
+        for(;--slot>=0 && stones>0;--stones)
+        {
+            ++slots[slot];
+        }
+        //wrap around board and distribute remaining stones
+        if(stones>0)
+        {
+            for (slot = 14; stones > 0; --stones)
+            {
+                --slot;
+                ++slots[slot];
+            }
         }
 
-        @Override
-        public int compareTo(Entry o) {
-            return o.num - this.num;
+        //all stones have been distributed, see if the last stone landed on the depot of the current player
+        int playerDepot = board.getPlayerDepot(currentPlayer);
+
+        if(slot!=playerDepot)
+        {
+            //see if last stone landed on empty slot that belongs to the current player
+            if(slots[slot]==1 && board.getOwner(slot)==currentPlayer)
+            {
+                //add the last stone and stones from the opposite side to current players depot
+                int opposite = board.getOppositeSlot(slot);
+                slots[playerDepot]+=board.clearSlot(opposite)+board.clearSlot(slot);
+
+                //slots are cleared by above statement
+            }
+
+            //switch player
+            currentPlayer = getEnemyPlayer();
         }
+
+        return updateWinningState();
     }
 
     /**
-     * Checks if a player is winning. If a player is winning the opponent gets the remaining stones into his
-     * own depot (so this method also alters the state).
-     *
-     * @return A WinState describing if and who is winning
+     * Postconditions:
+     *      @return id of current player
      */
-    public WinState checkIfPlayerWins() {
-        boolean didEnd = false;
-        for (MancalaBoard.PlayerDepot depot : board.getDepots()) {
-            didEnd = true;
-            int playerId = depot.getPlayer();
-            for (MancalaBoard.Slot slot : board.getSlots()) {
-                if (slot.belongsToPlayer() == playerId && state.stonesIn(slot.getId())> 0) {
-                    didEnd = false;
-                    break;
-                }
-            }
-            if (didEnd) {
-                break;
-            }
-        }
-
-        WinState winState;
-        if (didEnd) {
-            // give all missing stones to enemy
-            for (MancalaBoard.Slot slot : board.getSlots()) {
-                String depot = board.getDepotOf(slot.getId());
-                int num = state.stonesIn(slot.getId());
-                state.removeStones(slot.getId());
-                state.addStones(depot, num);
-            }
-
-            // it is designed to support multiple players (but not yet needed)
-            // thats the reason why it is so complex
-            List<Entry> nums = new ArrayList<>();
-            for (MancalaBoard.PlayerDepot depot : board.getDepots()) {
-                int currentNum = state.stonesIn(depot.getId());
-                nums.add(new Entry(currentNum, depot.getPlayer()));
-            }
-            Collections.sort(nums);
-            if (nums.size() == 1) {
-                winState = new WinState(WinState.States.SOMEONE, nums.get(0).playerId);
-            } else if (nums.get(0).num == nums.get(1).num) { // draw
-                winState = new WinState(WinState.States.MULTIPLE, -1);
-            } else { // one player has the most
-                winState = new WinState(WinState.States.SOMEONE, nums.get(0).playerId);
-            }
-        } else {
-            winState = new WinState(WinState.States.NOBODY, -1);
-        }
-
-        return winState;
+    public int getCurrentPlayer()
+    {
+        return currentPlayer;
     }
 
-    public MancalaBoard getBoard() {
-        return board;
+    /**
+     * Postconditions:
+     *      @return id of enemy of current player
+     */
+    public int getEnemyPlayer()
+    {
+        return 1-currentPlayer;
     }
 
-    public int nextPlayer() {
-        int player = (state.getCurrentPlayer() + 1) % getBoard().getPlayers().size();
-        state.setCurrentPlayer(player);
-        return player;
+    /**
+     * Preconditions:
+     *      @param id, 1<=id<=6
+     * Postconditions:
+     *      @return true, if current player can perform a turn of given slot
+     */
+    public boolean isSelectable(int id)
+    {
+        return getStones(id)>0;
+    }
+
+    /**
+     * Preconditions:
+     *      @param id, [0,13]
+     * Postconditions:
+     *      @return stones of slot with given id
+     */
+    public int getStones(int id)
+    {
+        return board.getFields()[board.index(currentPlayer,id)];
+    }
+
+    /**
+     * Postconditions:
+     *      @return -1=nobody yet, 0=Player_A, 1=PLAYER_B, 2=Draw
+     */
+    public int getWinner()
+    {
+        return winner;
+    }
+
+    /**
+     * Postconditions:
+     *      if there are no stones on at least one side, all remaining stones are given to the depot of the slot owner
+     *      @return true ... game has ended, false ... game has not been ended
+     */
+    private boolean updateWinningState()
+    {
+        int[] slots = board.getFields();
+
+        int sumA = 0;
+        for(int x = 1;x<7;++x)
+            sumA+=slots[x];
+
+        int sumB = 0;
+        for(int x = 8;x<14;++x)
+            sumB+=slots[x];
+
+        //check if any side has no more stones
+        if(sumB==0 || sumA==0)
+        {
+            //Player A gets remaining stones on his/her side
+            for(int x = 1;x<7;++x)
+                slots[DEPOT_A]+=board.clearSlot(x);
+
+            //Player B gets remaining stones on his/her side
+            for(int x = 8;x<14;++x)
+                slots[DEPOT_B]+=board.clearSlot(x);
+
+            //check who is the winner
+            if(slots[7]>slots[0])
+                winner=PLAYER_B;
+            else if(slots[0]>slots[7])
+                winner = PLAYER_A;
+            else
+                winner = DRAW;
+
+            return true;
+        }
+
+        return false;
     }
 
 }

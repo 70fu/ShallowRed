@@ -1,46 +1,42 @@
 package at.pwd.shallowred.CustomGame;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MancalaBoard {
 
-    private int stonesPerSlot;
-    int[] slots;
+    private int[] slots;
 
     public static final int PLAYER_A = 0;
     public static final int PLAYER_B = 1;
+    public static final int DEPOT_A = 0;
+    public static final int DEPOT_B = 7;
 
 
-    MancalaBoard(){
-        stonesPerSlot = 6;
-
+    /**
+     * Creates an empty MancalaBoard
+     */
+    public MancalaBoard(){
         slots = new int[14];
     }
 
-    int getNumFieldsTotal(){
-        return 14;
-    }
-    int getNumSlots(){
-        return 6;
+    /**
+     * Creates a mancalaboard from given game
+     */
+    public MancalaBoard(at.pwd.boardgame.game.mancala.MancalaGame game)
+    {
+        //TODO
     }
 
     /**
-     * returns the depot of the given player.
-     * PlayerID = 0 : Simulated AI
-     * PlayerID = 1 : Enemy AI
-     * @param playerID
-     * @return
+     * Postconditions:
+     *      copies the slot values of given board
+     *      @return this
      */
-
-    int getPlayerDepot(int playerID){
-        return slots[6*playerID+1*playerID];
+    public MancalaBoard copy(MancalaBoard other)
+    {
+        for(int x = 0;x<14;++x)
+            slots[x] = other.slots[x];
+        return this;
     }
 
-
-    int getSlot(int playerID,int slot){
-        return slots[slot+playerID*7];
-    }
 
 
     /**
@@ -49,59 +45,87 @@ public class MancalaBoard {
      * @return
      */
     int next(int slot){
-        if(slot < 13){
-            return slot+1;
-        }else{
-            return 0;
-        }
+        --slot;
+        if(slot==-1)
+            return 13;
+        return slot;
+    }
+
+    /**
+     * Preconditions:
+     *      @param playerId, 0 or 1
+     * Postconditions:
+     *      @return the slot index of the given player
+     */
+    public int getPlayerDepot(int playerId)
+    {
+        return playerId*7;
     }
 
 
-    int[] getFields(){
+    public int[] getFields(){
         return slots;
     }
 
     /**
-     * Getter for stones per slot
-     * @return Returns the amount of stones per slot at the beginning of the game
+     * Preconditions:
+     *      @param slot, [0,13]
+     * Postconditions:
+     *      @return true if given slot is a depot, false otherwise
      */
-    public int getStonesPerSlot() {
-        return stonesPerSlot;
+    public boolean isDepot(int slot) {
+        return slot==DEPOT_A || slot==DEPOT_B;
     }
 
     /**
-     * Setter for stones per slot. Keep in mind this does not actually alter the slots.
-     * @param stonesPerSlot Sets the amount of stones per slot at the beginning of the game.
+     * Preconditions:
+     *      @param slot, [0,13]
+     * Postconditions:
+     *      @return owner of given slot
      */
-    public void setStonesPerSlot(int stonesPerSlot) {
-        this.stonesPerSlot = stonesPerSlot;
+    public int getOwner(int slot)
+    {
+        return (slot>6)?PLAYER_B:PLAYER_A;
     }
 
     /**
-     * Checks whether the given ID is a valid slot id
-     * @param id The questioned slot id
-     * @return true if it is a slot, false if it is not a slot (does not exist or is a depot)
+     * Preconditions:
+     *      @param slot, [0,13]
+     * Postconditions:
+     *      @return slot index of the opposite slot
      */
-    public boolean isSlot(int id) {
-        if((id >=0 && id <= 5) || (id >=7 && id <= 12)){
-            return true;
-        }else{
-            return false;
-        }
+    public int getOppositeSlot(int slot)
+    {
+        return 14-slot;
     }
 
     /**
-     * Checks whether the given ID is a valid depot id
-     * @param id The questioned slot id
-     * @return true if it is a depot, false if it is not a depot (does not exist or is a slot)
+     * Preconditions:
+     *      @param slot, [0,13]
+     * Postconditions:
+     *      sets number of stones of given slot to 0
+     *      @return the number of stones that were in given slot before
      */
-    public boolean isDepot(int id) {
-        if(id == 6 || id == 13){
-            return true;
-        }else{
-            return false;
-        }
+    public int clearSlot(int slot)
+    {
+        int tmp = slots[slot];
+        slots[slot] = 0;
+        return tmp;
     }
 
-
+    /**
+     * Preconditions:
+     *      @param playerId, 0 or 1
+     *      @param id, must be a valid id
+     * Postconditions:
+     *      @return the slot index for given id for given player
+     */
+    public int index(int playerId, int id)
+    {
+        int i = id+playerId*7;
+        if(i>13)
+            return i-14;
+        else
+            return i;
+    }
 }

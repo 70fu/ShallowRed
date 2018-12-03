@@ -1,15 +1,18 @@
 package at.pwd.shallowred;
+
 import at.pwd.boardgame.game.base.WinState;
-import at.pwd.boardgame.game.mancala.MancalaGame;
 import at.pwd.boardgame.game.mancala.MancalaState;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgent;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
+import at.pwd.shallowred.CustomGame.MancalaGame;
+import at.pwd.shallowred.CustomGame.MancalaGamePool;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class ShallowRed implements MancalaAgent {
+    private MancalaGamePool gamePool = new MancalaGamePool();
     private Random r = new Random();
     private MancalaState originalState;
     private static final double C = 1.0f/Math.sqrt(2.0f);
@@ -19,7 +22,7 @@ public class ShallowRed implements MancalaAgent {
         private int winCount;
 
         private MancalaGame game;
-        private WinState winState;
+        private int winState;
         private ShallowRed.MCTSTree parent;
         private List<ShallowRed.MCTSTree> children;
         String action;
@@ -27,7 +30,7 @@ public class ShallowRed implements MancalaAgent {
         MCTSTree(MancalaGame game) {
             this.game = game;
             this.children = new ArrayList<>();
-            this.winState = game.checkIfPlayerWins();
+            this.winState = game.getWinner();
         }
 
         boolean isNonTerminal() {
@@ -73,7 +76,7 @@ public class ShallowRed implements MancalaAgent {
     }
 
     @Override
-    public MancalaAgentAction doTurn(int computationTime, MancalaGame game) {
+    public MancalaAgentAction doTurn(int computationTime, at.pwd.boardgame.game.mancala.MancalaGame game) {
         long start = System.currentTimeMillis();
         this.originalState = game.getState();
 
