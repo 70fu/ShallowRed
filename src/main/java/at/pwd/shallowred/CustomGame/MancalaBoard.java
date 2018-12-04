@@ -2,6 +2,16 @@ package at.pwd.shallowred.CustomGame;
 
 import java.util.List;
 
+
+/**
+ *  Mancalaboard ID distribution;
+ *
+ *       (  8 )|(  9 )|( 10 )|( 11 )|( 12 )|( 13 )
+ *  ( 7 )                                         ( 7 )
+ *       (  6 )|(  5 )|(  4 )|(  3 )|(  2 )|(  1 )
+ */
+
+
 public class MancalaBoard {
 
     private int[] slots;
