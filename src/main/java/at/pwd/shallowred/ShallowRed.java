@@ -18,6 +18,9 @@ public class ShallowRed implements MancalaAgent {
     private Random r = new Random();
     private static final double C = 1.0f/Math.sqrt(2.0f);
 
+
+    String[] mancalaMapping;
+
     public class MCTSTreePool extends Pool<MCTSTree>
     {
         @Override
@@ -90,6 +93,24 @@ public class ShallowRed implements MancalaAgent {
 
     @Override
     public MancalaAgentAction doTurn(int computationTime, at.pwd.boardgame.game.mancala.MancalaGame game) {
+
+        //create mapping list between our own implementation and the existing one
+        if(mancalaMapping == null){
+            int numFields = 14;
+            mancalaMapping = new String[14];//index is the ID of a slot from the mancalaboard, the content is the String ID from the existing implementation
+
+
+            int playerID = game.getState().getCurrentPlayer();
+
+            String slotID = game.getBoard().getDepotOfPlayer(playerID);
+            mancalaMapping[0] = slotID;
+
+            for(int i = 13; i > 1;i--){
+                slotID = game.getBoard().next(slotID);
+                mancalaMapping[i] = slotID;
+            }
+        }
+
         long start = System.currentTimeMillis();
 
         //create root of monte carlo tree, convert MancalaGame from framework to our Mancala game
@@ -103,7 +124,8 @@ public class ShallowRed implements MancalaAgent {
 
         ShallowRed.MCTSTree selected = root.getBestNode();
         System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
-        return new MancalaAgentAction(selected.action);//TODO
+
+        return new MancalaAgentAction(mancalaMapping[0]);//TODO
     }
 
     private void backup(ShallowRed.MCTSTree current, int winner) {
