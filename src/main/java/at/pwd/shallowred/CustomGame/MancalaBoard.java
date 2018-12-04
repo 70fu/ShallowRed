@@ -39,6 +39,8 @@ public class MancalaBoard {
      */
     public MancalaBoard(at.pwd.boardgame.game.mancala.MancalaGame game)
     {
+        this();
+        
         //TODO: TEST THIS!
         int playerID = game.getState().getCurrentPlayer();
 
