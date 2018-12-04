@@ -1,5 +1,7 @@
 package at.pwd.shallowred.CustomGame;
 
+import java.util.List;
+
 public class MancalaBoard {
 
     private int[] slots;
@@ -19,10 +21,24 @@ public class MancalaBoard {
 
     /**
      * Creates a mancalaboard from given game
+     *
+     * Because the API is HORRIBLE!
      */
     public MancalaBoard(at.pwd.boardgame.game.mancala.MancalaGame game)
     {
-        //TODO
+        //TODO: TEST THIS!
+        int playerID = game.getState().getCurrentPlayer();
+
+
+        String slotID = game.getBoard().getDepotOfPlayer(playerID);
+        slots[0] = game.getState().stonesIn(slotID);
+
+        for(int i = 13; i > 1;i--){
+            slotID = game.getBoard().next(slotID);
+            slots[i] = game.getState().stonesIn(slotID);
+        }
+
+
     }
 
     /**

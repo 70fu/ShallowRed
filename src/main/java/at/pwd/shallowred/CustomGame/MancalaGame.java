@@ -26,8 +26,13 @@ public class MancalaGame {
     public MancalaGame(at.pwd.boardgame.game.mancala.MancalaGame game)
     {
         board = new MancalaBoard(game);
+
+        winner = NOBODY;
         //TODO set current player
-        //TODO set winner
+
+        currentPlayer = game.getState().getCurrentPlayer();//TODO: CHECK IF THE ID IS 0 or 1
+        assert(currentPlayer == 0 || currentPlayer == 1);
+
     }
 
     /**
@@ -120,6 +125,8 @@ public class MancalaGame {
      */
     public int getCurrentPlayer()
     {
+        assert(currentPlayer == 0 || currentPlayer == 1);
+
         return currentPlayer;
     }
 
@@ -129,6 +136,8 @@ public class MancalaGame {
      */
     public int getEnemyPlayer()
     {
+        assert(currentPlayer == 0 || currentPlayer == 1);
+
         return 1-currentPlayer;
     }
 
