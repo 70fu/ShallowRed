@@ -4,10 +4,13 @@ import java.util.List;
 
 
 /**
+ * Mancalaboard custom implementation.
+ *
+ * 
  *  Mancalaboard ID distribution;
  *
  *       (  8 )|(  9 )|( 10 )|( 11 )|( 12 )|( 13 )
- *  ( 7 )                                         ( 7 )
+ *  ( 7 )                                         ( 0 )
  *       (  6 )|(  5 )|(  4 )|(  3 )|(  2 )|(  1 )
  */
 
