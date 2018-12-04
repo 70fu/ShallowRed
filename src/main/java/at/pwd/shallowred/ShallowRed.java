@@ -1,11 +1,12 @@
 package at.pwd.shallowred;
 
 import at.pwd.boardgame.game.base.WinState;
-import at.pwd.boardgame.game.mancala.MancalaState;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgent;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
+import at.pwd.shallowred.CustomGame.MancalaBoard;
 import at.pwd.shallowred.CustomGame.MancalaGame;
 import at.pwd.shallowred.CustomGame.MancalaGamePool;
+import at.pwd.shallowred.Utils.Pool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,28 +14,40 @@ import java.util.Random;
 
 public class ShallowRed implements MancalaAgent {
     private MancalaGamePool gamePool = new MancalaGamePool();
+    private MCTSTreePool nodePool = new MCTSTreePool();
     private Random r = new Random();
-    private MancalaState originalState;
     private static final double C = 1.0f/Math.sqrt(2.0f);
+
+    public class MCTSTreePool extends Pool<MCTSTree>
+    {
+        @Override
+        protected MCTSTree instantiate()
+        {
+            return new MCTSTree();
+        }
+    }
 
     private class MCTSTree {
         private int visitCount;
         private int winCount;
 
         private MancalaGame game;
-        private int winState;
         private ShallowRed.MCTSTree parent;
-        private List<ShallowRed.MCTSTree> children;
-        String action;
+        private List<ShallowRed.MCTSTree> children = new ArrayList<>(6);
+        int actionId;
 
-        MCTSTree(MancalaGame game) {
+        MCTSTree()
+        {
+        }
+
+        MCTSTree set(MancalaGame game)
+        {
             this.game = game;
-            this.children = new ArrayList<>();
-            this.winState = game.getWinner();
+            return this;
         }
 
         boolean isNonTerminal() {
-            return winState.getState() == WinState.States.NOBODY;
+            return game.getWinner()==MancalaGame.NOBODY;
         }
 
         ShallowRed.MCTSTree getBestNode() {
@@ -56,17 +69,17 @@ public class ShallowRed implements MancalaAgent {
         }
 
         boolean isFullyExpanded() {
-            return children.size() == game.getSelectableSlots().size();
+            return children.size() == game.getSelectableCount();
         }
 
-        ShallowRed.MCTSTree move(String action) {
-            MancalaGame newGame = new MancalaGame(this.game);
-            if (!newGame.selectSlot(action)) {
-                newGame.nextPlayer();
-            }
+        ShallowRed.MCTSTree move(int actionId) {
+            //obtain a copy
+            MancalaGame newGame = gamePool.obtain().copy(this.game);
+            //perform turn
+            newGame.performTurn(actionId);
 
-            ShallowRed.MCTSTree tree = new ShallowRed.MCTSTree(newGame);
-            tree.action = action;
+            ShallowRed.MCTSTree tree = nodePool.obtain().set(newGame);
+            tree.actionId = actionId;
             tree.parent = this;
 
             this.children.add(tree);
@@ -78,30 +91,30 @@ public class ShallowRed implements MancalaAgent {
     @Override
     public MancalaAgentAction doTurn(int computationTime, at.pwd.boardgame.game.mancala.MancalaGame game) {
         long start = System.currentTimeMillis();
-        this.originalState = game.getState();
 
-        ShallowRed.MCTSTree root = new ShallowRed.MCTSTree(game);
+        //create root of monte carlo tree, convert MancalaGame from framework to our Mancala game
+        ShallowRed.MCTSTree root = nodePool.obtain().set(new MancalaGame(game));
 
         while ((System.currentTimeMillis() - start) < (computationTime*1000 - 100)) {
             ShallowRed.MCTSTree best = treePolicy(root);
-            WinState winning = defaultPolicy(best.game);
-            backup(best, winning);
+            int winner = defaultPolicy(best.game);
+            backup(best, winner);
         }
 
         ShallowRed.MCTSTree selected = root.getBestNode();
         System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
-        return new MancalaAgentAction(selected.action);
+        return new MancalaAgentAction(selected.action);//TODO
     }
 
-    private void backup(ShallowRed.MCTSTree current, WinState winState) {
-        boolean hasWon = winState.getState() == WinState.States.SOMEONE && winState.getPlayerId() == originalState.getCurrentPlayer();
+    private void backup(ShallowRed.MCTSTree current, int winner) {
+        int hasWon = (winner== MancalaBoard.PLAYER_A)?1:0;
 
         while (current != null) {
             // always increase visit count
             current.visitCount++;
 
             // if it ended in a win => increase the win count
-            current.winCount += hasWon ? 1 : 0;
+            current.winCount += hasWon;
 
             current = current.parent;
         }
@@ -119,26 +132,23 @@ public class ShallowRed implements MancalaAgent {
     }
 
     private ShallowRed.MCTSTree expand(ShallowRed.MCTSTree best) {
-        List<String> legalMoves = best.game.getSelectableSlots();
-        return best.move(SelectionUtils.selectExpand(best.game,legalMoves));//best.move(legalMoves.get(r.nextInt(legalMoves.size())));
+        return best.move(SelectionUtils.selectExpand(best.game));
     }
 
-    private WinState defaultPolicy(MancalaGame game) {
-        game = new MancalaGame(game); // copy original game
-        WinState state = game.checkIfPlayerWins();
+    private int defaultPolicy(MancalaGame game) {
+        game = gamePool.obtain().copy(game); // copy original game
 
-        while(state.getState() == WinState.States.NOBODY) {
-            String play;
-            do {
-                List<String> legalMoves = game.getSelectableSlots();
-                play = SelectionUtils.selectMove(game,legalMoves);//legalMoves.get(r.nextInt(legalMoves.size()));
-            } while(game.selectSlot(play));
-            game.nextPlayer();
-
-            state = game.checkIfPlayerWins();
+        int turnId;
+        while(game.getWinner()==MancalaGame.NOBODY)
+        {
+            turnId = SelectionUtils.selectMove(game);
+            game.performTurn(turnId);
         }
 
-        return state;
+        //free game used for playthrough
+        gamePool.free(game);
+
+        return game.getWinner();
     }
 
     @Override

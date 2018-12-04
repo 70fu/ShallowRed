@@ -146,6 +146,19 @@ public class MancalaGame {
     }
 
     /**
+     * Postconditions:
+     *      @return the amount of possible turns for the current player, [0,6]
+     */
+    public int getSelectableCount()
+    {
+        int sum = 0;
+        for(int x = 1;x<=6;++x)
+            if(isSelectable(x))
+                ++sum;
+        return sum;
+    }
+
+    /**
      * Preconditions:
      *      @param id, [0,13]
      * Postconditions:
