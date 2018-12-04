@@ -80,8 +80,9 @@ public class MancalaGame {
             ++stones;
         }
         //distribute stones until stones run out or slot reaches -1
-        for(;--slot>=0 && stones>0;--stones)
+        for(;slot>0 && stones>0;--stones)
         {
+            --slot;
             ++slots[slot];
         }
         //wrap around board and distribute remaining stones
