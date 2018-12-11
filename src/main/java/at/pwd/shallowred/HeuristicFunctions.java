@@ -21,19 +21,40 @@ public class HeuristicFunctions
      */
     public static void extraTurn(MancalaGame game, ArrayList<String> legalMoves, float weights[])
     {
-        String move;
-        for(int i = 0;i<legalMoves.size();++i)
-        {
-            move=legalMoves.get(i);
-
-            //call next stones times
-            for(int stones = game.getState().stonesIn(move);stones>0;--stones)
-                move = game.getBoard().next(move);
-
-            if(move.equals(game.getBoard().getDepotOfPlayer(game.getState().getCurrentPlayer())))
-                weights[i] = 1;
-            else
-                weights[i] = 0;
-        }
+        //TODO
     }
+
+    /*
+    Prevent player from stealing:
+    Variations:
+        - Fill hole is good
+        - Filling hole is only good if there are stones on my side to steal
+        - Filling hole is only good if there are stones on my side to steal and the enemy player can move onto the empty field
+    Return:
+        - 1 if hole can be filled
+        - higher value if more stones can be saved (for normalization, see stone stealing)
+     */
+
+    /*
+    Can I steal stones?
+    the more the better
+    Normalization: divide the number of stones that can be stolen with turn i through the number of stones that can be stolen with all turns together
+     */
+
+    /*
+    Detect patterns, where multiple extra turns in a row can be obtained
+     */
+
+    /*
+    Find somehow similar boards in endgame database, by reducing stones at fields where they do not matter (too much)
+     */
+
+    /*
+    A move is good if it moves over the depot (gaining 1 stone)
+    Gaining an extra turn should maybe be excluded since this is covered by another heuristic
+     */
+
+    /*
+    A Move may be good if the enemy has many stones on the opposite side (opportunity to steal)
+     */
 }

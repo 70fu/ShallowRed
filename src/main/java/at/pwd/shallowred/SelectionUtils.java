@@ -8,12 +8,14 @@ public class SelectionUtils
 {
     static Random random = new Random(System.nanoTime());
 
+    //TODO may only use light heuristics, since the simulation should be fast
+    //TODO switch to endgame database if there are not many stones left
     static int selectMove(MancalaGame game)
     {
         return randomMove(game);
     }
 
-
+    //TODO switch to endgame database if there are not many stones left
     static int selectExpand(MancalaGame game)
     {
         return randomMove(game);

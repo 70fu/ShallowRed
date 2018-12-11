@@ -1,6 +1,5 @@
 package at.pwd.shallowred;
 
-import at.pwd.boardgame.game.base.WinState;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgent;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
 import at.pwd.shallowred.CustomGame.MancalaBoard;
@@ -12,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * TODO Keep Subtree of Search tree for next turn
+ */
 public class ShallowRed implements MancalaAgent {
     private MancalaGamePool gamePool = new MancalaGamePool();
     private MCTSTreePool nodePool = new MCTSTreePool();
