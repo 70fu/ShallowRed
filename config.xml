@@ -1,6 +1,15 @@
 <config>
-   <agents/>
-   <computation-time>1</computation-time>
+   <agents>
+      <agent>
+         <path>/home/simon/SecondDisk/Dropbox/Bachelor/PStrat/ExampleBinary/app/agents/mctsagent-1.0-SNAPSHOT.jar</path>
+         <classname>at.pwd.mctsagent.MancalaMCTSAgent</classname>
+      </agent>
+      <agent>
+         <path>/home/simon/SecondDisk/Dropbox/Bachelor/PStrat/ExampleBinary/app/agents/alphabetaagent-1.0-SNAPSHOT.jar</path>
+         <classname>at.pwd.alphabetaagent.MancalaAlphaBetaAgent</classname>
+      </agent>
+   </agents>
+   <computation-time>30</computation-time>
    <stones-per-slot>6</stones-per-slot>
    <slots-per-player>6</slots-per-player>
 </config>

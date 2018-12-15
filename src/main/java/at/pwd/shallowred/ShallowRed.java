@@ -126,6 +126,7 @@ public class ShallowRed implements MancalaAgent {
 
         ShallowRed.MCTSTree selected = root.getBestNode();
         System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
+        System.out.println("Selected action: "+selected.actionId);
 
         return new MancalaAgentAction(mancalaMapping[selected.actionId]);//TODO
     }
