@@ -1,8 +1,6 @@
-package at.pwd.shallowred;
+package at.pwd.shallowred.Heuristics;
 
-import at.pwd.boardgame.game.mancala.MancalaGame;
-
-import java.util.ArrayList;
+import at.pwd.shallowred.CustomGame.MancalaGame;
 
 /**
  * All heuristics have the following parameters:
@@ -19,7 +17,7 @@ public class HeuristicFunctions
      * 1 if you get an extra turn from it
      * 0 otherwise
      */
-    public static void extraTurn(MancalaGame game, ArrayList<String> legalMoves, float weights[])
+    public static void extraTurn(MancalaGame game, boolean[] possibleIds, float[] weights)
     {
         //TODO
     }
