@@ -9,7 +9,7 @@
          <classname>at.pwd.alphabetaagent.MancalaAlphaBetaAgent</classname>
       </agent>
    </agents>
-   <computation-time>30</computation-time>
+   <computation-time>5</computation-time>
    <stones-per-slot>6</stones-per-slot>
    <slots-per-player>6</slots-per-player>
 </config>

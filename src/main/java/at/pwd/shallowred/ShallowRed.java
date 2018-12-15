@@ -107,7 +107,7 @@ public class ShallowRed implements MancalaAgent {
             String slotID = game.getBoard().getDepotOfPlayer(playerID);
             mancalaMapping[0] = slotID;
 
-            for(int i = 13; i > 1;i--){
+            for(int i = 13; i >= 1;i--){
                 slotID = game.getBoard().next(slotID);
                 mancalaMapping[i] = slotID;
             }
