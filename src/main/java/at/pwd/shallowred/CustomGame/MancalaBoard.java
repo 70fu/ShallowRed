@@ -1,8 +1,5 @@
 package at.pwd.shallowred.CustomGame;
 
-import java.util.List;
-
-
 /**
  * Mancalaboard custom implementation.
  *
@@ -151,7 +148,7 @@ public class MancalaBoard {
      * Postconditions:
      *      @return the slot index for given id for given player
      */
-    public int index(int playerId, int id)
+    public static int index(int playerId, int id)
     {
         int i = id+playerId*7;
         if(i>13)
