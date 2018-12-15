@@ -2,13 +2,6 @@ package at.pwd.shallowred.Heuristics;
 
 import at.pwd.shallowred.CustomGame.MancalaGame;
 
-/**
- * All heuristics have the following parameters:
- *      game: the current game
- *      legalMoves: list of legal moves
- *      weights: array of length 6 (because 6 is the maximum of legal moves)
- * All heuristics write values [-1;1] for each legal move and writes it in the array weights at the same index as move in legalMoves
- */
 public class HeuristicFunctions
 {
     private HeuristicFunctions(){}
@@ -19,7 +12,16 @@ public class HeuristicFunctions
      */
     public static void extraTurn(MancalaGame game, boolean[] possibleIds, float[] weights)
     {
-        //TODO
+        for(int id = 1;id<=6;++id)
+        {
+            if(!possibleIds[id])
+                continue;
+
+            if(game.getStones(id)==id)
+                weights[id]=1;
+            else
+                weights[id]=0;
+        }
     }
 
     /*
