@@ -50,7 +50,18 @@ public class HeuristicSettings
     {
         Heuristic[] h = new Heuristic[heuristicIds.length];
         for(int x = 0;x<heuristicIds.length;++x)
-            h[x] = heuristics[heuristicIds[x]];
+            h[x] = getHeuristic(heuristicIds[x]);
         return h;
+    }
+
+    /**
+     * Preconditions:
+     *      @param heuristicId >=0 && <=heuristics.length
+     * Postconditions:
+     *      @return heuristic with given id
+     */
+    public static Heuristic getHeuristic(int heuristicId)
+    {
+        return heuristics[heuristicId];
     }
 }
