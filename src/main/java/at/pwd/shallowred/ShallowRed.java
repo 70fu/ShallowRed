@@ -22,6 +22,7 @@ import java.util.Random;
  */
 public class ShallowRed implements MancalaAgent {
     private static final String CONFIG_PATH = "agentConfigs/";
+
     private MancalaGamePool gamePool = new MancalaGamePool();
     private MCTSTreePool nodePool = new MCTSTreePool();
     private Random r = new Random();
@@ -34,8 +35,22 @@ public class ShallowRed implements MancalaAgent {
     private Heuristic[] simulationHeuristics;
     private float[] expandWeights;
     private float[] simulationWeights;
+    private SelectionUtils selector;
 
     String[] mancalaMapping;
+
+    public ShallowRed()
+    {
+        //TODO load default configuration
+        selector = new SelectionUtils();
+        selector.setSelectionAlg(selector.new RandomSelection());
+        expandHeuristicIds = new int[0];
+        simulationHeuristicIds= new int[0];
+        expandHeuristics = new Heuristic[0];
+        simulationHeuristics = new Heuristic[0];
+        expandWeights = new float[0];
+        simulationWeights = new float[0];
+    }
 
     public class MCTSTreePool extends Pool<MCTSTree>
     {
@@ -171,7 +186,7 @@ public class ShallowRed implements MancalaAgent {
     }
 
     private ShallowRed.MCTSTree expand(ShallowRed.MCTSTree best) {
-        return best.move(SelectionUtils.selectExpand(best.game));
+        return best.move(selector.select(best.game,expandHeuristics,expandWeights));
     }
 
     private int defaultPolicy(MancalaGame game) {
@@ -180,7 +195,7 @@ public class ShallowRed implements MancalaAgent {
         int turnId;
         while(game.getWinner()==MancalaGame.NOBODY)
         {
-            turnId = SelectionUtils.selectMove(game);
+            turnId = selector.select(game,simulationHeuristics,simulationWeights);
             game.performTurn(turnId);
         }
 
@@ -193,6 +208,54 @@ public class ShallowRed implements MancalaAgent {
     @Override
     public String toString() {
         return "ShallowRed";
+    }
+
+    public int[] getExpandHeuristics()
+    {
+        return expandHeuristicIds;
+    }
+
+    public float[] getExpandWeights()
+    {
+        return expandWeights;
+    }
+
+    /**
+     * Preconditions:
+     *      @param expandHeuristicIds !=null, must only contain valid ids
+     *      @param expandWeights !=null, every element must be in [-1,1]
+     */
+    public void setExpandHeuristics(int[] expandHeuristicIds, float[] expandWeights)
+    {
+        this.expandHeuristicIds = expandHeuristicIds;
+        this.expandWeights = expandWeights;
+
+        //reload heuristics
+        expandHeuristics = HeuristicSettings.generateHeuristicArray(expandHeuristicIds);
+    }
+
+    public int[] getSimulationHeuristics()
+    {
+        return simulationHeuristicIds;
+    }
+
+    public float[] getSimulationWeights()
+    {
+        return simulationWeights;
+    }
+
+    /**
+     * Preconditions:
+     *      @param simulationHeuristicIds !=null, must only contain valid ids
+     *      @param simulationWeights !=null, every element must be in [-1,1]
+     */
+    public void setSimulationHeuristics(int[] simulationHeuristicIds, float[] simulationWeights)
+    {
+        this.simulationHeuristicIds = simulationHeuristicIds;
+        this.simulationWeights = simulationWeights;
+
+        //reload heuristics
+        simulationHeuristics = HeuristicSettings.generateHeuristicArray(simulationHeuristicIds);
     }
 
     /*======================================
