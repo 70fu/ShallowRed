@@ -60,6 +60,7 @@ public class GameThread extends Thread
     {
         game = new MancalaGame();
         game.loadBoard(generateBoard());
+        game.nextPlayer();//init first player
         reset(agentA,agentB,computingTime,game);
     }
 
