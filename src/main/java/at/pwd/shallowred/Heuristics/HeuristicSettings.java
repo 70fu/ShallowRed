@@ -10,7 +10,7 @@ public class HeuristicSettings
     //array of all heuristics
     private static final Heuristic[] heuristics =
             {
-                    HeuristicFunctions::extraTurn
+                    HeuristicFunctions::extraTurn,
             };
 
     //index numbers (=ID) of all heuristics in the heuristics array

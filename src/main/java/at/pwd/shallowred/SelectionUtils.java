@@ -2,6 +2,8 @@ package at.pwd.shallowred;
 
 import at.pwd.shallowred.CustomGame.MancalaGame;
 import at.pwd.shallowred.Heuristics.Heuristic;
+import com.eclipsesource.json.Json;
+import com.eclipsesource.json.JsonObject;
 
 import java.util.Random;
 
@@ -25,6 +27,7 @@ public class SelectionUtils
          *      @return id, for which possibleIds[id]==true
          */
         int select(boolean[] possibleIds, int possibleCount, float[] weights, float weightMax);
+        JsonObject toJSON();
     }
 
     public class RouletteWheelSelection implements SelectionAlgorithm
@@ -76,6 +79,12 @@ public class SelectionUtils
             //this should never be reached
             System.err.println("Roulette Wheel Selection failed to select a turn");
             return 0;
+        }
+
+        @Override
+        public JsonObject toJSON()
+        {
+            return Json.object().add("type","roulette");
         }
     }
 
@@ -138,6 +147,12 @@ public class SelectionUtils
 
             return best;
         }
+
+        @Override
+        public JsonObject toJSON()
+        {
+            return Json.object().add("type","tournament").add("size",tournamentSize);
+        }
     }
 
     public class RandomSelection implements SelectionAlgorithm
@@ -159,6 +174,12 @@ public class SelectionUtils
                         --move;
                 }
             }
+        }
+
+        @Override
+        public JsonObject toJSON()
+        {
+            return Json.object().add("type","random");
         }
     }
 
@@ -191,6 +212,19 @@ public class SelectionUtils
     public void setSelectionAlg(SelectionAlgorithm sAlg)
     {
         this.selectionAlg = sAlg;
+    }
+
+    public void setSelectionAlg(JsonObject sAlg)
+    {
+        String type = sAlg.get("type").asString();
+        if(type.equalsIgnoreCase("random"))
+            setSelectionAlg(new RandomSelection());
+        else if(type.equalsIgnoreCase("roulette"))
+            setSelectionAlg(new RouletteWheelSelection());
+        else if(type.equalsIgnoreCase("tournament"))
+            setSelectionAlg(new TournamentSelection(sAlg.get("size").asInt()));
+        else
+            throw new IllegalArgumentException("Wrong selector json, must be json object with type: [random, roulette, tournament]");
     }
 
 

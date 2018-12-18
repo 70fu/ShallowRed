@@ -52,6 +52,12 @@ public class ShallowRed implements MancalaAgent {
         simulationWeights = new float[0];
     }
 
+    public ShallowRed(String jsonConfig)
+    {
+        selector = new SelectionUtils();
+        loadJSONConfig(jsonConfig);
+    }
+
     public class MCTSTreePool extends Pool<MCTSTree>
     {
         @Override
@@ -270,6 +276,9 @@ public class ShallowRed implements MancalaAgent {
     {
         JsonObject root = Json.parse(json).asObject();
 
+        //load selector
+        selector.setSelectionAlg(root.get("selector").asObject());
+
         //load expand heuristics & weights
         JsonArray exp = root.get("expand").asArray();
         expandHeuristicIds = new int[exp.size()];
@@ -307,7 +316,11 @@ public class ShallowRed implements MancalaAgent {
         fillHeuristicsJson(exp,expandHeuristicIds,expandWeights);
         fillHeuristicsJson(sim,simulationHeuristicIds,simulationWeights);
 
-        return Json.object().add("expand",exp).add("simulation",sim).toString(WriterConfig.PRETTY_PRINT);
+        return Json.object().
+                add("selector",selector.getSelectionAlg().toJSON()).
+                add("expand",exp).
+                add("simulation",sim).toString(WriterConfig.PRETTY_PRINT);
+
     }
 
     private void fillHeuristicsJson(JsonArray hConfig,int[] heuristics, float[] weights)
