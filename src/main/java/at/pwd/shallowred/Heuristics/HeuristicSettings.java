@@ -14,7 +14,8 @@ public class HeuristicSettings
                     HeuristicFunctions::stealStones,
                     HeuristicFunctions::moveOverDepot,
                     HeuristicFunctions::extraTurnChaining,
-                    HeuristicFunctions::stealOpportunity
+                    HeuristicFunctions::stealOpportunity,
+                    HeuristicFunctions::preventStealLight
             };
 
     //index numbers (=ID) of all heuristics in the heuristics array
@@ -23,6 +24,7 @@ public class HeuristicSettings
     public static final int MOVE_OVER_DEPOT = 2;
     public static final int EXTRA_TURN_CHAINING = 3;
     public static final int STEAL_OPPORTUNITY = 4;
+    public static final int PREVENT_STEAL_LIGHT = 5;
 
     /*==============================================
         SETTINGS

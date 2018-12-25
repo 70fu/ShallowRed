@@ -1,5 +1,6 @@
 package at.pwd.shallowred.Heuristics;
 
+import at.pwd.shallowred.CustomGame.MancalaBoard;
 import at.pwd.shallowred.CustomGame.MancalaGame;
 
 public class HeuristicFunctions
@@ -157,6 +158,46 @@ public class HeuristicFunctions
         - 1 if hole can be filled
         - higher value if more stones can be saved (for normalization, see stone stealing)
      */
+
+    /**
+     * The more holes a turn may fill on the enemy side, the higher the weight, (ignores holes where there are no stones to steal)
+     * weight[id]= holes that are filled / sum of holes + 1/sum of holes if opposite of id is a hole
+     */
+    public static void preventStealLight(MancalaGame game, boolean[] possibleIds, float[] weights)
+    {
+        //calculate sum of empty fields on enemy players side
+        int sum = 0;
+        for (int id = 1; id <= 6; ++id)
+        {
+            if(game.getOppositeStones(id)==0 && game.getStones(id)>0)
+                ++sum;
+        }
+
+        float fraction = 1.0f/sum;
+        for (int id = 1; id <= 6; ++id)
+        {
+            if (!possibleIds[id])
+                continue;
+
+            if(game.getStones(id)>11)
+                weights[id] = 1;//12 stones guarantee that every field on the enemy side will have a stone in it
+            else
+            {
+                //see how many holes can be filled
+                int lastField = game.getLastFieldNoRounds(id);
+                for(int enemyId = lastField;enemyId<14;++enemyId)
+                {
+                    if(game.getStones(enemyId)==0)
+                        weights[id]+=fraction;
+                }
+
+                //have stones been moved into safety?
+                int oppositeId = MancalaBoard.getOppositeSlot(id);
+                if(oppositeId<lastField && game.getStones(oppositeId)==0)
+                    weights[id]+=fraction;
+            }
+        }
+    }
 
     /*
     Find somehow similar boards in endgame database, by reducing stones at fields where they do not matter (too much)

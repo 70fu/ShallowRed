@@ -118,7 +118,7 @@ public class MancalaBoard {
 
     /**
      * Preconditions:
-     *      @param slot, [0,13]
+     *      @param slot, [0,13], also works for ids (player independent)
      * Postconditions:
      *      @return slot index of the opposite slot
      */
