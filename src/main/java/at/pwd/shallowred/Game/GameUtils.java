@@ -49,22 +49,30 @@ public class GameUtils
         }
 
         /**
-         * Preconditions:
-         *      @param gameThread !=null
          * Postconditions:
-         *      @return true if gameThread has been configured and should play another game, false if no games should be played anymore
+         *      @return A configured Game thread if another game should be played, null if no games should be played anymore
          */
-        public synchronized boolean configureGameThread(GameThread gameThread)
+        public synchronized GameThread generateGameThread()
         {
             if(remaining==0)
-                return false;
+                return null;
 
-            //configure game thread
-            gameThread.reset(agentA.produce(),agentB.produce(),computingTime);
+            //instantiate and configure game thread
+            GameThread gameThread = new GameThread(agentA.produce(),agentB.produce(),computingTime);
 
             //decrease remaining
             --remaining;
-            return true;
+            return gameThread;
+        }
+
+        /**
+         * Postconditions:
+         *      @return A configured Game thread, does not decrease the remaining play count
+         */
+        public synchronized GameThread regenerateGameThread()
+        {
+            ++remaining;
+            return generateGameThread();
         }
     }
 
@@ -84,12 +92,10 @@ public class GameUtils
     {
         Result result = new Result();
         RemainingPlays rp = new RemainingPlays(agentA,agentB,computingTime,games);
-        GameThread[] gameThreads = new GameThread[threads];
         GameThreadWatcher[] watcherThreads = new GameThreadWatcher[threads];
         for(int x = 0;x<threads;++x)
         {
-            gameThreads[x] = new GameThread();
-            GameThreadWatcher watcher = new GameThreadWatcher(gameThreads[x],result, rp, repeatOnError);
+            GameThreadWatcher watcher = new GameThreadWatcher(result, rp, repeatOnError);
             watcherThreads[x] = watcher;
             watcher.start();
 
@@ -117,14 +123,14 @@ public class GameUtils
 
     private static class GameThreadWatcher extends Thread
     {
-        private final GameThread gameThread;
         private final Result result;
         private final RemainingPlays remaining;
         private final boolean repeatOnError;
 
-        public GameThreadWatcher(GameThread gameThread, Result result, RemainingPlays remaining, boolean repeatOnError)
+        private GameThread gameThread;
+
+        public GameThreadWatcher(Result result, RemainingPlays remaining, boolean repeatOnError)
         {
-            this.gameThread = gameThread;
             this.result = result;
             this.remaining = remaining;
             this.repeatOnError = repeatOnError;
@@ -134,9 +140,9 @@ public class GameUtils
         public void run()
         {
             //are there still games to play?
-            while(!isInterrupted() && remaining.configureGameThread(gameThread))
+            while(!isInterrupted() && (gameThread = remaining.generateGameThread())!=null)
             {
-                do
+                while(true)
                 {
                     //play game
                     gameThread.start();
@@ -168,8 +174,13 @@ public class GameUtils
                             break;
 
                     }
+
+                    //if an error occured and error games should be replayed -> play again
+                    if(gameThread.getResult()==MancalaGame.NOBODY && repeatOnError)
+                        gameThread = remaining.regenerateGameThread();
+                    else
+                        break;
                 }
-                while(gameThread.getResult()==MancalaGame.NOBODY && repeatOnError);
             }
         }
     }
