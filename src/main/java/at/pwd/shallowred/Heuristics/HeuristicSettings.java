@@ -11,10 +11,16 @@ public class HeuristicSettings
     private static final Heuristic[] heuristics =
             {
                     HeuristicFunctions::extraTurn,
+                    HeuristicFunctions::stealStones,
+                    HeuristicFunctions::moveOverDepot,
+                    HeuristicFunctions::extraTurnChaining
             };
 
     //index numbers (=ID) of all heuristics in the heuristics array
     public static final int EXTRA_TURN = 0;
+    public static final int STEAL_STONES = 1;
+    public static final int MOVE_OVER_DEPOT = 2;
+    public static final int EXTRA_TURN_CHAINING = 3;
 
     /*==============================================
         SETTINGS

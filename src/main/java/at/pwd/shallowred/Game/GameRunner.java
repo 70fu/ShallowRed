@@ -8,7 +8,7 @@ public class GameRunner
     {
         try
         {
-            GameUtils.Result result = GameUtils.playAgainst(new ShallowRedFactory("{\"selector\":{\"type\":\"random\"},\"expand\":[],\"simulation\":[]}"),new ReflectionAgentFactory(MancalaMCTSAgent.class),1,10,1,false);
+            GameUtils.Result result = GameUtils.playAgainst(new ShallowRedFactory("{\"selector\":{\"type\":\"random\"},\"expand\":[],\"simulation\":[]}"),new ReflectionAgentFactory(MancalaMCTSAgent.class),20,30,2,false);
             System.out.println(result);
 
             System.exit(0);

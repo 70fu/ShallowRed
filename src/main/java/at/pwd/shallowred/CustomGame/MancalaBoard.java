@@ -122,7 +122,7 @@ public class MancalaBoard {
      * Postconditions:
      *      @return slot index of the opposite slot
      */
-    public int getOppositeSlot(int slot)
+    public static int getOppositeSlot(int slot)
     {
         return 14-slot;
     }

@@ -58,7 +58,7 @@ public class MancalaGame {
      *           @return true ... game has ended, false ... game has not been ended
      */
     public boolean performTurn(int id) {
-        int slot = board.index(currentPlayer,id);
+        int slot = MancalaBoard.index(currentPlayer,id);
         int stones = board.clearSlot(slot);
         int[] slots = board.getFields();
 
@@ -104,7 +104,7 @@ public class MancalaGame {
             if(slots[slot]==1 && board.getOwner(slot)==currentPlayer)
             {
                 //add the last stone and stones from the opposite side to current players depot
-                int opposite = board.getOppositeSlot(slot);
+                int opposite = MancalaBoard.getOppositeSlot(slot);
                 slots[playerDepot]+=board.clearSlot(opposite)+board.clearSlot(slot);
 
                 //slots are cleared by above statement
@@ -167,7 +167,18 @@ public class MancalaGame {
      */
     public int getStones(int id)
     {
-        return board.getFields()[board.index(currentPlayer,id)];
+        return board.getFields()[MancalaBoard.index(currentPlayer,id)];
+    }
+
+    /**
+     * Preconditions:
+     *      @param id, [0,13]
+     * Postconditions:
+     *      @return stones of opposite slot with given id
+     */
+    public int getOppositeStones(int id)
+    {
+        return board.getFields()[MancalaBoard.getOppositeSlot(MancalaBoard.index(currentPlayer,id))];
     }
 
     /**
@@ -221,4 +232,36 @@ public class MancalaGame {
         return false;
     }
 
+    /**
+     * Preconditions:
+     *      getStones(id) must be 13 or less
+     *      @param id, 1<=id<=6
+     * Postconditions:
+     *      @return id of the field, where the last stone will be placed, if the current player makes a turn using stones in field with given id
+     */
+    public int getLastFieldNoRounds(int id)
+    {
+        int stones = getStones(id);
+        //if enemy depot, can be reached with the remaining stones, decrease enemy depot by 1, since it ill be increased with the loop below
+        //and grant an extra stone for the loop
+        if(stones-id>=7)
+        {
+            ++stones;
+        }
+        //distribute stones until stones run out or slot reaches -1
+        for(;id>0 && stones>0;--stones)
+        {
+            --id;
+        }
+        //wrap around board and distribute remaining stones
+        if(stones>0)
+        {
+            for (id = 14; stones > 0; )
+            {
+                --stones;
+            }
+        }
+
+        return id;
+    }
 }
