@@ -121,6 +121,32 @@ public class HeuristicFunctions
             weights[id] = 0;
     }
 
+    /**
+    A Move may be good if the enemy has many stones on the opposite side (opportunity to steal)
+     weight[id] = stones on opposite side of id / sum of stones
+     */
+    public static void stealOpportunity(MancalaGame game, boolean[] possibleIds, float[] weights)
+    {
+        //calculate sum of stones on opposite side
+        int sum = 0;
+        for (int id = 1; id <= 6; ++id)
+        {
+            if (!possibleIds[id])
+                continue;
+
+            sum+=game.getOppositeStones(id);
+        }
+
+        //Set weights
+        for (int id = 1; id <= 6; ++id)
+        {
+            if (!possibleIds[id])
+                continue;
+
+            weights[id] = (float)game.getOppositeStones(id)/(float) sum;
+        }
+    }
+
     /*
     Prevent player from stealing:
     Variations:
@@ -136,7 +162,6 @@ public class HeuristicFunctions
     Find somehow similar boards in endgame database, by reducing stones at fields where they do not matter (too much)
      */
 
-    /*
-    A Move may be good if the enemy has many stones on the opposite side (opportunity to steal)
-     */
+
+
 }
