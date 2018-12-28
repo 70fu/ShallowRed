@@ -1,0 +1,27 @@
+{
+  "selector":{"type":"random"},
+  "expand":[
+    {
+      "id":0,
+      "weight":0.1
+    },
+    {
+      "id":1,
+      "weight":0.2
+    },
+    {
+      "id":3,
+      "weight":0.3
+    }
+  ],
+  "simulation":[
+    {
+      "id":0,
+      "weight":0.8
+    },
+    {
+      "id":5,
+      "weight":0.6
+    }
+  ]
+}
