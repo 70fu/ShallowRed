@@ -271,6 +271,7 @@ public class MancalaGame {
             for (id = 14; stones > 0; )
             {
                 --stones;
+                --id;
             }
         }
 

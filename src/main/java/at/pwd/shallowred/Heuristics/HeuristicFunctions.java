@@ -18,7 +18,7 @@ public class HeuristicFunctions
             if(!possibleIds[id])
                 continue;
 
-            if(game.getStones(id)==id)
+            if(game.getStones(id)%13==id)
                 weights[id]=1;
             else
                 weights[id]=0;
@@ -108,7 +108,7 @@ public class HeuristicFunctions
             if (!possibleIds[id])
                 continue;
 
-            if(game.getStones(id)==id)//does the player gain an extra turn?
+            if(game.getStones(id)%13==id)//does the player gain an extra turn?
             {
                 weights[id] = 1;
                 break;
@@ -118,6 +118,7 @@ public class HeuristicFunctions
         }
 
         //set rest of the weights to zero
+        ++id;
         for (; id <= 6; ++id)
             weights[id] = 0;
     }
@@ -183,18 +184,40 @@ public class HeuristicFunctions
                 weights[id] = 1;//12 stones guarantee that every field on the enemy side will have a stone in it
             else
             {
+                //start with 0
+                weights[id] = 0;
+
                 //see how many holes can be filled
                 int lastField = game.getLastFieldNoRounds(id);
-                for(int enemyId = lastField;enemyId<14;++enemyId)
+                if(lastField>id)
                 {
-                    if(game.getStones(enemyId)==0)
+                    //if lastField is bigger && on current players side, then all holes have been filled
+                    if (lastField < 7)
+                    {
+                        weights[id] = 1;
+                    }
+                    else
+                    {
+                        //see how many holes can be filled
+                        for (int enemyId = lastField; enemyId < 14; ++enemyId)
+                        {
+                            if (game.getStones(enemyId) == 0 && game.getOppositeStones(enemyId)>0)
+                                weights[id] += fraction;
+                        }
+
+                        //have stones been moved into safety?
+                        int oppositeId = MancalaBoard.getOppositeSlot(id);
+                        if(oppositeId<lastField && game.getStones(oppositeId)==0)
+                            weights[id]+=fraction;
+                    }
+                }
+                else
+                {
+                    //have stones been moved into safety?
+                    int oppositeId = MancalaBoard.getOppositeSlot(id);
+                    if(game.getStones(oppositeId)==0)
                         weights[id]+=fraction;
                 }
-
-                //have stones been moved into safety?
-                int oppositeId = MancalaBoard.getOppositeSlot(id);
-                if(oppositeId<lastField && game.getStones(oppositeId)==0)
-                    weights[id]+=fraction;
             }
         }
     }
