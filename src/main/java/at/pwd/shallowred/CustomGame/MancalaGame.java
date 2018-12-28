@@ -20,6 +20,18 @@ public class MancalaGame {
     }
 
     /**
+     * Used for testing
+     * Preconditions:
+     *      @param currentPlayer, 0 or 1
+     *      @param slots, length==14 && all values are positive
+     */
+    public MancalaGame(int currentPlayer,int[] slots)
+    {
+        this.currentPlayer = currentPlayer;
+        board = new MancalaBoard(slots);
+    }
+
+    /**
      * Creates an instance from given game
      * @param game
      */
@@ -263,5 +275,67 @@ public class MancalaGame {
         }
 
         return id;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj==null || obj.getClass()!=this.getClass())
+            return false;
+
+        if(obj==this)
+            return true;
+
+        MancalaGame other = (MancalaGame) obj;
+        return other.currentPlayer==currentPlayer && other.board.equals(board);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int result = board.hashCode()<<1;
+        return result+currentPlayer;
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append("+-----------------------------------------------------+");
+        builder.append(System.lineSeparator());
+        builder.append(String.format("|%-26s %26s|","Current Player: "+playerIdToString(currentPlayer),"Winner: "+winnerToString(getWinner())));
+        builder.append(System.lineSeparator());
+        builder.append("|                                                     |");
+        builder.append(System.lineSeparator());
+        builder.append(board.toString('|'));
+        builder.append(System.lineSeparator());
+        builder.append("|                                                     |");
+        builder.append(System.lineSeparator());
+        builder.append("+-----------------------------------------------------+");
+
+        return builder.toString();
+    }
+
+    /**
+     * Preconditions:
+     *      @param playerId, 0 or 1
+     */
+    public static String playerIdToString(int playerId)
+    {
+        return (playerId==MancalaBoard.PLAYER_A?"Player A":"Player B");
+    }
+
+    /**
+     * Preconditions:
+     * @param winner, -1,0,1 or 2
+     */
+    public static String winnerToString(int winner)
+    {
+        if(winner==NOBODY)
+            return "NOBODY";
+        else if(winner==DRAW)
+            return "DRAW";
+        else
+            return playerIdToString(winner);
     }
 }

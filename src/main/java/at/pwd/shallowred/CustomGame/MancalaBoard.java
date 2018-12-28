@@ -1,5 +1,7 @@
 package at.pwd.shallowred.CustomGame;
 
+import java.util.Arrays;
+
 /**
  * Mancalaboard custom implementation.
  *
@@ -27,6 +29,16 @@ public class MancalaBoard {
      */
     public MancalaBoard(){
         slots = new int[14];
+    }
+
+    /**
+     * used for testing
+     * Preconditions:
+     *      @param slots, must have length 14
+     */
+    public MancalaBoard(int[] slots)
+    {
+        this.slots = slots;
     }
 
     /**
@@ -155,5 +167,38 @@ public class MancalaBoard {
             return i-14;
         else
             return i;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj==null || obj.getClass()!=getClass())
+            return false;
+
+        MancalaBoard other = (MancalaBoard) obj;
+        return Arrays.equals(slots,other.slots);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Arrays.hashCode(slots);
+    }
+
+    @Override
+    public String toString()
+    {
+        return toString('|');
+    }
+
+    public String toString(char edgeCharacter)
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("%c      (%3d ) (%3d ) (%3d ) (%3d ) (%3d ) (%3d )      %c",edgeCharacter,slots[8],slots[9],slots[10],slots[11],slots[12],slots[13],edgeCharacter));
+        builder.append(System.lineSeparator());
+        builder.append(String.format("%c(%3d )                                         (%3d )%c",edgeCharacter,slots[7],slots[0],edgeCharacter));
+        builder.append(System.lineSeparator());
+        builder.append(String.format("%c      (%3d ) (%3d ) (%3d ) (%3d ) (%3d ) (%3d )      %c",edgeCharacter,slots[6],slots[5],slots[4],slots[3],slots[2],slots[1],edgeCharacter));
+        return builder.toString();
     }
 }
