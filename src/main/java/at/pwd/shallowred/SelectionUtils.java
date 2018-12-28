@@ -231,7 +231,7 @@ public class SelectionUtils
 
     //TODO may only use light heuristics in simulation, since the simulation should be fast
     //TODO switch to endgame database if there are not many stones left
-    int select(MancalaGame game, Heuristic[] heuristics, float[] heuristicWeights)
+    public int select(MancalaGame game, Heuristic[] heuristics, float[] heuristicWeights)
     {
         //reset weights
         for(int x = 1;x<=6;++x)
