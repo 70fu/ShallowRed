@@ -50,6 +50,14 @@ public class HeuristicFunctions
                 sum+=game.getOppositeStones(lastField);
         }
 
+        //check if sum is 0
+        if(sum==0)
+        {
+            for(int id=1;id<=6;++id)
+                weights[id]=0;
+            return;//we're done here
+        }
+
         //set weights
         for(int id = 1;id<=6;++id)
         {
@@ -139,6 +147,14 @@ public class HeuristicFunctions
             sum+=game.getOppositeStones(id);
         }
 
+        //check if sum is 0
+        if(sum==0)
+        {
+            for(int id=1;id<=6;++id)
+                weights[id]=0;
+            return;//we're done here
+        }
+
         //Set weights
         for (int id = 1; id <= 6; ++id)
         {
@@ -172,6 +188,14 @@ public class HeuristicFunctions
         {
             if(game.getOppositeStones(id)==0 && game.getStones(id)>0)
                 ++sum;
+        }
+
+        //check if sum is 0
+        if(sum==0)
+        {
+            for(int id=1;id<=6;++id)
+                weights[id]=0;
+            return;//we're done here
         }
 
         float fraction = 1.0f/sum;

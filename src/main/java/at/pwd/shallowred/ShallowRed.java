@@ -21,7 +21,6 @@ import java.util.Random;
  * TODO Keep Subtree of Search tree for next turn
  */
 public class ShallowRed implements MancalaAgent {
-    private static final String CONFIG_PATH = "agentConfigs/";
 
     private MancalaGamePool gamePool = new MancalaGamePool();
     private MCTSTreePool nodePool = new MCTSTreePool();

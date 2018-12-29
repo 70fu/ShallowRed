@@ -37,15 +37,13 @@ public class SelectionUtils
         @Override
         public int select(boolean[] possibleIds, int possibleCount, float[] weights, float weightMax)
         {
-            //find minimum weight, calculate sum at the same time
+            //find minimum weight
             float min = Integer.MAX_VALUE;
-            float sum = 0;
             for(int i = 1;i<=6;++i)
             {
                 if(possibleIds[i])
                 {
                     float weight = weights[i];
-                    sum+=weight;
                     if(weight<min)
                         min = weight;
                 }
@@ -55,22 +53,26 @@ public class SelectionUtils
             for(int i = 1;i<=6;++i)
                 weights[i]-=min;
 
-            //adapt sum to the min correction
-            sum+=min*possibleCount;
+            //calculate sum
+            float sum = 0;
+            for(int i = 1;i<=6;++i)
+            {
+                if(possibleIds[i])
+                    sum+=weights[i];
+            }
 
             //handle special case, where sum==0
             if(sum==0)
                 return randomSelection.select(possibleIds,possibleCount,weights,weightMax);
 
             //select random
-            float value = random.nextFloat();
+            float value = random.nextFloat()*sum;
             float cum = 0;
-            float iSum = 1.0f/sum;
             for(int i = 1;i<=6;++i)
             {
                 if(possibleIds[i])
                 {
-                    cum+=weights[i]*iSum;
+                    cum+=weights[i];
                     if(value<=cum)
                         return i;
                 }
