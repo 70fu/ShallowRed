@@ -17,8 +17,13 @@ public class GameRunner
             StringBuilder config = new StringBuilder();
             Files.lines(Paths.get(CONFIG_PATH,CONFIG_NAME)).forEach(config::append);
 
-            GameUtils.Result result = GameUtils.playAgainst(new ShallowRedFactory(config.toString()),new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),12,10,4,false);
+            //GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ReflectionAgentFactory(MancalaMCTSAgent.class),4,10,4,false);
+            GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),50,10,5,false);
+            //GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ShallowRedFactory(config.toString()),1,10,1,false);
             System.out.println(result);
+
+            //result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaMCTSAgent.class),new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),50,10,5,false);
+            //System.out.println(result);
 
             System.exit(0);
         }
