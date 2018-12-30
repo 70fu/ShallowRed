@@ -114,6 +114,9 @@ public class GameThread extends Thread
                     MancalaAgent tmp = current;
                     current = waiting;
                     waiting = tmp;
+
+                    //tell game to switch player
+                    game.nextPlayer();
                 }
 
                 ++turns;

@@ -38,17 +38,11 @@ public class ShallowRed implements MancalaAgent {
 
     String[] mancalaMapping;
 
+    private static final String DEFAULT_CONFIG = "{  \"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },\t{      \"id\":3,      \"weight\":0.05    },\t{      \"id\":4,      \"weight\":0.05    },\t{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },\t{      \"id\":3,      \"weight\":0.05    },\t{      \"id\":4,      \"weight\":0.05    },\t{      \"id\":5,      \"weight\":0.5    }  ]}";
+
     public ShallowRed()
     {
-        //TODO load default configuration
-        selector = new SelectionUtils();
-        selector.setSelectionAlg(selector.new RandomSelection());
-        expandHeuristicIds = new int[0];
-        simulationHeuristicIds= new int[0];
-        expandHeuristics = new Heuristic[0];
-        simulationHeuristics = new Heuristic[0];
-        expandWeights = new float[0];
-        simulationWeights = new float[0];
+        this(DEFAULT_CONFIG);
     }
 
     public ShallowRed(String jsonConfig)
