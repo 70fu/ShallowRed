@@ -38,7 +38,7 @@ public class ShallowRed implements MancalaAgent {
 
     String[] mancalaMapping;
 
-    private static final String DEFAULT_CONFIG = "{  \"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },\t{      \"id\":3,      \"weight\":0.05    },\t{      \"id\":4,      \"weight\":0.05    },\t{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },\t{      \"id\":3,      \"weight\":0.05    },\t{      \"id\":4,      \"weight\":0.05    },\t{      \"id\":5,      \"weight\":0.5    }  ]}";
+    private static final String DEFAULT_CONFIG = "{  \"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
 
     public ShallowRed()
     {
