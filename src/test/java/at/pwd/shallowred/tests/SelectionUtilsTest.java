@@ -36,6 +36,7 @@ class SelectionUtilsTest
     private static SelectionUtils selector;
     private static MancalaGame game;
     private static MancalaGame mirrored;
+    private static final boolean[] SELECTION_FILTER = new boolean[]{true,true,true,true,true,true,true};
 
     @BeforeAll
     static void setup()
@@ -83,10 +84,10 @@ class SelectionUtilsTest
     @Test
     void select()
     {
-        int gameChoice = selector.select(game,HEURISTICS,HEURISTIC_WEIGHTS);
+        int gameChoice = selector.select(game,HEURISTICS,HEURISTIC_WEIGHTS,SELECTION_FILTER);
         assertEquals(1,gameChoice);
 
-        int mirroredChoice = selector.select(mirrored,HEURISTICS,HEURISTIC_WEIGHTS);
+        int mirroredChoice = selector.select(mirrored,HEURISTICS,HEURISTIC_WEIGHTS,SELECTION_FILTER);
         assertEquals(1,mirroredChoice);
     }
 

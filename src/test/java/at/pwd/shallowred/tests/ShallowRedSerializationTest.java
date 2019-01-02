@@ -10,7 +10,8 @@ class ShallowRedSerializationTest
 {
     //content is in resources/ShallowRedConfig
     private static final String json = "{\n" +
-            "  \"selector\":{\"type\":\"random\"},\n" +
+            "\"C\":0.7071067811865475,\n" +
+        "  \"selector\":{\"type\":\"random\"},\n" +
             "  \"expand\":[\n" +
             "    {\n" +
             "      \"id\":0,\n" +

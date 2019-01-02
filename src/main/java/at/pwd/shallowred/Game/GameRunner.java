@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 public class GameRunner
 {
     private static final String CONFIG_PATH = "agentConfigs";
-    private static final String CONFIG_NAME = "GameRunnerConfig.json";
+    private static final String CONFIG_NAME = "RandomConfig.json";
 
     public static void main(String[] args)
     {
@@ -19,12 +19,12 @@ public class GameRunner
             Files.lines(Paths.get(CONFIG_PATH,CONFIG_NAME)).forEach(config::append);
             Path logDir = Files.createTempDirectory("GameRunnerLogs");
 
-            GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ShallowRedFactory(config.toString()),10,5,5,false,logDir);
+            GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ShallowRedFactory(config.toString()),25,10,5,false,logDir);
             //GameUtils.Result result = GameUtils.playAgainst(new ShallowRedFactory(config.toString()),new ReflectionAgentFactory(MancalaMCTSAgent.class),10,5,5,false);
             //GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ShallowRedFactory(config.toString()),1,10,1,false);
             System.out.println(result);
 
-            result = GameUtils.playAgainst(new ShallowRedFactory(config.toString()),new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),10,5,5,false,logDir);
+            result = GameUtils.playAgainst(new ShallowRedFactory(config.toString()),new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),25,10,5,false,logDir);
             //result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaMCTSAgent.class),new ShallowRedFactory(config.toString()),10,5,5,false);
             System.out.println(result);
 

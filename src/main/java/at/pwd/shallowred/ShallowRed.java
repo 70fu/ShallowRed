@@ -25,7 +25,7 @@ public class ShallowRed implements MancalaAgent {
     private MancalaGamePool gamePool = new MancalaGamePool();
     private MCTSTreePool nodePool = new MCTSTreePool();
     private Random r = new Random();
-    private static final double C = 1.0f/Math.sqrt(2.0f);
+    private double C;
 
     private static final boolean[] SIMULATION_SELECTION_FILTER = new boolean[]{true,true,true,true,true,true,true};
     private final boolean[] expandSelectionFilter = new boolean[7];
@@ -43,7 +43,7 @@ public class ShallowRed implements MancalaAgent {
     //id of this agent
     private int playerId;
 
-    private static final String DEFAULT_CONFIG = "{  \"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
+    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,\"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
 
     public ShallowRed()
     {
@@ -279,6 +279,9 @@ public class ShallowRed implements MancalaAgent {
     {
         JsonObject root = Json.parse(json).asObject();
 
+        //load C
+        C = root.getDouble("C",1.0/Math.sqrt(2.0));
+
         //load selector
         selector.setSelectionAlg(root.get("selector").asObject());
 
@@ -320,6 +323,7 @@ public class ShallowRed implements MancalaAgent {
         fillHeuristicsJson(sim,simulationHeuristicIds,simulationWeights);
 
         return Json.object().
+                add("C",C).
                 add("selector",selector.getSelectionAlg().toJSON()).
                 add("expand",exp).
                 add("simulation",sim).toString(WriterConfig.PRETTY_PRINT);
