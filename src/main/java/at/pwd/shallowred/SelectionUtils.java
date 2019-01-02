@@ -233,7 +233,7 @@ public class SelectionUtils
 
     //TODO may only use light heuristics in simulation, since the simulation should be fast
     //TODO switch to endgame database if there are not many stones left
-    public int select(MancalaGame game, Heuristic[] heuristics, float[] heuristicWeights)
+    public int select(MancalaGame game, Heuristic[] heuristics, float[] heuristicWeights, boolean[] filter)
     {
         //reset weights
         for(int x = 1;x<=6;++x)
@@ -241,7 +241,7 @@ public class SelectionUtils
 
         //update possible turns
         for(int id=1;id<=6;++id)
-            possibleTurns[id] = game.isSelectable(id);
+            possibleTurns[id] = filter[id] && game.isSelectable(id);
 
         //calculate heuristics
         for(int i = 0;i<heuristics.length;++i)
@@ -258,6 +258,13 @@ public class SelectionUtils
                 weightSum[j]+=weights[j];
         }
 
-        return selectionAlg.select(possibleTurns,game.getSelectableCount(),weightSum,heuristics.length);
+        //amount of possible turns
+        int possibleCount = 0;
+        for(int i = 1;i<=6;++i)
+        {
+            if (possibleTurns[i])
+                ++possibleCount;
+        }
+        return selectionAlg.select(possibleTurns,possibleCount,weightSum,heuristics.length);
     }
 }

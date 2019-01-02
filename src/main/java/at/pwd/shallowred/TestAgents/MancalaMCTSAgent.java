@@ -121,6 +121,11 @@ public class MancalaMCTSAgent implements MancalaAgent {
 
     private MCTSTree expand(MCTSTree best) {
         List<String> legalMoves = best.game.getSelectableSlots();
+
+        //remove already expanded moves
+        for(MCTSTree move : best.children)
+            legalMoves.remove(move.action);
+
         return best.move(legalMoves.get(r.nextInt(legalMoves.size())));
     }
 

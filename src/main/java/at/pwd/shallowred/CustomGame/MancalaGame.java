@@ -41,7 +41,7 @@ public class MancalaGame {
 
         winner = NOBODY;
 
-        currentPlayer = 0;
+        currentPlayer = game.getState().getCurrentPlayer();
     }
 
     /**

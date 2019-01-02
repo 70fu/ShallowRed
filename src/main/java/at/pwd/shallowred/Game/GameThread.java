@@ -10,6 +10,7 @@ import at.pwd.boardgame.services.XSLTService;
 import javax.xml.transform.stream.StreamSource;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +31,8 @@ public class GameThread extends Thread
     private MancalaAgent waiting;
 
     private MancalaGame game;
+
+    private Writer log;
 
     //GAME INFORMATION
     /**
@@ -56,7 +59,7 @@ public class GameThread extends Thread
         reset(agentA,agentB,computingTime,initialGame);
     }
 
-    public void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime)
+    private void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime)
     {
         game = new MancalaGame();
         game.loadBoard(generateBoard());
@@ -64,7 +67,7 @@ public class GameThread extends Thread
         reset(agentA,agentB,computingTime,game);
     }
 
-    public void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime, MancalaGame initialGame)
+    private void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime, MancalaGame initialGame)
     {
         if(isAlive())
         {
@@ -94,6 +97,16 @@ public class GameThread extends Thread
         return turns;
     }
 
+    public Writer getLogWriter()
+    {
+        return log;
+    }
+
+    public void setLogWriter(Writer logWriter)
+    {
+        this.log = logWriter;
+    }
+
     @Override
     public void run()
     {
@@ -103,6 +116,16 @@ public class GameThread extends Thread
             {
                 //let agent think
                 MancalaAgentAction action = current.doTurn(computingTime, game);
+
+                //log
+                if(log!=null)
+                {
+                    log.write("+-----------------------------------------------------+"+System.lineSeparator());
+                    log.write(String.format("|%10s | %40s|",String.format("TURN:%3d",turns+1), current.toString()+" is thinking.")+System.lineSeparator());
+                    log.write(new at.pwd.shallowred.CustomGame.MancalaGame(game).toString()+System.lineSeparator());
+                    log.write(System.lineSeparator());
+                    //log.write(current.toString()+" chooses action "+action.);
+                }
 
                 //apply action
                 AgentAction.NextAction nextAction = action.applyAction(game);

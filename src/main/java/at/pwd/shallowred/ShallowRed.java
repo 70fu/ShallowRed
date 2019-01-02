@@ -27,6 +27,9 @@ public class ShallowRed implements MancalaAgent {
     private Random r = new Random();
     private static final double C = 1.0f/Math.sqrt(2.0f);
 
+    private static final boolean[] SIMULATION_SELECTION_FILTER = new boolean[]{true,true,true,true,true,true,true};
+    private final boolean[] expandSelectionFilter = new boolean[7];
+
     //heuristic configuration
     private int[] expandHeuristicIds;
     private int[] simulationHeuristicIds;
@@ -36,7 +39,9 @@ public class ShallowRed implements MancalaAgent {
     private float[] simulationWeights;
     private SelectionUtils selector;
 
-    String[] mancalaMapping;
+    private String[] mancalaMapping;
+    //id of this agent
+    private int playerId;
 
     private static final String DEFAULT_CONFIG = "{  \"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
 
@@ -129,16 +134,15 @@ public class ShallowRed implements MancalaAgent {
             int numFields = 14;
             mancalaMapping = new String[14];//index is the ID of a slot from the mancalaboard, the content is the String ID from the existing implementation
 
-
-            int playerID = game.getState().getCurrentPlayer();
-
-            String slotID = game.getBoard().getDepotOfPlayer(playerID);
+            String slotID = game.getBoard().getDepotOfPlayer(0);
             mancalaMapping[0] = slotID;
 
             for(int i = 13; i >= 1;i--){
                 slotID = game.getBoard().next(slotID);
                 mancalaMapping[i] = slotID;
             }
+
+            playerId = game.getState().getCurrentPlayer();
         }
 
         long start = System.currentTimeMillis();
@@ -156,11 +160,11 @@ public class ShallowRed implements MancalaAgent {
         //System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
         //System.out.println("Selected action: "+selected.actionId);
 
-        return new MancalaAgentAction(mancalaMapping[selected.actionId]);//TODO
+        return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected.actionId)]);
     }
 
     private void backup(ShallowRed.MCTSTree current, int winner) {
-        int hasWon = (winner== MancalaBoard.PLAYER_A)?1:0;
+        int hasWon = (winner==playerId)?1:0;
 
         while (current != null) {
             // always increase visit count
@@ -185,7 +189,13 @@ public class ShallowRed implements MancalaAgent {
     }
 
     private ShallowRed.MCTSTree expand(ShallowRed.MCTSTree best) {
-        return best.move(selector.select(best.game,expandHeuristics,expandWeights));
+        //filter already expanded moves
+        for(int i = 1;i<=6;++i)
+            expandSelectionFilter[i]=true;
+        for(MCTSTree child : best.children)
+            expandSelectionFilter[child.actionId] = false;
+
+        return best.move(selector.select(best.game,expandHeuristics,expandWeights, expandSelectionFilter));//TODO subtract already expanded nodes
     }
 
     private int defaultPolicy(MancalaGame game) {
@@ -194,7 +204,7 @@ public class ShallowRed implements MancalaAgent {
         int turnId;
         while(game.getWinner()==MancalaGame.NOBODY)
         {
-            turnId = selector.select(game,simulationHeuristics,simulationWeights);
+            turnId = selector.select(game,simulationHeuristics,simulationWeights,SIMULATION_SELECTION_FILTER);
             game.performTurn(turnId);
         }
 

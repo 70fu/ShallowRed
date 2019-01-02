@@ -51,10 +51,8 @@ public class MancalaBoard {
         this();
         
         //TODO: TEST THIS!
-        int playerID = game.getState().getCurrentPlayer();
 
-
-        String slotID = game.getBoard().getDepotOfPlayer(playerID);
+        String slotID = game.getBoard().getDepotOfPlayer(0);
         slots[0] = game.getState().stonesIn(slotID);
 
         for(int i = 13; i >= 1;i--){

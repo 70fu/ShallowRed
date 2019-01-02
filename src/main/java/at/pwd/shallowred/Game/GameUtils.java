@@ -6,6 +6,13 @@ import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.WriterConfig;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class GameUtils
 {
     public static class Result
@@ -39,13 +46,18 @@ public class GameUtils
         private MancalaAgentFactory agentB;
         private int remaining;
         private int computingTime;
+        private Path logDir;
 
-        public RemainingPlays(MancalaAgentFactory agentA, MancalaAgentFactory agentB, int computingTime, int games)
+        private final String dateTime = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+
+        public RemainingPlays(MancalaAgentFactory agentA, MancalaAgentFactory agentB, int computingTime, int games, Path logDir)
         {
             this.agentA = agentA;
             this.agentB = agentB;
             this.remaining = games;
             this.computingTime = computingTime;
+            this.logDir = logDir;
         }
 
         /**
@@ -59,6 +71,21 @@ public class GameUtils
 
             //instantiate and configure game thread
             GameThread gameThread = new GameThread(agentA.produce(),agentB.produce(),computingTime);
+
+            //if log directory is given, create log file and create BufferedWriter
+            if(logDir!=null)
+            {
+                Path logFile = Paths.get(logDir.toString(),remaining+"_"+dateTime+".log");
+                try
+                {
+                    logFile = Files.createFile(logFile);
+                    gameThread.setLogWriter(Files.newBufferedWriter(logFile));
+                }
+                catch (IOException e)
+                {
+                    System.err.println("Log file "+logFile+" could not be created. Continuing without logging");
+                }
+            }
 
             //decrease remaining
             --remaining;
@@ -83,15 +110,16 @@ public class GameUtils
      * @param games >=0
      * @param threads >=1
      * @param repeatOnError
+     * @param logDir must be a directory or null
      * Postconditions:
      *      games (<-parameter) games are played between given mancala agents, may be played in parallel
      *      if repeatOnError is true, then the game is repeated if it ended due to an error
      *      @return result of the games
      */
-    public static Result playAgainst(MancalaAgentFactory agentA, MancalaAgentFactory agentB,int games, int computingTime, int threads, boolean repeatOnError) throws InterruptedException
+    public static Result playAgainst(MancalaAgentFactory agentA, MancalaAgentFactory agentB,int games, int computingTime, int threads, boolean repeatOnError, Path logDir) throws InterruptedException
     {
         Result result = new Result();
-        RemainingPlays rp = new RemainingPlays(agentA,agentB,computingTime,games);
+        RemainingPlays rp = new RemainingPlays(agentA,agentB,computingTime,games, logDir);
         GameThreadWatcher[] watcherThreads = new GameThreadWatcher[threads];
         for(int x = 0;x<threads;++x)
         {
@@ -180,6 +208,19 @@ public class GameUtils
                         gameThread = remaining.regenerateGameThread();
                     else
                         break;
+                }
+
+                //close logWriter
+                if(gameThread.getLogWriter()!=null)
+                {
+                    try
+                    {
+                        gameThread.getLogWriter().close();
+                    }
+                    catch(IOException e)
+                    {
+                        System.err.println("Failed to close log file");
+                    }
                 }
             }
         }

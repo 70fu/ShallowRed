@@ -6,13 +6,18 @@ import at.pwd.shallowred.Game.ReflectionAgentFactory;
 import at.pwd.shallowred.Game.ShallowRedFactory;
 import at.pwd.shallowred.TestAgents.MancalaAlphaBetaAgent;
 import at.pwd.shallowred.TestAgents.MancalaMCTSAgent;
+import picocli.CommandLine.ParameterException;
+import picocli.CommandLine.Spec;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+import picocli.CommandLine.Model.CommandSpec;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
 @Command(name="play",description="Plays a game between two AIs. Outputs (per default) W if player wins against enemy, L on loss and D on draw. If ShallowRed is specified as player then a config must be specified either by -p and passing the json as string or by --playerConfigFile and passing a path to json file (-e and --enemyConfigFile for enemy)")
@@ -56,17 +61,34 @@ public class PlayGameCommand implements Callable<Void>
     @Option(names="--enemyConfigFile",description="Path to json config for enemy agent. Used when enemy agent is ShallowRed and no config is set via -e or --enemyConfig")
     private File enemyConfigFile;
 
+    @Option(names={"-l","--logDirectory"},description="Logs all moves taken by the agents into files created in given directory.")
+    private Path logDirPath;
+
+    @Spec
+    private CommandSpec commandSpec;
+
+
     @Override
     public Void call() throws Exception
     {
         MancalaAgentFactory playerAgent = constructAgent(player,playerConfig,playerConfigFile);
         MancalaAgentFactory enemyAgent = constructAgent(enemy,enemyConfig,enemyConfigFile);
 
+        //check log directory, create log directory if it does not exist
+        if(logDirPath!=null)
+        {
+            if(!Files.isDirectory(logDirPath))
+                throw new ParameterException(commandSpec.commandLine(), "Given logDirectory is not a directory: " + logDirPath.toString());
+
+            if(!Files.exists(logDirPath))
+                Files.createDirectories(logDirPath);
+        }
+
         GameUtils.Result result;
         if(enemyStarts)
-            result = GameUtils.playAgainst(enemyAgent,playerAgent,1,computingTime,1,repeatOnError);
+            result = GameUtils.playAgainst(enemyAgent,playerAgent,1,computingTime,1,repeatOnError, logDirPath);
         else
-            result = GameUtils.playAgainst(playerAgent,enemyAgent,1,computingTime,1,repeatOnError);
+            result = GameUtils.playAgainst(playerAgent,enemyAgent,1,computingTime,1,repeatOnError, logDirPath);
 
         //analyze result and print character
         if(result.timesDraw==1)
