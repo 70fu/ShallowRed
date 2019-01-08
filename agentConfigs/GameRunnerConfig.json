@@ -1,5 +1,6 @@
 {
   "C":0.7071067811865475,
+  "minmaxInfluence":0,
   "selector":{"type":"roulette"},
   "expand":[
     {

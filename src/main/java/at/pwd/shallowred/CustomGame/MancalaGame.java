@@ -278,6 +278,11 @@ public class MancalaGame {
         return id;
     }
 
+    public MancalaBoard getBoard()
+    {
+        return board;
+    }
+
     @Override
     public boolean equals(Object obj)
     {

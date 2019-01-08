@@ -11,6 +11,7 @@ class ShallowRedSerializationTest
     //content is in resources/ShallowRedConfig
     private static final String json = "{\n" +
             "\"C\":0.7071067811865475,\n" +
+            "\"minmaxInfluence\":0,\n"+
         "  \"selector\":{\"type\":\"random\"},\n" +
             "  \"expand\":[\n" +
             "    {\n" +

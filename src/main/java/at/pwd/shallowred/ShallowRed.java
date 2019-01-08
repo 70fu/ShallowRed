@@ -27,6 +27,8 @@ public class ShallowRed implements MancalaAgent {
     private Random r = new Random();
     private double C;
 
+    private static final int[] MINMAX_PLAYER_MULT = new int[]{1,-1};
+
     private static final boolean[] SIMULATION_SELECTION_FILTER = new boolean[]{true,true,true,true,true,true,true};
     private final boolean[] expandSelectionFilter = new boolean[7];
 
@@ -39,11 +41,14 @@ public class ShallowRed implements MancalaAgent {
     private float[] simulationWeights;
     private SelectionUtils selector;
 
+    //the exploitation term of UCT consists of minmaxInfluence*minmaxValue+(1-minmaxInfluence)*win/visited
+    private double minmaxInfluence;
+
     private String[] mancalaMapping;
     //id of this agent
     private int playerId;
 
-    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,\"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
+    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,\"minmaxInfluence\":0,\"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
 
     public ShallowRed()
     {
@@ -73,6 +78,8 @@ public class ShallowRed implements MancalaAgent {
         private ShallowRed.MCTSTree parent;
         private List<ShallowRed.MCTSTree> children = new ArrayList<>(6);
         int actionId;
+        //calculated using minmax and differences of stones in depot, the bigger the better for player 0
+        double minMaxValue;
 
         MCTSTree()
         {
@@ -94,12 +101,34 @@ public class ShallowRed implements MancalaAgent {
             for (ShallowRed.MCTSTree m : children) {
                 double wC = (double)m.winCount;
                 double vC = (double)m.visitCount;
-                double currentValue =  wC/vC + C*Math.sqrt(2*Math.log(visitCount) / vC);
+                double currentValue =  (1-minmaxInfluence)*wC/vC + //mcts exploitation term
+                                        minmaxInfluence*(game.getCurrentPlayer()-m.minMaxValue)*-MINMAX_PLAYER_MULT[game.getCurrentPlayer()] + //minMaxValue if PLAYER_A, 1-minMaxValue if PLAYER_B
+                                        C*Math.sqrt(2*Math.log(visitCount) / vC);//Exploration term
 
 
                 if (best == null || currentValue > value) {
                     value = currentValue;
                     best = m;
+                }
+            }
+
+            return best;
+        }
+
+        int getBestMove()
+        {
+            int best = 0;
+            double value = 0;
+            for (ShallowRed.MCTSTree m : children) {
+                double wC = (double)m.winCount;
+                double vC = (double)m.visitCount;
+                double currentValue =  (1-minmaxInfluence)*wC/vC + //mcts exploitation term
+                        minmaxInfluence*(game.getCurrentPlayer()-m.minMaxValue)*-MINMAX_PLAYER_MULT[game.getCurrentPlayer()]; //minMaxValue if PLAYER_A, 1-minMaxValue if PLAYER_B
+
+
+                if (best == 0 || currentValue > value) {
+                    value = currentValue;
+                    best = m.actionId;
                 }
             }
 
@@ -120,9 +149,30 @@ public class ShallowRed implements MancalaAgent {
             tree.actionId = actionId;
             tree.parent = this;
 
+            //calculate initial heuristic value for minmaxValue
+            int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
+            int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
+            tree.minMaxValue = (aDepot-bDepot+(aDepot+bDepot))/(double)(2*(aDepot+bDepot));
+
             this.children.add(tree);
 
+            updateMinMaxValue();
+
             return tree;
+        }
+
+        void updateMinMaxValue()
+        {
+            if(children.isEmpty())
+                return;
+
+            int playerMult = MINMAX_PLAYER_MULT[game.getCurrentPlayer()];
+            minMaxValue = children.get(0).minMaxValue;
+            for(int i = 1;i<children.size();++i)
+            {
+                MCTSTree child = children.get(i);
+                minMaxValue = playerMult * Math.max(playerMult * minMaxValue, playerMult * child.minMaxValue);
+            }
         }
     }
 
@@ -131,7 +181,6 @@ public class ShallowRed implements MancalaAgent {
 
         //create mapping list between our own implementation and the existing one
         if(mancalaMapping == null){
-            int numFields = 14;
             mancalaMapping = new String[14];//index is the ID of a slot from the mancalaboard, the content is the String ID from the existing implementation
 
             String slotID = game.getBoard().getDepotOfPlayer(0);
@@ -156,11 +205,12 @@ public class ShallowRed implements MancalaAgent {
             backup(best, winner);
         }
 
-        ShallowRed.MCTSTree selected = root.getBestNode();
+        //get best move
+        int selected = root.getBestMove();
         //System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
         //System.out.println("Selected action: "+selected.actionId);
 
-        return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected.actionId)]);
+        return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected)]);
     }
 
     private void backup(ShallowRed.MCTSTree current, int winner) {
@@ -172,6 +222,9 @@ public class ShallowRed implements MancalaAgent {
 
             // if it ended in a win => increase the win count
             current.winCount += hasWon;
+
+            //update minmax value
+            current.updateMinMaxValue();
 
             current = current.parent;
         }
@@ -282,6 +335,9 @@ public class ShallowRed implements MancalaAgent {
         //load C
         C = root.getDouble("C",1.0/Math.sqrt(2.0));
 
+        //load minmax influence
+        minmaxInfluence = root.get("minmaxInfluence").asDouble();
+
         //load selector
         selector.setSelectionAlg(root.get("selector").asObject());
 
@@ -324,6 +380,7 @@ public class ShallowRed implements MancalaAgent {
 
         return Json.object().
                 add("C",C).
+                add("minmaxInfluence",minmaxInfluence).
                 add("selector",selector.getSelectionAlg().toJSON()).
                 add("expand",exp).
                 add("simulation",sim).toString(WriterConfig.PRETTY_PRINT);
