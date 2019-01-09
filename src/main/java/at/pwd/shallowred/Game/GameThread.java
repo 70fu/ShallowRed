@@ -7,6 +7,7 @@ import at.pwd.boardgame.game.mancala.agent.MancalaAgent;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
 import at.pwd.shallowred.CustomGame.MancalaBoard;
 
+import java.io.IOException;
 import java.io.Writer;
 
 import static at.pwd.shallowred.CustomGame.MancalaGame.DRAW;
@@ -106,20 +107,12 @@ public class GameThread extends Thread
     {
         try
         {
+            logState();
+
             while (!isInterrupted() && game.checkIfPlayerWins().getState() == WinState.States.NOBODY)
             {
                 //let agent think
                 MancalaAgentAction action = current.doTurn(computingTime, game);
-
-                //log
-                if(log!=null)
-                {
-                    log.write("+-----------------------------------------------------+"+System.lineSeparator());
-                    log.write(String.format("|%10s | %40s|",String.format("TURN:%3d",turns+1), current.toString()+" is thinking.")+System.lineSeparator());
-                    log.write(new at.pwd.shallowred.CustomGame.MancalaGame(game).toString()+System.lineSeparator());
-                    log.write(System.lineSeparator());
-                    //log.write(current.toString()+" chooses action "+action.);
-                }
 
                 //apply action
                 AgentAction.NextAction nextAction = action.applyAction(game);
@@ -137,6 +130,9 @@ public class GameThread extends Thread
                 }
 
                 ++turns;
+
+                //log
+                logState();
             }
         }
         catch(Exception e)
@@ -153,6 +149,45 @@ public class GameThread extends Thread
                 result=DRAW;
             else
                 result=winState.getPlayerId();
+
+            //log result
+            try
+            {
+                if(log!=null)
+                {
+                    if(result==NOBODY)
+                        log.write("Nobody won due to an error");
+                    else if(result==DRAW)
+                        log.write("Draw");
+                    else
+                    {
+                        MancalaBoard board = new MancalaBoard(game);
+                        int diff = Math.abs(board.getFields()[MancalaBoard.DEPOT_A]-board.getFields()[MancalaBoard.DEPOT_B]);
+                        log.write(at.pwd.shallowred.CustomGame.MancalaGame.playerIdToString(result) + ", " + (result == 0 ? agentA.toString() : agentB.toString()) + ", has won with a difference of " + diff + " stones");
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
+    }
+
+    private void logState() throws IOException
+    {
+        if(log==null)
+            return;
+
+        at.pwd.shallowred.CustomGame.MancalaGame mg = new at.pwd.shallowred.CustomGame.MancalaGame(game);
+
+        if(mg.getWinner() == at.pwd.shallowred.CustomGame.MancalaGame.NOBODY)
+        {
+            log.write("+-----------------------------------------------------+" + System.lineSeparator());
+            log.write(String.format("|%10s | %40s|", String.format("TURN:%3d", turns + 1), current.toString() + " is thinking.") + System.lineSeparator());
+        }
+        log.write(mg.toString()+System.lineSeparator());
+        log.write(System.lineSeparator());
+        //log.write(current.toString()+" chooses action "+action.);
     }
 }

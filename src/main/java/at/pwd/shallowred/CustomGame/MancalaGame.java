@@ -39,9 +39,9 @@ public class MancalaGame {
     {
         board = new MancalaBoard(game);
 
-        winner = NOBODY;
-
         currentPlayer = game.getState().getCurrentPlayer();
+
+        updateWinningState();//could be deleted before submission and replaced with: winner=NOBODY
     }
 
     /**
