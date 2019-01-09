@@ -47,17 +47,19 @@ public class GameUtils
         private int remaining;
         private int computingTime;
         private Path logDir;
+        private MancalaBoard board;
 
         private final String dateTime = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 
 
-        public RemainingPlays(MancalaAgentFactory agentA, MancalaAgentFactory agentB, int computingTime, int games, Path logDir)
+        public RemainingPlays(MancalaAgentFactory agentA, MancalaAgentFactory agentB, int computingTime, int games, Path logDir, MancalaBoard board)
         {
             this.agentA = agentA;
             this.agentB = agentB;
             this.remaining = games;
             this.computingTime = computingTime;
             this.logDir = logDir;
+            this.board = board;
         }
 
         /**
@@ -70,7 +72,7 @@ public class GameUtils
                 return null;
 
             //instantiate and configure game thread
-            GameThread gameThread = new GameThread(agentA.produce(),agentB.produce(),computingTime);
+            GameThread gameThread = new GameThread(agentA.produce(),agentB.produce(),computingTime,board.toMancalaGame());
 
             //if log directory is given, create log file and create BufferedWriter
             if(logDir!=null)
@@ -104,7 +106,7 @@ public class GameUtils
     }
 
     /**
-     *
+     * Calls playAgainst with default board (6 stones per slot)
      * @param agentA !=null
      * @param agentB !=null
      * @param games >=0
@@ -118,8 +120,27 @@ public class GameUtils
      */
     public static Result playAgainst(MancalaAgentFactory agentA, MancalaAgentFactory agentB,int games, int computingTime, int threads, boolean repeatOnError, Path logDir) throws InterruptedException
     {
+        return playAgainst(agentA, agentB, games, computingTime, threads, repeatOnError, logDir,new MancalaBoard(6));
+    }
+
+    /**
+     *
+     * @param agentA !=null
+     * @param agentB !=null
+     * @param games >=0
+     * @param threads >=1
+     * @param repeatOnError
+     * @param logDir must be a directory or null
+     * @param board !=null
+     * Postconditions:
+     *      games (<-parameter) games are played between given mancala agents, on given board, may be played in parallel
+     *      if repeatOnError is true, then the game is repeated if it ended due to an error
+     *      @return result of the games
+     */
+    public static Result playAgainst(MancalaAgentFactory agentA, MancalaAgentFactory agentB,int games, int computingTime, int threads, boolean repeatOnError, Path logDir, MancalaBoard board) throws InterruptedException
+    {
         Result result = new Result();
-        RemainingPlays rp = new RemainingPlays(agentA,agentB,computingTime,games, logDir);
+        RemainingPlays rp = new RemainingPlays(agentA,agentB,computingTime,games, logDir, board);
         GameThreadWatcher[] watcherThreads = new GameThreadWatcher[threads];
         for(int x = 0;x<threads;++x)
         {

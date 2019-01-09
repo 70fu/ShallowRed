@@ -1,6 +1,14 @@
 package at.pwd.shallowred.CustomGame;
 
+import at.pwd.boardgame.services.XSLTService;
+
+import javax.xml.transform.stream.StreamSource;
+import java.io.InputStream;
+import java.io.StringReader;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * Mancalaboard custom implementation.
@@ -39,6 +47,23 @@ public class MancalaBoard {
     public MancalaBoard(int[] slots)
     {
         this.slots = slots;
+    }
+
+    /**
+     * creates a board with given amount of stones on each slot (excluding depots)
+     * Preconditions:
+     *      @param stonesPerSlot >=0
+     */
+    public MancalaBoard(int stonesPerSlot)
+    {
+        this();
+
+        for(int i = 0;i<14;++i)
+            slots[i]=stonesPerSlot;
+
+        //reset depots
+        slots[DEPOT_A] = 0;
+        slots[DEPOT_B] = 0;
     }
 
     /**
@@ -198,5 +223,72 @@ public class MancalaBoard {
         builder.append(System.lineSeparator());
         builder.append(String.format("%c      (%3d ) (%3d ) (%3d ) (%3d ) (%3d ) (%3d )      %c",edgeCharacter,slots[6],slots[5],slots[4],slots[3],slots[2],slots[1],edgeCharacter));
         return builder.toString();
+    }
+
+    //TODO test everything from below here
+
+    /**
+     * Postconditions:
+     * @return a game, where the state of this board is set as starting board, player 0 is current player
+     */
+    public at.pwd.boardgame.game.mancala.MancalaGame toMancalaGame()
+    {
+        at.pwd.boardgame.game.mancala.MancalaGame game = new at.pwd.boardgame.game.mancala.MancalaGame();
+        game.loadBoard(generateBoard());
+
+        //set stones
+        String slotID = game.getBoard().getDepotOfPlayer(PLAYER_A);
+        for(int i = 13; i >= 0;i--){
+            slotID = game.getBoard().next(slotID);
+            game.getState().getStoneProperty(slotID).set(slots[i]);
+        }
+
+        game.nextPlayer();//init first player
+
+        return game;
+    }
+
+    //copied from SetUpController.java
+    private static final String BOARD_GENERATOR_TRANSFORMER = "/board_generator.xsl";
+    private InputStream generateBoard() {
+        Map<String, String> params = new HashMap<>();
+        params.put("num_stones", "6");
+        params.put("slots_per_player", "6");
+        //params.put("computation_time", String.valueOf(computingTime));
+
+        return XSLTService.getInstance().execute(
+                BOARD_GENERATOR_TRANSFORMER,
+                new StreamSource(new StringReader("<empty/>")),
+                params
+        );
+    }
+
+    /**
+     * Preconditions:
+     *      @param r, used for generating random numbers
+     *      @param numStones, amount of stones that will be distributed
+     *      @param excludeDepots, if true, no stones will be placed on the depots
+     * Postconditions:
+     *      @return a random MancalaBoard where numStones stones have been distributed randomly
+     */
+    public static MancalaBoard generateRandomBoard(Random r,int numStones, boolean excludeDepots)
+    {
+        MancalaBoard board = new MancalaBoard();
+
+        int offset = excludeDepots?1:0;
+        int max = excludeDepots?12:14;
+        int skipSlot = excludeDepots?DEPOT_B:14;
+
+        for(;numStones>0;--numStones)
+        {
+            int slot = r.nextInt(max);
+            slot+=offset;
+            if(slot>=skipSlot)
+                ++slot;
+
+            ++board.slots[slot];
+        }
+
+        return board;
     }
 }

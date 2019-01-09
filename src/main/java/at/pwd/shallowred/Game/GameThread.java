@@ -5,14 +5,9 @@ import at.pwd.boardgame.game.base.WinState;
 import at.pwd.boardgame.game.mancala.MancalaGame;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgent;
 import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
-import at.pwd.boardgame.services.XSLTService;
+import at.pwd.shallowred.CustomGame.MancalaBoard;
 
-import javax.xml.transform.stream.StreamSource;
-import java.io.InputStream;
-import java.io.StringReader;
 import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
 
 import static at.pwd.shallowred.CustomGame.MancalaGame.DRAW;
 import static at.pwd.shallowred.CustomGame.MancalaGame.NOBODY;
@@ -61,10 +56,9 @@ public class GameThread extends Thread
 
     private void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime)
     {
-        game = new MancalaGame();
-        game.loadBoard(generateBoard());
-        game.nextPlayer();//init first player
-        reset(agentA,agentB,computingTime,game);
+        //TODO set game
+        MancalaBoard defaultBoard = new MancalaBoard(6);
+        reset(agentA,agentB,computingTime,defaultBoard.toMancalaGame());
     }
 
     private void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime, MancalaGame initialGame)
@@ -160,20 +154,5 @@ public class GameThread extends Thread
             else
                 result=winState.getPlayerId();
         }
-    }
-
-    //copied from SetUpController.java
-    private static final String BOARD_GENERATOR_TRANSFORMER = "/board_generator.xsl";
-    private InputStream generateBoard() {
-        Map<String, String> params = new HashMap<>();
-        params.put("num_stones", "6");
-        params.put("slots_per_player", "6");
-        params.put("computation_time", String.valueOf(computingTime));
-
-        return XSLTService.getInstance().execute(
-                BOARD_GENERATOR_TRANSFORMER,
-                new StreamSource(new StringReader("<empty/>")),
-                params
-        );
     }
 }
