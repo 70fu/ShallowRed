@@ -97,13 +97,6 @@ public class PlayGameCommand implements Callable<Void>
                 throw new ParameterException(commandSpec.commandLine(), "Given logDirectory is not a directory: " + logDirPath.toString());
         }
 
-        //construct Board
-        MancalaBoard board;
-        if(randomBoard)
-            board = MancalaBoard.generateRandomBoard(ThreadLocalRandom.current(),NUM_STONES,true);
-        else//Load normal starting board with 6 stones per field
-            board = new MancalaBoard(STONES_PER_SLOT);
-
         char resultChar = drawChar;
         //used for repeatOnSameSideWin
         boolean repeat;
@@ -111,6 +104,13 @@ public class PlayGameCommand implements Callable<Void>
         do
         {
             repeat = false;
+
+            //construct Board
+            MancalaBoard board;
+            if(randomBoard)
+                board = MancalaBoard.generateRandomBoard(ThreadLocalRandom.current(),NUM_STONES,true);
+            else//Load normal starting board with 6 stones per field
+                board = new MancalaBoard(STONES_PER_SLOT);
 
             if (!switchSides)
             {
