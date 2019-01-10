@@ -21,6 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Command(name="play",description="Plays a game between two AIs. Outputs (per default) W if player wins against enemy, L on loss and D on draw. If ShallowRed is specified as player then a config must be specified either by -p and passing the json as string or by --playerConfigFile and passing a path to json file (-e and --enemyConfigFile for enemy)")
 public class PlayGameCommand implements Callable<Void>
 {
+    private static final int MAX_REPEATS = 255;
     private static final int STONES_PER_SLOT = 6;
     private static int NUM_STONES = STONES_PER_SLOT*12;
 
@@ -89,11 +90,11 @@ public class PlayGameCommand implements Callable<Void>
         //check log directory, create log directory if it does not exist
         if(logDirPath!=null)
         {
-            if(!Files.isDirectory(logDirPath))
-                throw new ParameterException(commandSpec.commandLine(), "Given logDirectory is not a directory: " + logDirPath.toString());
-
             if(!Files.exists(logDirPath))
                 Files.createDirectories(logDirPath);
+
+            if(!Files.isDirectory(logDirPath))
+                throw new ParameterException(commandSpec.commandLine(), "Given logDirectory is not a directory: " + logDirPath.toString());
         }
 
         //construct Board
@@ -106,6 +107,7 @@ public class PlayGameCommand implements Callable<Void>
         char resultChar = drawChar;
         //used for repeatOnSameSideWin
         boolean repeat;
+        int repeatCount = 0;
         do
         {
             repeat = false;
@@ -163,10 +165,11 @@ public class PlayGameCommand implements Callable<Void>
                     resultChar = lossChar;
             }
         }
-        while((resultChar==drawChar && repeatOnDraw) || repeat);
+        while(((resultChar==drawChar && repeatOnDraw) || repeat) && repeatCount++<MAX_REPEATS);
 
         //print result
-        System.out.println(resultChar);
+        if(repeatCount<MAX_REPEATS)
+            System.out.println(resultChar);
 
         return null;
     }
@@ -183,7 +186,7 @@ public class PlayGameCommand implements Callable<Void>
             if(config==null)
             {
                 if(configFile==null || !configFile.exists())
-                    throw new IllegalArgumentException("Missing config for ShallowRed agent");
+                    throw new ParameterException(commandSpec.commandLine(),"Config file "+configFile.getAbsolutePath()+" for ShallowRed agent not found.");
 
                 StringBuilder configBuilder = new StringBuilder();
                 try(BufferedReader br = new BufferedReader(new FileReader(configFile)))
