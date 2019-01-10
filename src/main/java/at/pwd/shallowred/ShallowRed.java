@@ -9,7 +9,6 @@ import at.pwd.shallowred.Heuristics.Heuristic;
 import at.pwd.shallowred.Heuristics.HeuristicSettings;
 import at.pwd.shallowred.Utils.Pool;
 import com.eclipsesource.json.Json;
-import com.eclipsesource.json.JsonArray;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.WriterConfig;
 
@@ -48,7 +47,7 @@ public class ShallowRed implements MancalaAgent {
     //id of this agent
     private int playerId;
 
-    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,\"minmaxInfluence\":0,\"selector\":{\"type\":\"roulette\"},  \"expand\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ],  \"simulation\":[    {      \"id\":0,      \"weight\":0.5    },    {      \"id\":1,      \"weight\":1    },    {      \"id\":2,      \"weight\":0.05    },{      \"id\":3,      \"weight\":0.05    },{      \"id\":4,      \"weight\":0.05    },{      \"id\":5,      \"weight\":0.5    }  ]}";
+    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,  \"minmaxInfluence\":0,  \"selector\":{\"type\":\"roulette\"},  \"expand\": {    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  },  \"simulation\":{    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  }}";
 
     public ShallowRed()
     {
@@ -342,7 +341,7 @@ public class ShallowRed implements MancalaAgent {
         selector.setSelectionAlg(root.get("selector").asObject());
 
         //load expand heuristics & weights
-        JsonArray exp = root.get("expand").asArray();
+        JsonObject exp = root.get("expand").asObject();
         expandHeuristicIds = new int[exp.size()];
         expandWeights = new float[expandHeuristicIds.length];
         loadHeuristics(exp, expandHeuristicIds,expandWeights);
@@ -350,7 +349,7 @@ public class ShallowRed implements MancalaAgent {
         expandHeuristics = HeuristicSettings.generateHeuristicArray(expandHeuristicIds);
 
         //load simulation heuristics & weights
-        JsonArray sim = root.get("simulation").asArray();
+        JsonObject sim = root.get("simulation").asObject();
         simulationHeuristicIds = new int[sim.size()];
         simulationWeights = new float[simulationHeuristicIds.length];
         loadHeuristics(sim, simulationHeuristicIds,simulationWeights);
@@ -360,20 +359,23 @@ public class ShallowRed implements MancalaAgent {
         return true;
     }
 
-    private void loadHeuristics(JsonArray hConfig, int[] heuristicsOut, float[] weightsOut)
+    private void loadHeuristics(JsonObject hConfig, int[] heuristicsOut, float[] weightsOut)
     {
-        for(int x = 0;x<hConfig.size();++x)
+        int x = 0;
+        for(JsonObject.Member member : hConfig)
         {
-            JsonObject heu = hConfig.get(x).asObject();
-            heuristicsOut[x] = heu.get("id").asInt();
+            heuristicsOut[x] = Integer.parseInt(member.getName());
+            JsonObject heu = member.getValue().asObject();
             weightsOut[x] = heu.get("weight").asFloat();
+
+            ++x;
         }
     }
 
     public String toJSONConfig()
     {
-        JsonArray exp = Json.array();
-        JsonArray sim = Json.array();
+        JsonObject exp = Json.object();
+        JsonObject sim = Json.object();
 
         fillHeuristicsJson(exp,expandHeuristicIds,expandWeights);
         fillHeuristicsJson(sim,simulationHeuristicIds,simulationWeights);
@@ -387,14 +389,13 @@ public class ShallowRed implements MancalaAgent {
 
     }
 
-    private void fillHeuristicsJson(JsonArray hConfig,int[] heuristics, float[] weights)
+    private void fillHeuristicsJson(JsonObject hConfig,int[] heuristics, float[] weights)
     {
         for(int x = 0;x<heuristics.length;++x)
         {
             JsonObject heu = Json.object();
-            heu.add("id",heuristics[x]);
             heu.add("weight",weights[x]);
-            hConfig.add(heu);
+            hConfig.add(Integer.toString(heuristics[x]),heu);
         }
     }
 }

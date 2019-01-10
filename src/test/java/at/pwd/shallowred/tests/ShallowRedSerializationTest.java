@@ -10,33 +10,49 @@ class ShallowRedSerializationTest
 {
     //content is in resources/ShallowRedConfig
     private static final String json = "{\n" +
-            "\"C\":0.7071067811865475,\n" +
-            "\"minmaxInfluence\":0,\n"+
-        "  \"selector\":{\"type\":\"random\"},\n" +
-            "  \"expand\":[\n" +
-            "    {\n" +
-            "      \"id\":0,\n" +
-            "      \"weight\":0.1\n" +
+            "  \"C\":0.7071067811865475,\n" +
+            "  \"minmaxInfluence\":0,\n" +
+            "  \"selector\":{\"type\":\"roulette\"},\n" +
+            "  \"expand\": {\n" +
+            "    \"0\": {\n" +
+            "      \"weight\": 0.5\n" +
             "    },\n" +
-            "    {\n" +
-            "      \"id\":1,\n" +
-            "      \"weight\":0.2\n" +
+            "    \"1\": {\n" +
+            "      \"weight\": 1\n" +
             "    },\n" +
-            "    {\n" +
-            "      \"id\":3,\n" +
-            "      \"weight\":0.3\n" +
+            "    \"2\": {\n" +
+            "      \"weight\": 0.05\n" +
+            "    },\n" +
+            "    \"3\": {\n" +
+            "      \"weight\": 0.05\n" +
+            "    },\n" +
+            "    \"4\": {\n" +
+            "      \"weight\": 0.05\n" +
+            "    },\n" +
+            "    \"5\": {\n" +
+            "      \"weight\": 0.75\n" +
             "    }\n" +
-            "  ],\n" +
-            "  \"simulation\":[\n" +
-            "    {\n" +
-            "      \"id\":0,\n" +
-            "      \"weight\":0.8\n" +
+            "  },\n" +
+            "  \"simulation\":{\n" +
+            "    \"0\": {\n" +
+            "      \"weight\": 0.5\n" +
             "    },\n" +
-            "    {\n" +
-            "      \"id\":5,\n" +
-            "      \"weight\":0.6\n" +
+            "    \"1\": {\n" +
+            "      \"weight\": 1\n" +
+            "    },\n" +
+            "    \"2\": {\n" +
+            "      \"weight\": 0.05\n" +
+            "    },\n" +
+            "    \"3\": {\n" +
+            "      \"weight\": 0.05\n" +
+            "    },\n" +
+            "    \"4\": {\n" +
+            "      \"weight\": 0.05\n" +
+            "    },\n" +
+            "    \"5\": {\n" +
+            "      \"weight\": 0.75\n" +
             "    }\n" +
-            "  ]\n" +
+            "  }\n" +
             "}";
 
     @Test
