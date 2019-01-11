@@ -1,0 +1,1436 @@
+2019-01-10 21:28:26 ===== Starting: ShallowRedExperiment =====
+2019-01-10 21:28:33 Run
+2019-01-10 21:28:33 id = 4 (machine1); Seed = 0; Starting new sample
+2019-01-10 21:28:33 id = 3 (machine1); Seed = 1; Starting new sample
+2019-01-10 21:28:33 id = 2 (machine1); Seed = 2; Starting new sample
+2019-01-10 21:28:33 id = 1 (machine1); Seed = 3; Starting new sample
+2019-01-10 21:28:33 id = 0 (machine1); Seed = 4; Starting new sample
+2019-01-10 21:30:39 id = 1 (machine1); Seed = 3; Done (0)
+2019-01-10 21:30:39 id = 1 (machine1); Seed = 5; Starting new sample
+2019-01-10 21:30:49 id = 2 (machine1); Seed = 2; Done (0)
+2019-01-10 21:30:49 id = 2 (machine1); Seed = 6; Starting new sample
+2019-01-10 21:31:04 id = 4 (machine1); Seed = 0; Done (0)
+2019-01-10 21:31:04 id = 4 (machine1); Seed = 7; Starting new sample
+2019-01-10 21:31:45 id = 3 (machine1); Seed = 1; Done (0)
+2019-01-10 21:31:45 id = 3 (machine1); Seed = 8; Starting new sample
+2019-01-10 21:33:32 id = 0 (machine1); Seed = 4; Done (0)
+2019-01-10 21:33:32 id = 0 (machine1); Seed = 9; Starting new sample
+2019-01-10 21:33:39 id = 4 (machine1); Seed = 7; Done (0)
+2019-01-10 21:33:39 id = 4 (machine1); Seed = 10; Starting new sample
+2019-01-10 21:34:21 id = 3 (machine1); Seed = 8; Done (0)
+2019-01-10 21:34:21 id = 3 (machine1); Seed = 11; Starting new sample
+2019-01-10 21:36:28 id = 3 (machine1); Seed = 11; Done (0)
+2019-01-10 21:36:28 id = 3 (machine1); Seed = 12; Starting new sample
+2019-01-10 21:36:28 id = 1 (machine1); Seed = 5; Done (0)
+2019-01-10 21:36:28 id = 1 (machine1); Seed = 13; Starting new sample
+2019-01-10 21:36:46 id = 2 (machine1); Seed = 6; Done (0)
+2019-01-10 21:36:46 id = 2 (machine1); Seed = 14; Starting new sample
+2019-01-10 21:38:22 id = 2 (machine1); Seed = 14; Done (0)
+2019-01-10 21:38:22 id = 2 (machine1); Seed = 15; Starting new sample
+2019-01-10 21:38:28 id = 0 (machine1); Seed = 9; Done (0)
+2019-01-10 21:38:28 id = 0 (machine1); Seed = 16; Starting new sample
+2019-01-10 21:38:45 id = 1 (machine1); Seed = 13; Done (0)
+2019-01-10 21:38:45 id = 1 (machine1); Seed = 17; Starting new sample
+2019-01-10 21:38:52 id = 3 (machine1); Seed = 12; Done (0)
+2019-01-10 21:38:52 id = 3 (machine1); Seed = 18; Starting new sample
+2019-01-10 21:39:11 id = 4 (machine1); Seed = 10; Done (0)
+2019-01-10 21:39:11 id = 4 (machine1); Seed = 19; Starting new sample
+2019-01-10 21:40:44 id = 4 (machine1); Seed = 19; Done (0)
+2019-01-10 21:40:44 id = 4 (machine1); Seed = 20; Starting new sample
+2019-01-10 21:40:46 id = 1 (machine1); Seed = 17; Done (0)
+2019-01-10 21:40:46 id = 1 (machine1); Seed = 21; Starting new sample
+2019-01-10 21:41:04 id = 0 (machine1); Seed = 16; Done (0)
+2019-01-10 21:41:04 id = 0 (machine1); Seed = 22; Starting new sample
+2019-01-10 21:41:35 id = 2 (machine1); Seed = 15; Done (0)
+2019-01-10 21:41:35 id = 2 (machine1); Seed = 23; Starting new sample
+2019-01-10 21:42:53 id = 3 (machine1); Seed = 18; Done (0)
+2019-01-10 21:42:53 id = 3 (machine1); Seed = 24; Starting new sample
+2019-01-10 21:43:38 id = 4 (machine1); Seed = 20; Done (0)
+2019-01-10 21:43:38 id = 4 (machine1); Seed = 25; Starting new sample
+2019-01-10 21:44:04 id = 0 (machine1); Seed = 22; Done (0)
+2019-01-10 21:44:04 id = 0 (machine1); Seed = 26; Starting new sample
+2019-01-10 21:44:20 id = 2 (machine1); Seed = 23; Done (0)
+2019-01-10 21:44:20 id = 2 (machine1); Seed = 27; Starting new sample
+2019-01-10 21:46:03 id = 1 (machine1); Seed = 21; Done (0)
+2019-01-10 21:46:03 id = 1 (machine1); Seed = 28; Starting new sample
+2019-01-10 21:46:34 id = 2 (machine1); Seed = 27; Done (0)
+2019-01-10 21:46:34 id = 2 (machine1); Seed = 29; Starting new sample
+2019-01-10 21:46:35 id = 0 (machine1); Seed = 26; Done (0)
+2019-01-10 21:46:35 id = 0 (machine1); Seed = 30; Starting new sample
+2019-01-10 21:47:34 id = 3 (machine1); Seed = 24; Done (0)
+2019-01-10 21:47:34 id = 3 (machine1); Seed = 31; Starting new sample
+2019-01-10 21:48:33 id = 1 (machine1); Seed = 28; Done (0)
+2019-01-10 21:48:33 id = 1 (machine1); Seed = 32; Starting new sample
+2019-01-10 21:48:44 id = 4 (machine1); Seed = 25; Done (0)
+2019-01-10 21:48:44 id = 4 (machine1); Seed = 33; Starting new sample
+2019-01-10 21:48:59 id = 0 (machine1); Seed = 30; Done (0)
+2019-01-10 21:48:59 id = 0 (machine1); Seed = 34; Starting new sample
+2019-01-10 21:50:26 id = 1 (machine1); Seed = 32; Done (0)
+2019-01-10 21:50:26 id = 1 (machine1); Seed = 35; Starting new sample
+2019-01-10 21:51:10 id = 2 (machine1); Seed = 29; Done (1)
+2019-01-10 21:51:10 id = 2 (machine1); Seed = 36; Starting new sample
+2019-01-10 21:51:27 id = 0 (machine1); Seed = 34; Done (0)
+2019-01-10 21:51:27 id = 0 (machine1); Seed = 37; Starting new sample
+2019-01-10 21:51:28 id = 4 (machine1); Seed = 33; Done (0)
+2019-01-10 21:51:28 id = 4 (machine1); Seed = 38; Starting new sample
+2019-01-10 21:52:50 id = 1 (machine1); Seed = 35; Done (0)
+2019-01-10 21:52:50 id = 1 (machine1); Seed = 39; Starting new sample
+2019-01-10 21:53:09 id = 2 (machine1); Seed = 36; Done (0)
+2019-01-10 21:53:09 id = 2 (machine1); Seed = 40; Starting new sample
+2019-01-10 21:53:48 id = 3 (machine1); Seed = 31; Done (0)
+2019-01-10 21:53:48 id = 3 (machine1); Seed = 41; Starting new sample
+2019-01-10 21:55:05 id = 2 (machine1); Seed = 40; Done (0)
+2019-01-10 21:55:05 id = 2 (machine1); Seed = 42; Starting new sample
+2019-01-10 21:55:52 id = 4 (machine1); Seed = 38; Done (0)
+2019-01-10 21:55:52 id = 4 (machine1); Seed = 43; Starting new sample
+2019-01-10 21:56:27 id = 3 (machine1); Seed = 41; Done (0)
+2019-01-10 21:56:27 id = 3 (machine1); Seed = 44; Starting new sample
+2019-01-10 21:58:32 id = 1 (machine1); Seed = 39; Done (0)
+2019-01-10 21:58:32 id = 1 (machine1); Seed = 45; Starting new sample
+2019-01-10 21:59:34 id = 3 (machine1); Seed = 44; Done (0)
+2019-01-10 21:59:35 id = 3 (machine1); Seed = 46; Starting new sample
+2019-01-10 22:02:22 id = 2 (machine1); Seed = 42; Done (0)
+2019-01-10 22:02:22 id = 2 (machine1); Seed = 47; Starting new sample
+2019-01-10 22:02:34 id = 3 (machine1); Seed = 46; Done (0)
+2019-01-10 22:02:34 id = 3 (machine1); Seed = 48; Starting new sample
+2019-01-10 22:04:29 id = 1 (machine1); Seed = 45; Done (0)
+2019-01-10 22:04:29 id = 1 (machine1); Seed = 49; Starting new sample
+2019-01-10 22:04:38 id = 2 (machine1); Seed = 47; Done (0)
+2019-01-10 22:04:38 id = 2 (machine1); Seed = 50; Starting new sample
+2019-01-10 22:05:12 id = 0 (machine1); Seed = 37; Done (0)
+2019-01-10 22:05:12 id = 0 (machine1); Seed = 51; Starting new sample
+2019-01-10 22:06:40 id = 1 (machine1); Seed = 49; Done (0)
+2019-01-10 22:06:40 id = 1 (machine1); Seed = 52; Starting new sample
+2019-01-10 22:06:58 id = 4 (machine1); Seed = 43; Done (0)
+2019-01-10 22:06:58 id = 4 (machine1); Seed = 53; Starting new sample
+2019-01-10 22:07:57 id = 0 (machine1); Seed = 51; Done (0)
+2019-01-10 22:07:57 id = 0 (machine1); Seed = 54; Starting new sample
+2019-01-10 22:08:37 id = 1 (machine1); Seed = 52; Done (0)
+2019-01-10 22:08:37 id = 1 (machine1); Seed = 55; Starting new sample
+2019-01-10 22:09:02 id = 4 (machine1); Seed = 53; Done (0)
+2019-01-10 22:09:02 id = 4 (machine1); Seed = 56; Starting new sample
+2019-01-10 22:10:37 id = 0 (machine1); Seed = 54; Done (0)
+2019-01-10 22:10:37 id = 0 (machine1); Seed = 57; Starting new sample
+2019-01-10 22:13:07 id = 4 (machine1); Seed = 56; Done (0)
+2019-01-10 22:13:07 id = 4 (machine1); Seed = 58; Starting new sample
+2019-01-10 22:15:23 id = 0 (machine1); Seed = 57; Done (1)
+2019-01-10 22:15:24 id = 0 (machine1); Seed = 59; Starting new sample
+2019-01-10 22:15:54 id = 4 (machine1); Seed = 58; Done (0)
+2019-01-10 22:15:54 id = 4 (machine1); Seed = 60; Starting new sample
+2019-01-10 22:18:26 id = 3 (machine1); Seed = 48; Done (0)
+2019-01-10 22:18:26 id = 3 (machine1); Seed = 61; Starting new sample
+2019-01-10 22:19:42 id = 4 (machine1); Seed = 60; Done (0)
+2019-01-10 22:19:42 id = 4 (machine1); Seed = 62; Starting new sample
+2019-01-10 22:20:59 id = 1 (machine1); Seed = 55; Done (0)
+2019-01-10 22:20:59 id = 1 (machine1); Seed = 63; Starting new sample
+2019-01-10 22:21:24 id = 2 (machine1); Seed = 50; Done (0)
+2019-01-10 22:21:24 id = 2 (machine1); Seed = 64; Starting new sample
+2019-01-10 22:21:28 id = 0 (machine1); Seed = 59; Done (0)
+2019-01-10 22:21:28 id = 0 (machine1); Seed = 65; Starting new sample
+2019-01-10 22:24:26 id = 3 (machine1); Seed = 61; Done (0)
+2019-01-10 22:24:26 id = 3 (machine1); Seed = 66; Starting new sample
+2019-01-10 22:24:47 id = 2 (machine1); Seed = 64; Done (0)
+2019-01-10 22:24:47 id = 2 (machine1); Seed = 67; Starting new sample
+2019-01-10 22:24:47 id = 0 (machine1); Seed = 65; Done (0)
+2019-01-10 22:24:47 id = 0 (machine1); Seed = 68; Starting new sample
+2019-01-10 22:24:52 id = 1 (machine1); Seed = 63; Done (0)
+2019-01-10 22:24:52 id = 1 (machine1); Seed = 69; Starting new sample
+2019-01-10 22:27:04 id = 4 (machine1); Seed = 62; Done (0)
+2019-01-10 22:27:04 id = 4 (machine1); Seed = 70; Starting new sample
+2019-01-10 22:27:26 id = 2 (machine1); Seed = 67; Done (0)
+2019-01-10 22:27:26 id = 2 (machine1); Seed = 71; Starting new sample
+2019-01-10 22:27:58 id = 3 (machine1); Seed = 66; Done (0)
+2019-01-10 22:27:58 id = 3 (machine1); Seed = 72; Starting new sample
+2019-01-10 22:29:19 id = 0 (machine1); Seed = 68; Done (0)
+2019-01-10 22:29:19 id = 0 (machine1); Seed = 73; Starting new sample
+2019-01-10 22:29:30 id = 4 (machine1); Seed = 70; Done (0)
+2019-01-10 22:29:30 id = 4 (machine1); Seed = 74; Starting new sample
+2019-01-10 22:32:22 id = 1 (machine1); Seed = 69; Done (0)
+2019-01-10 22:32:22 id = 1 (machine1); Seed = 75; Starting new sample
+2019-01-10 22:32:24 id = 3 (machine1); Seed = 72; Done (1)
+2019-01-10 22:32:24 id = 3 (machine1); Seed = 76; Starting new sample
+2019-01-10 22:32:47 id = 2 (machine1); Seed = 71; Done (0)
+2019-01-10 22:32:47 id = 2 (machine1); Seed = 77; Starting new sample
+2019-01-10 22:33:17 id = 0 (machine1); Seed = 73; Done (1)
+2019-01-10 22:33:17 id = 0 (machine1); Seed = 78; Starting new sample
+2019-01-10 22:34:30 id = 2 (machine1); Seed = 77; Done (0)
+2019-01-10 22:34:30 id = 2 (machine1); Seed = 79; Starting new sample
+2019-01-10 22:34:56 id = 1 (machine1); Seed = 75; Done (0)
+2019-01-10 22:34:56 id = 1 (machine1); Seed = 80; Starting new sample
+2019-01-10 22:36:23 id = 0 (machine1); Seed = 78; Done (0)
+2019-01-10 22:36:23 id = 0 (machine1); Seed = 81; Starting new sample
+2019-01-10 22:36:43 id = 4 (machine1); Seed = 74; Done (0)
+2019-01-10 22:36:43 id = 4 (machine1); Seed = 82; Starting new sample
+2019-01-10 22:37:22 id = 1 (machine1); Seed = 80; Done (0)
+2019-01-10 22:37:22 id = 1 (machine1); Seed = 83; Starting new sample
+2019-01-10 22:38:53 id = 0 (machine1); Seed = 81; Done (0)
+2019-01-10 22:38:53 id = 0 (machine1); Seed = 84; Starting new sample
+2019-01-10 22:39:19 id = 4 (machine1); Seed = 82; Done (0)
+2019-01-10 22:39:19 id = 4 (machine1); Seed = 85; Starting new sample
+2019-01-10 22:39:47 id = 2 (machine1); Seed = 79; Done (0)
+2019-01-10 22:39:47 id = 2 (machine1); Seed = 86; Starting new sample
+2019-01-10 22:40:15 id = 1 (machine1); Seed = 83; Done (0)
+2019-01-10 22:40:15 id = 1 (machine1); Seed = 87; Starting new sample
+2019-01-10 22:41:39 id = 4 (machine1); Seed = 85; Done (0)
+2019-01-10 22:41:39 id = 4 (machine1); Seed = 88; Starting new sample
+2019-01-10 22:41:43 id = 3 (machine1); Seed = 76; Done (0)
+2019-01-10 22:41:43 id = 3 (machine1); Seed = 89; Starting new sample
+2019-01-10 22:42:13 id = 2 (machine1); Seed = 86; Done (1)
+2019-01-10 22:42:13 id = 2 (machine1); Seed = 90; Starting new sample
+2019-01-10 22:43:11 id = 1 (machine1); Seed = 87; Done (0)
+2019-01-10 22:43:11 id = 1 (machine1); Seed = 91; Starting new sample
+2019-01-10 22:43:44 id = 4 (machine1); Seed = 88; Done (1)
+2019-01-10 22:43:44 id = 4 (machine1); Seed = 92; Starting new sample
+2019-01-10 22:44:36 id = 3 (machine1); Seed = 89; Done (1)
+2019-01-10 22:44:36 id = 3 (machine1); Seed = 93; Starting new sample
+2019-01-10 22:45:04 id = 2 (machine1); Seed = 90; Done (0)
+2019-01-10 22:45:04 id = 2 (machine1); Seed = 94; Starting new sample
+2019-01-10 22:47:29 id = 1 (machine1); Seed = 91; Done (0)
+2019-01-10 22:47:29 id = 1 (machine1); Seed = 95; Starting new sample
+2019-01-10 22:47:42 id = 3 (machine1); Seed = 93; Done (0)
+2019-01-10 22:47:42 id = 3 (machine1); Seed = 96; Starting new sample
+2019-01-10 22:47:57 id = 2 (machine1); Seed = 94; Done (0)
+2019-01-10 22:47:57 id = 2 (machine1); Seed = 97; Starting new sample
+2019-01-10 22:49:14 id = 0 (machine1); Seed = 84; Done (0)
+2019-01-10 22:49:14 id = 0 (machine1); Seed = 98; Starting new sample
+2019-01-10 22:50:06 id = 1 (machine1); Seed = 95; Done (0)
+2019-01-10 22:50:06 id = 1 (machine1); Seed = 99; Starting new sample
+2019-01-10 22:50:55 id = 0 (machine1); Seed = 98; Done (0)
+2019-01-10 22:50:55 id = 0 (machine1); Seed = 100; Starting new sample
+2019-01-10 22:51:08 id = 2 (machine1); Seed = 97; Done (0)
+2019-01-10 22:51:08 id = 2 (machine1); Seed = 101; Starting new sample
+2019-01-10 22:51:16 id = 4 (machine1); Seed = 92; Done (1)
+2019-01-10 22:51:16 id = 4 (machine1); Seed = 102; Starting new sample
+2019-01-10 22:52:08 id = 1 (machine1); Seed = 99; Done (0)
+2019-01-10 22:52:08 id = 1 (machine1); Seed = 103; Starting new sample
+2019-01-10 22:53:08 id = 0 (machine1); Seed = 100; Done (1)
+2019-01-10 22:53:08 id = 0 (machine1); Seed = 104; Starting new sample
+2019-01-10 22:53:52 id = 4 (machine1); Seed = 102; Done (0)
+2019-01-10 22:53:52 id = 4 (machine1); Seed = 105; Starting new sample
+2019-01-10 22:53:53 id = 3 (machine1); Seed = 96; Done (0)
+2019-01-10 22:53:53 id = 3 (machine1); Seed = 106; Starting new sample
+2019-01-10 22:55:53 id = 3 (machine1); Seed = 106; Done (0)
+2019-01-10 22:55:53 id = 3 (machine1); Seed = 107; Starting new sample
+2019-01-10 22:56:12 id = 4 (machine1); Seed = 105; Done (0)
+2019-01-10 22:56:12 id = 4 (machine1); Seed = 108; Starting new sample
+2019-01-10 22:57:23 id = 1 (machine1); Seed = 103; Done (0)
+2019-01-10 22:57:23 id = 1 (machine1); Seed = 109; Starting new sample
+2019-01-10 22:57:45 id = 2 (machine1); Seed = 101; Done (0)
+2019-01-10 22:57:45 id = 2 (machine1); Seed = 110; Starting new sample
+2019-01-10 23:00:08 id = 1 (machine1); Seed = 109; Done (0)
+2019-01-10 23:00:08 id = 1 (machine1); Seed = 111; Starting new sample
+2019-01-10 23:00:58 id = 2 (machine1); Seed = 110; Done (0)
+2019-01-10 23:00:58 id = 2 (machine1); Seed = 112; Starting new sample
+2019-01-10 23:01:52 id = 3 (machine1); Seed = 107; Done (1)
+2019-01-10 23:01:52 id = 3 (machine1); Seed = 113; Starting new sample
+2019-01-10 23:03:16 id = 4 (machine1); Seed = 108; Done (0)
+2019-01-10 23:03:16 id = 4 (machine1); Seed = 114; Starting new sample
+2019-01-10 23:03:25 id = 0 (machine1); Seed = 104; Done (0)
+2019-01-10 23:03:25 id = 0 (machine1); Seed = 115; Starting new sample
+2019-01-10 23:03:37 id = 2 (machine1); Seed = 112; Done (0)
+2019-01-10 23:03:37 id = 2 (machine1); Seed = 116; Starting new sample
+2019-01-10 23:04:24 id = 3 (machine1); Seed = 113; Done (0)
+2019-01-10 23:04:24 id = 3 (machine1); Seed = 117; Starting new sample
+2019-01-10 23:05:09 id = 0 (machine1); Seed = 115; Done (0)
+2019-01-10 23:05:09 id = 0 (machine1); Seed = 118; Starting new sample
+2019-01-10 23:05:31 id = 4 (machine1); Seed = 114; Done (0)
+2019-01-10 23:05:31 id = 4 (machine1); Seed = 119; Starting new sample
+2019-01-10 23:07:48 id = 1 (machine1); Seed = 111; Done (0)
+2019-01-10 23:07:48 id = 1 (machine1); Seed = 120; Starting new sample
+2019-01-10 23:09:48 id = 4 (machine1); Seed = 119; Done (0)
+2019-01-10 23:09:48 id = 4 (machine1); Seed = 121; Starting new sample
+2019-01-10 23:10:47 id = 0 (machine1); Seed = 118; Done (0)
+2019-01-10 23:10:47 id = 0 (machine1); Seed = 122; Starting new sample
+2019-01-10 23:11:42 id = 2 (machine1); Seed = 116; Done (0)
+2019-01-10 23:11:42 id = 2 (machine1); Seed = 123; Starting new sample
+2019-01-10 23:11:51 id = 3 (machine1); Seed = 117; Done (0)
+2019-01-10 23:11:51 id = 3 (machine1); Seed = 124; Starting new sample
+2019-01-10 23:12:23 id = 1 (machine1); Seed = 120; Done (0)
+2019-01-10 23:12:23 id = 1 (machine1); Seed = 125; Starting new sample
+2019-01-10 23:12:40 id = 4 (machine1); Seed = 121; Done (1)
+2019-01-10 23:12:40 id = 4 (machine1); Seed = 126; Starting new sample
+2019-01-10 23:12:54 id = 0 (machine1); Seed = 122; Done (1)
+2019-01-10 23:12:54 id = 0 (machine1); Seed = 127; Starting new sample
+2019-01-10 23:14:20 id = 2 (machine1); Seed = 123; Done (0)
+2019-01-10 23:14:20 id = 2 (machine1); Seed = 128; Starting new sample
+2019-01-10 23:15:49 id = 0 (machine1); Seed = 127; Done (0)
+2019-01-10 23:15:49 id = 0 (machine1); Seed = 129; Starting new sample
+2019-01-10 23:16:05 id = 1 (machine1); Seed = 125; Done (1)
+2019-01-10 23:16:05 id = 1 (machine1); Seed = 130; Starting new sample
+2019-01-10 23:19:21 id = 0 (machine1); Seed = 129; Done (0)
+2019-01-10 23:19:21 id = 0 (machine1); Seed = 131; Starting new sample
+2019-01-10 23:19:28 id = 2 (machine1); Seed = 128; Done (0)
+2019-01-10 23:19:28 id = 2 (machine1); Seed = 132; Starting new sample
+2019-01-10 23:19:44 id = 3 (machine1); Seed = 124; Done (0)
+2019-01-10 23:19:44 id = 3 (machine1); Seed = 133; Starting new sample
+2019-01-10 23:22:25 id = 0 (machine1); Seed = 131; Done (0)
+2019-01-10 23:22:25 id = 0 (machine1); Seed = 134; Starting new sample
+2019-01-10 23:22:56 id = 3 (machine1); Seed = 133; Done (0)
+2019-01-10 23:22:56 id = 3 (machine1); Seed = 135; Starting new sample
+2019-01-10 23:24:26 id = 2 (machine1); Seed = 132; Done (0)
+2019-01-10 23:24:26 id = 2 (machine1); Seed = 136; Starting new sample
+2019-01-10 23:25:56 id = 0 (machine1); Seed = 134; Done (0)
+2019-01-10 23:25:56 id = 0 (machine1); Seed = 137; Starting new sample
+2019-01-10 23:26:11 id = 3 (machine1); Seed = 135; Done (0)
+2019-01-10 23:26:11 id = 3 (machine1); Seed = 138; Starting new sample
+2019-01-10 23:28:53 id = 4 (machine1); Seed = 126; Done (0)
+2019-01-10 23:28:53 id = 4 (machine1); Seed = 139; Starting new sample
+2019-01-10 23:29:02 id = 0 (machine1); Seed = 137; Done (0)
+2019-01-10 23:29:02 id = 0 (machine1); Seed = 140; Starting new sample
+2019-01-10 23:29:56 id = 2 (machine1); Seed = 136; Done (0)
+2019-01-10 23:29:56 id = 2 (machine1); Seed = 141; Starting new sample
+2019-01-10 23:30:55 id = 1 (machine1); Seed = 130; Done (0)
+2019-01-10 23:30:55 id = 1 (machine1); Seed = 142; Starting new sample
+2019-01-10 23:31:43 id = 0 (machine1); Seed = 140; Done (0)
+2019-01-10 23:31:43 id = 0 (machine1); Seed = 143; Starting new sample
+2019-01-10 23:33:01 id = 4 (machine1); Seed = 139; Done (0)
+2019-01-10 23:33:01 id = 4 (machine1); Seed = 144; Starting new sample
+2019-01-10 23:33:09 id = 1 (machine1); Seed = 142; Done (0)
+2019-01-10 23:33:09 id = 1 (machine1); Seed = 145; Starting new sample
+2019-01-10 23:34:03 id = 0 (machine1); Seed = 143; Done (0)
+2019-01-10 23:34:03 id = 0 (machine1); Seed = 146; Starting new sample
+2019-01-10 23:35:28 id = 2 (machine1); Seed = 141; Done (0)
+2019-01-10 23:35:28 id = 2 (machine1); Seed = 147; Starting new sample
+2019-01-10 23:37:52 id = 4 (machine1); Seed = 144; Done (0)
+2019-01-10 23:37:52 id = 4 (machine1); Seed = 148; Starting new sample
+2019-01-10 23:37:54 id = 2 (machine1); Seed = 147; Done (0)
+2019-01-10 23:37:54 id = 2 (machine1); Seed = 149; Starting new sample
+2019-01-10 23:38:57 id = 1 (machine1); Seed = 145; Done (0)
+2019-01-10 23:38:57 id = 1 (machine1); Seed = 150; Starting new sample
+2019-01-10 23:39:36 id = 4 (machine1); Seed = 148; Done (0)
+2019-01-10 23:39:36 id = 4 (machine1); Seed = 151; Starting new sample
+2019-01-10 23:40:44 id = 2 (machine1); Seed = 149; Done (0)
+2019-01-10 23:40:44 id = 2 (machine1); Seed = 152; Starting new sample
+2019-01-10 23:41:33 id = 4 (machine1); Seed = 151; Done (1)
+2019-01-10 23:41:33 id = 4 (machine1); Seed = 153; Starting new sample
+2019-01-10 23:43:17 id = 0 (machine1); Seed = 146; Done (0)
+2019-01-10 23:43:17 id = 0 (machine1); Seed = 154; Starting new sample
+2019-01-10 23:43:58 id = 2 (machine1); Seed = 152; Done (0)
+2019-01-10 23:43:58 id = 2 (machine1); Seed = 155; Starting new sample
+2019-01-10 23:44:12 id = 1 (machine1); Seed = 150; Done (0)
+2019-01-10 23:44:12 id = 1 (machine1); Seed = 156; Starting new sample
+2019-01-10 23:44:14 id = 4 (machine1); Seed = 153; Done (0)
+2019-01-10 23:44:14 id = 4 (machine1); Seed = 157; Starting new sample
+2019-01-10 23:46:10 id = 0 (machine1); Seed = 154; Done (0)
+2019-01-10 23:46:11 id = 0 (machine1); Seed = 158; Starting new sample
+2019-01-10 23:46:36 id = 2 (machine1); Seed = 155; Done (0)
+2019-01-10 23:46:36 id = 2 (machine1); Seed = 159; Starting new sample
+2019-01-10 23:46:48 id = 4 (machine1); Seed = 157; Done (0)
+2019-01-10 23:46:48 id = 4 (machine1); Seed = 160; Starting new sample
+2019-01-10 23:47:09 id = 1 (machine1); Seed = 156; Done (0)
+2019-01-10 23:47:09 id = 1 (machine1); Seed = 161; Starting new sample
+2019-01-10 23:47:57 id = 3 (machine1); Seed = 138; Done (0)
+2019-01-10 23:47:57 id = 3 (machine1); Seed = 162; Starting new sample
+2019-01-10 23:48:58 id = 0 (machine1); Seed = 158; Done (0)
+2019-01-10 23:48:58 id = 0 (machine1); Seed = 163; Starting new sample
+2019-01-10 23:49:16 id = 2 (machine1); Seed = 159; Done (0)
+2019-01-10 23:49:16 id = 2 (machine1); Seed = 164; Starting new sample
+2019-01-10 23:50:43 id = 3 (machine1); Seed = 162; Done (0)
+2019-01-10 23:50:43 id = 3 (machine1); Seed = 165; Starting new sample
+2019-01-10 23:51:39 id = 1 (machine1); Seed = 161; Done (0)
+2019-01-10 23:51:39 id = 1 (machine1); Seed = 166; Starting new sample
+2019-01-10 23:51:40 id = 0 (machine1); Seed = 163; Done (0)
+2019-01-10 23:51:40 id = 0 (machine1); Seed = 167; Starting new sample
+2019-01-10 23:53:44 id = 0 (machine1); Seed = 167; Done (0)
+2019-01-10 23:53:44 id = 0 (machine1); Seed = 168; Starting new sample
+2019-01-10 23:54:19 id = 1 (machine1); Seed = 166; Done (1)
+2019-01-10 23:54:19 id = 1 (machine1); Seed = 169; Starting new sample
+2019-01-10 23:55:13 id = 2 (machine1); Seed = 164; Done (0)
+2019-01-10 23:55:13 id = 2 (machine1); Seed = 170; Starting new sample
+2019-01-10 23:55:44 id = 3 (machine1); Seed = 165; Done (0)
+2019-01-10 23:55:44 id = 3 (machine1); Seed = 171; Starting new sample
+2019-01-10 23:57:30 id = 2 (machine1); Seed = 170; Done (0)
+2019-01-10 23:57:30 id = 2 (machine1); Seed = 172; Starting new sample
+2019-01-10 23:58:47 id = 1 (machine1); Seed = 169; Done (0)
+2019-01-10 23:58:47 id = 1 (machine1); Seed = 173; Starting new sample
+2019-01-10 23:59:37 id = 0 (machine1); Seed = 168; Done (0)
+2019-01-10 23:59:37 id = 0 (machine1); Seed = 174; Starting new sample
+2019-01-10 23:59:57 id = 3 (machine1); Seed = 171; Done (0)
+2019-01-10 23:59:57 id = 3 (machine1); Seed = 175; Starting new sample
+2019-01-11 00:01:02 id = 2 (machine1); Seed = 172; Done (0)
+2019-01-11 00:01:02 id = 2 (machine1); Seed = 176; Starting new sample
+2019-01-11 00:02:10 id = 0 (machine1); Seed = 174; Done (0)
+2019-01-11 00:02:10 id = 0 (machine1); Seed = 177; Starting new sample
+2019-01-11 00:03:59 id = 4 (machine1); Seed = 160; Done (0)
+2019-01-11 00:03:59 id = 4 (machine1); Seed = 178; Starting new sample
+2019-01-11 00:05:18 id = 3 (machine1); Seed = 175; Done (0)
+2019-01-11 00:05:18 id = 3 (machine1); Seed = 179; Starting new sample
+2019-01-11 00:05:20 id = 0 (machine1); Seed = 177; Done (0)
+2019-01-11 00:05:20 id = 0 (machine1); Seed = 180; Starting new sample
+2019-01-11 00:06:04 id = 2 (machine1); Seed = 176; Done (0)
+2019-01-11 00:06:04 id = 2 (machine1); Seed = 181; Starting new sample
+2019-01-11 00:08:47 id = 1 (machine1); Seed = 173; Done (0)
+2019-01-11 00:08:47 id = 1 (machine1); Seed = 182; Starting new sample
+2019-01-11 00:08:59 id = 2 (machine1); Seed = 181; Done (0)
+2019-01-11 00:08:59 id = 2 (machine1); Seed = 183; Starting new sample
+2019-01-11 00:10:22 id = 3 (machine1); Seed = 179; Done (0)
+2019-01-11 00:10:22 id = 3 (machine1); Seed = 184; Starting new sample
+2019-01-11 00:11:35 id = 1 (machine1); Seed = 182; Done (0)
+2019-01-11 00:11:35 id = 1 (machine1); Seed = 185; Starting new sample
+2019-01-11 00:14:22 id = 1 (machine1); Seed = 185; Done (0)
+2019-01-11 00:14:22 id = 1 (machine1); Seed = 186; Starting new sample
+2019-01-11 00:14:50 id = 4 (machine1); Seed = 178; Done (0)
+2019-01-11 00:14:50 id = 4 (machine1); Seed = 187; Starting new sample
+2019-01-11 00:15:51 id = 3 (machine1); Seed = 184; Done (0)
+2019-01-11 00:15:51 id = 3 (machine1); Seed = 188; Starting new sample
+2019-01-11 00:16:08 id = 0 (machine1); Seed = 180; Done (0)
+2019-01-11 00:16:08 id = 0 (machine1); Seed = 189; Starting new sample
+2019-01-11 00:16:25 id = 2 (machine1); Seed = 183; Done (0)
+2019-01-11 00:16:25 id = 2 (machine1); Seed = 190; Starting new sample
+2019-01-11 00:18:49 id = 2 (machine1); Seed = 190; Done (0)
+2019-01-11 00:18:49 id = 2 (machine1); Seed = 191; Starting new sample
+2019-01-11 00:19:08 id = 0 (machine1); Seed = 189; Done (0)
+2019-01-11 00:19:08 id = 0 (machine1); Seed = 192; Starting new sample
+2019-01-11 00:20:30 id = 4 (machine1); Seed = 187; Done (1)
+2019-01-11 00:20:30 id = 4 (machine1); Seed = 193; Starting new sample
+2019-01-11 00:20:30 id = 1 (machine1); Seed = 186; Done (1)
+2019-01-11 00:20:30 id = 1 (machine1); Seed = 194; Starting new sample
+2019-01-11 00:20:52 id = 2 (machine1); Seed = 191; Done (0)
+2019-01-11 00:20:52 id = 2 (machine1); Seed = 195; Starting new sample
+2019-01-11 00:22:12 id = 3 (machine1); Seed = 188; Done (0)
+2019-01-11 00:22:12 id = 3 (machine1); Seed = 196; Starting new sample
+2019-01-11 00:23:24 id = 2 (machine1); Seed = 195; Done (0)
+2019-01-11 00:23:24 id = 2 (machine1); Seed = 197; Starting new sample
+2019-01-11 00:25:10 id = 3 (machine1); Seed = 196; Done (1)
+2019-01-11 00:25:10 id = 3 (machine1); Seed = 198; Starting new sample
+2019-01-11 00:25:25 id = 0 (machine1); Seed = 192; Done (0)
+2019-01-11 00:25:25 id = 0 (machine1); Seed = 199; Starting new sample
+2019-01-11 00:25:55 id = 4 (machine1); Seed = 193; Done (1)
+2019-01-11 00:25:55 id = 4 (machine1); Seed = 200; Starting new sample
+2019-01-11 00:28:59 id = 4 (machine1); Seed = 200; Done (0)
+2019-01-11 00:28:59 id = 4 (machine1); Seed = 201; Starting new sample
+2019-01-11 00:30:02 id = 0 (machine1); Seed = 199; Done (0)
+2019-01-11 00:30:02 id = 0 (machine1); Seed = 202; Starting new sample
+2019-01-11 00:30:09 id = 3 (machine1); Seed = 198; Done (0)
+2019-01-11 00:30:09 id = 3 (machine1); Seed = 203; Starting new sample
+2019-01-11 00:31:40 id = 1 (machine1); Seed = 194; Done (0)
+2019-01-11 00:31:40 id = 1 (machine1); Seed = 204; Starting new sample
+2019-01-11 00:32:13 id = 4 (machine1); Seed = 201; Done (0)
+2019-01-11 00:32:13 id = 4 (machine1); Seed = 205; Starting new sample
+2019-01-11 00:33:33 id = 3 (machine1); Seed = 203; Done (0)
+2019-01-11 00:33:33 id = 3 (machine1); Seed = 206; Starting new sample
+2019-01-11 00:34:22 id = 2 (machine1); Seed = 197; Done (0)
+2019-01-11 00:34:22 id = 2 (machine1); Seed = 207; Starting new sample
+2019-01-11 00:35:31 id = 4 (machine1); Seed = 205; Done (0)
+2019-01-11 00:35:31 id = 4 (machine1); Seed = 208; Starting new sample
+2019-01-11 00:35:31 id = 3 (machine1); Seed = 206; Done (0)
+2019-01-11 00:35:31 id = 3 (machine1); Seed = 209; Starting new sample
+2019-01-11 00:36:03 id = 0 (machine1); Seed = 202; Done (0)
+2019-01-11 00:36:03 id = 0 (machine1); Seed = 210; Starting new sample
+2019-01-11 00:38:44 id = 1 (machine1); Seed = 204; Done (0)
+2019-01-11 00:38:44 id = 1 (machine1); Seed = 211; Starting new sample
+2019-01-11 00:38:49 id = 3 (machine1); Seed = 209; Done (0)
+2019-01-11 00:38:49 id = 3 (machine1); Seed = 212; Starting new sample
+2019-01-11 00:38:55 id = 2 (machine1); Seed = 207; Done (0)
+2019-01-11 00:38:55 id = 2 (machine1); Seed = 213; Starting new sample
+2019-01-11 00:41:14 id = 1 (machine1); Seed = 211; Done (2)
+2019-01-11 00:41:14 id = 1 (machine1); Seed = 214; Starting new sample
+2019-01-11 00:41:29 id = 3 (machine1); Seed = 212; Done (0)
+2019-01-11 00:41:29 id = 3 (machine1); Seed = 215; Starting new sample
+2019-01-11 00:41:56 id = 2 (machine1); Seed = 213; Done (0)
+2019-01-11 00:41:56 id = 2 (machine1); Seed = 216; Starting new sample
+2019-01-11 00:42:21 id = 0 (machine1); Seed = 210; Done (0)
+2019-01-11 00:42:21 id = 0 (machine1); Seed = 217; Starting new sample
+2019-01-11 00:42:54 id = 4 (machine1); Seed = 208; Done (0)
+2019-01-11 00:42:54 id = 4 (machine1); Seed = 218; Starting new sample
+2019-01-11 00:43:23 id = 1 (machine1); Seed = 214; Done (1)
+2019-01-11 00:43:23 id = 1 (machine1); Seed = 219; Starting new sample
+2019-01-11 00:44:40 id = 0 (machine1); Seed = 217; Done (0)
+2019-01-11 00:44:40 id = 0 (machine1); Seed = 220; Starting new sample
+2019-01-11 00:46:14 id = 3 (machine1); Seed = 215; Done (0)
+2019-01-11 00:46:14 id = 3 (machine1); Seed = 221; Starting new sample
+2019-01-11 00:46:56 id = 2 (machine1); Seed = 216; Done (0)
+2019-01-11 00:46:56 id = 2 (machine1); Seed = 222; Starting new sample
+2019-01-11 00:48:09 id = 0 (machine1); Seed = 220; Done (0)
+2019-01-11 00:48:09 id = 0 (machine1); Seed = 223; Starting new sample
+2019-01-11 00:48:29 id = 4 (machine1); Seed = 218; Done (0)
+2019-01-11 00:48:29 id = 4 (machine1); Seed = 224; Starting new sample
+2019-01-11 00:48:59 id = 3 (machine1); Seed = 221; Done (0)
+2019-01-11 00:48:59 id = 3 (machine1); Seed = 225; Starting new sample
+2019-01-11 00:49:18 id = 2 (machine1); Seed = 222; Done (0)
+2019-01-11 00:49:18 id = 2 (machine1); Seed = 226; Starting new sample
+2019-01-11 00:50:43 id = 3 (machine1); Seed = 225; Done (0)
+2019-01-11 00:50:43 id = 3 (machine1); Seed = 227; Starting new sample
+2019-01-11 00:51:39 id = 1 (machine1); Seed = 219; Done (0)
+2019-01-11 00:51:39 id = 1 (machine1); Seed = 228; Starting new sample
+2019-01-11 00:51:42 id = 2 (machine1); Seed = 226; Done (1)
+2019-01-11 00:51:42 id = 2 (machine1); Seed = 229; Starting new sample
+2019-01-11 00:53:44 id = 1 (machine1); Seed = 228; Done (0)
+2019-01-11 00:53:44 id = 1 (machine1); Seed = 230; Starting new sample
+2019-01-11 00:54:46 id = 2 (machine1); Seed = 229; Done (0)
+2019-01-11 00:54:46 id = 2 (machine1); Seed = 231; Starting new sample
+2019-01-11 00:55:39 id = 0 (machine1); Seed = 223; Done (0)
+2019-01-11 00:55:39 id = 0 (machine1); Seed = 232; Starting new sample
+2019-01-11 00:56:13 id = 4 (machine1); Seed = 224; Done (0)
+2019-01-11 00:56:13 id = 4 (machine1); Seed = 233; Starting new sample
+2019-01-11 00:57:30 id = 2 (machine1); Seed = 231; Done (0)
+2019-01-11 00:57:30 id = 2 (machine1); Seed = 234; Starting new sample
+2019-01-11 00:59:06 id = 4 (machine1); Seed = 233; Done (0)
+2019-01-11 00:59:06 id = 4 (machine1); Seed = 235; Starting new sample
+2019-01-11 00:59:58 id = 0 (machine1); Seed = 232; Done (0)
+2019-01-11 00:59:58 id = 0 (machine1); Seed = 236; Starting new sample
+2019-01-11 01:01:08 id = 1 (machine1); Seed = 230; Done (0)
+2019-01-11 01:01:08 id = 1 (machine1); Seed = 237; Starting new sample
+2019-01-11 01:01:28 id = 4 (machine1); Seed = 235; Done (0)
+2019-01-11 01:01:28 id = 4 (machine1); Seed = 238; Starting new sample
+2019-01-11 01:02:18 id = 0 (machine1); Seed = 236; Done (0)
+2019-01-11 01:02:18 id = 0 (machine1); Seed = 239; Starting new sample
+2019-01-11 01:03:12 id = 2 (machine1); Seed = 234; Done (0)
+2019-01-11 01:03:12 id = 2 (machine1); Seed = 240; Starting new sample
+2019-01-11 01:05:42 id = 0 (machine1); Seed = 239; Done (0)
+2019-01-11 01:05:42 id = 0 (machine1); Seed = 241; Starting new sample
+2019-01-11 01:05:52 id = 2 (machine1); Seed = 240; Done (0)
+2019-01-11 01:05:52 id = 2 (machine1); Seed = 242; Starting new sample
+2019-01-11 01:06:29 id = 4 (machine1); Seed = 238; Done (0)
+2019-01-11 01:06:29 id = 4 (machine1); Seed = 243; Starting new sample
+2019-01-11 01:07:39 id = 1 (machine1); Seed = 237; Done (1)
+2019-01-11 01:07:39 id = 1 (machine1); Seed = 244; Starting new sample
+2019-01-11 01:08:48 id = 0 (machine1); Seed = 241; Done (0)
+2019-01-11 01:08:48 id = 0 (machine1); Seed = 245; Starting new sample
+2019-01-11 01:09:06 id = 3 (machine1); Seed = 227; Done (0)
+2019-01-11 01:09:06 id = 3 (machine1); Seed = 246; Starting new sample
+2019-01-11 01:11:15 id = 3 (machine1); Seed = 246; Done (0)
+2019-01-11 01:11:15 id = 3 (machine1); Seed = 247; Starting new sample
+2019-01-11 01:13:29 id = 0 (machine1); Seed = 245; Done (0)
+2019-01-11 01:13:29 id = 0 (machine1); Seed = 248; Starting new sample
+2019-01-11 01:16:05 id = 4 (machine1); Seed = 243; Done (0)
+2019-01-11 01:16:05 id = 4 (machine1); Seed = 249; Starting new sample
+2019-01-11 01:16:34 id = 3 (machine1); Seed = 247; Done (0)
+2019-01-11 01:16:34 id = 3 (machine1); Seed = 250; Starting new sample
+2019-01-11 01:16:43 id = 0 (machine1); Seed = 248; Done (1)
+2019-01-11 01:16:43 id = 0 (machine1); Seed = 251; Starting new sample
+2019-01-11 01:18:08 id = 2 (machine1); Seed = 242; Done (0)
+2019-01-11 01:18:08 id = 2 (machine1); Seed = 252; Starting new sample
+2019-01-11 01:21:10 id = 4 (machine1); Seed = 249; Done (0)
+2019-01-11 01:21:10 id = 4 (machine1); Seed = 253; Starting new sample
+2019-01-11 01:21:42 id = 1 (machine1); Seed = 244; Done (0)
+2019-01-11 01:21:42 id = 1 (machine1); Seed = 254; Starting new sample
+2019-01-11 01:22:24 id = 3 (machine1); Seed = 250; Done (0)
+2019-01-11 01:22:24 id = 3 (machine1); Seed = 255; Starting new sample
+2019-01-11 01:24:02 id = 2 (machine1); Seed = 252; Done (0)
+2019-01-11 01:24:02 id = 2 (machine1); Seed = 256; Starting new sample
+2019-01-11 01:24:08 id = 0 (machine1); Seed = 251; Done (0)
+2019-01-11 01:24:08 id = 0 (machine1); Seed = 257; Starting new sample
+2019-01-11 01:24:14 id = 4 (machine1); Seed = 253; Done (0)
+2019-01-11 01:24:14 id = 4 (machine1); Seed = 258; Starting new sample
+2019-01-11 01:24:33 id = 1 (machine1); Seed = 254; Done (0)
+2019-01-11 01:24:33 id = 1 (machine1); Seed = 259; Starting new sample
+2019-01-11 01:25:58 id = 0 (machine1); Seed = 257; Done (0)
+2019-01-11 01:25:58 id = 0 (machine1); Seed = 260; Starting new sample
+2019-01-11 01:26:31 id = 2 (machine1); Seed = 256; Done (1)
+2019-01-11 01:26:31 id = 2 (machine1); Seed = 261; Starting new sample
+2019-01-11 01:27:24 id = 3 (machine1); Seed = 255; Done (0)
+2019-01-11 01:27:24 id = 3 (machine1); Seed = 262; Starting new sample
+2019-01-11 01:29:02 id = 0 (machine1); Seed = 260; Done (0)
+2019-01-11 01:29:02 id = 0 (machine1); Seed = 263; Starting new sample
+2019-01-11 01:29:32 id = 4 (machine1); Seed = 258; Done (0)
+2019-01-11 01:29:32 id = 4 (machine1); Seed = 264; Starting new sample
+2019-01-11 01:29:43 id = 1 (machine1); Seed = 259; Done (0)
+2019-01-11 01:29:43 id = 1 (machine1); Seed = 265; Starting new sample
+2019-01-11 01:31:28 id = 3 (machine1); Seed = 262; Done (0)
+2019-01-11 01:31:28 id = 3 (machine1); Seed = 266; Starting new sample
+2019-01-11 01:31:54 id = 2 (machine1); Seed = 261; Done (1)
+2019-01-11 01:31:54 id = 2 (machine1); Seed = 267; Starting new sample
+2019-01-11 01:32:06 id = 0 (machine1); Seed = 263; Done (0)
+2019-01-11 01:32:06 id = 0 (machine1); Seed = 268; Starting new sample
+2019-01-11 01:32:48 id = 1 (machine1); Seed = 265; Done (0)
+2019-01-11 01:32:48 id = 1 (machine1); Seed = 269; Starting new sample
+2019-01-11 01:34:03 id = 2 (machine1); Seed = 267; Done (0)
+2019-01-11 01:34:03 id = 2 (machine1); Seed = 270; Starting new sample
+2019-01-11 01:34:09 id = 3 (machine1); Seed = 266; Done (0)
+2019-01-11 01:34:09 id = 3 (machine1); Seed = 271; Starting new sample
+2019-01-11 01:35:10 id = 1 (machine1); Seed = 269; Done (0)
+2019-01-11 01:35:10 id = 1 (machine1); Seed = 272; Starting new sample
+2019-01-11 01:36:20 id = 3 (machine1); Seed = 271; Done (0)
+2019-01-11 01:36:20 id = 3 (machine1); Seed = 273; Starting new sample
+2019-01-11 01:38:19 id = 4 (machine1); Seed = 264; Done (0)
+2019-01-11 01:38:19 id = 4 (machine1); Seed = 274; Starting new sample
+2019-01-11 01:38:20 id = 1 (machine1); Seed = 272; Done (0)
+2019-01-11 01:38:20 id = 1 (machine1); Seed = 275; Starting new sample
+2019-01-11 01:39:03 id = 3 (machine1); Seed = 273; Done (0)
+2019-01-11 01:39:03 id = 3 (machine1); Seed = 276; Starting new sample
+2019-01-11 01:40:27 id = 1 (machine1); Seed = 275; Done (0)
+2019-01-11 01:40:27 id = 1 (machine1); Seed = 277; Starting new sample
+2019-01-11 01:40:53 id = 4 (machine1); Seed = 274; Done (1)
+2019-01-11 01:40:53 id = 4 (machine1); Seed = 278; Starting new sample
+2019-01-11 01:41:16 id = 3 (machine1); Seed = 276; Done (1)
+2019-01-11 01:41:16 id = 3 (machine1); Seed = 279; Starting new sample
+2019-01-11 01:41:18 id = 2 (machine1); Seed = 270; Done (0)
+2019-01-11 01:41:18 id = 2 (machine1); Seed = 280; Starting new sample
+2019-01-11 01:42:55 id = 0 (machine1); Seed = 268; Done (0)
+2019-01-11 01:42:55 id = 0 (machine1); Seed = 281; Starting new sample
+2019-01-11 01:43:15 id = 4 (machine1); Seed = 278; Done (1)
+2019-01-11 01:43:15 id = 4 (machine1); Seed = 282; Starting new sample
+2019-01-11 01:43:45 id = 1 (machine1); Seed = 277; Done (0)
+2019-01-11 01:43:45 id = 1 (machine1); Seed = 283; Starting new sample
+2019-01-11 01:44:01 id = 3 (machine1); Seed = 279; Done (1)
+2019-01-11 01:44:01 id = 3 (machine1); Seed = 284; Starting new sample
+2019-01-11 01:45:35 id = 0 (machine1); Seed = 281; Done (1)
+2019-01-11 01:45:35 id = 0 (machine1); Seed = 285; Starting new sample
+2019-01-11 01:46:15 id = 4 (machine1); Seed = 282; Done (0)
+2019-01-11 01:46:15 id = 4 (machine1); Seed = 286; Starting new sample
+2019-01-11 01:46:37 id = 3 (machine1); Seed = 284; Done (0)
+2019-01-11 01:46:37 id = 3 (machine1); Seed = 287; Starting new sample
+2019-01-11 01:46:49 id = 2 (machine1); Seed = 280; Done (0)
+2019-01-11 01:46:49 id = 2 (machine1); Seed = 288; Starting new sample
+2019-01-11 01:49:45 id = 3 (machine1); Seed = 287; Done (0)
+2019-01-11 01:49:45 id = 3 (machine1); Seed = 289; Starting new sample
+2019-01-11 01:51:41 id = 0 (machine1); Seed = 285; Done (0)
+2019-01-11 01:51:41 id = 0 (machine1); Seed = 290; Starting new sample
+2019-01-11 01:52:10 id = 2 (machine1); Seed = 288; Done (0)
+2019-01-11 01:52:10 id = 2 (machine1); Seed = 291; Starting new sample
+2019-01-11 01:52:43 id = 3 (machine1); Seed = 289; Done (0)
+2019-01-11 01:52:43 id = 3 (machine1); Seed = 292; Starting new sample
+2019-01-11 01:52:51 id = 1 (machine1); Seed = 283; Done (0)
+2019-01-11 01:52:51 id = 1 (machine1); Seed = 293; Starting new sample
+2019-01-11 01:54:05 id = 0 (machine1); Seed = 290; Done (0)
+2019-01-11 01:54:05 id = 0 (machine1); Seed = 294; Starting new sample
+2019-01-11 01:55:05 id = 3 (machine1); Seed = 292; Done (1)
+2019-01-11 01:55:05 id = 3 (machine1); Seed = 295; Starting new sample
+2019-01-11 01:56:03 id = 1 (machine1); Seed = 293; Done (0)
+2019-01-11 01:56:03 id = 1 (machine1); Seed = 296; Starting new sample
+2019-01-11 01:57:21 id = 3 (machine1); Seed = 295; Done (0)
+2019-01-11 01:57:22 id = 3 (machine1); Seed = 297; Starting new sample
+2019-01-11 01:58:22 id = 4 (machine1); Seed = 286; Done (0)
+2019-01-11 01:58:22 id = 4 (machine1); Seed = 298; Starting new sample
+2019-01-11 01:59:05 id = 1 (machine1); Seed = 296; Done (1)
+2019-01-11 01:59:05 id = 1 (machine1); Seed = 299; Starting new sample
+2019-01-11 02:00:27 id = 4 (machine1); Seed = 298; Done (1)
+2019-01-11 02:00:27 id = 4 (machine1); Seed = 300; Starting new sample
+2019-01-11 02:02:16 id = 1 (machine1); Seed = 299; Done (0)
+2019-01-11 02:02:16 id = 1 (machine1); Seed = 301; Starting new sample
+2019-01-11 02:02:23 id = 3 (machine1); Seed = 297; Done (0)
+2019-01-11 02:02:23 id = 3 (machine1); Seed = 302; Starting new sample
+2019-01-11 02:02:50 id = 4 (machine1); Seed = 300; Done (0)
+2019-01-11 02:02:50 id = 4 (machine1); Seed = 303; Starting new sample
+2019-01-11 02:04:51 id = 2 (machine1); Seed = 291; Done (0)
+2019-01-11 02:04:51 id = 2 (machine1); Seed = 304; Starting new sample
+2019-01-11 02:06:04 id = 4 (machine1); Seed = 303; Done (0)
+2019-01-11 02:06:04 id = 4 (machine1); Seed = 305; Starting new sample
+2019-01-11 02:06:41 id = 3 (machine1); Seed = 302; Done (0)
+2019-01-11 02:06:41 id = 3 (machine1); Seed = 306; Starting new sample
+2019-01-11 02:07:37 id = 2 (machine1); Seed = 304; Done (1)
+2019-01-11 02:07:37 id = 2 (machine1); Seed = 307; Starting new sample
+2019-01-11 02:08:23 id = 1 (machine1); Seed = 301; Done (0)
+2019-01-11 02:08:23 id = 1 (machine1); Seed = 308; Starting new sample
+2019-01-11 02:09:10 id = 4 (machine1); Seed = 305; Done (1)
+2019-01-11 02:09:10 id = 4 (machine1); Seed = 309; Starting new sample
+2019-01-11 02:09:44 id = 2 (machine1); Seed = 307; Done (0)
+2019-01-11 02:09:44 id = 2 (machine1); Seed = 310; Starting new sample
+2019-01-11 02:11:13 id = 1 (machine1); Seed = 308; Done (0)
+2019-01-11 02:11:13 id = 1 (machine1); Seed = 311; Starting new sample
+2019-01-11 02:14:17 id = 1 (machine1); Seed = 311; Done (0)
+2019-01-11 02:14:17 id = 1 (machine1); Seed = 312; Starting new sample
+2019-01-11 02:17:34 id = 0 (machine1); Seed = 294; Done (0)
+2019-01-11 02:17:34 id = 0 (machine1); Seed = 313; Starting new sample
+2019-01-11 02:17:51 id = 2 (machine1); Seed = 310; Done (0)
+2019-01-11 02:17:51 id = 2 (machine1); Seed = 314; Starting new sample
+2019-01-11 02:19:25 id = 4 (machine1); Seed = 309; Done (0)
+2019-01-11 02:19:25 id = 4 (machine1); Seed = 315; Starting new sample
+2019-01-11 02:20:32 id = 3 (machine1); Seed = 306; Done (0)
+2019-01-11 02:20:32 id = 3 (machine1); Seed = 316; Starting new sample
+2019-01-11 02:20:42 id = 0 (machine1); Seed = 313; Done (0)
+2019-01-11 02:20:42 id = 0 (machine1); Seed = 317; Starting new sample
+2019-01-11 02:22:56 id = 0 (machine1); Seed = 317; Done (0)
+2019-01-11 02:22:56 id = 0 (machine1); Seed = 318; Starting new sample
+2019-01-11 02:23:41 id = 1 (machine1); Seed = 312; Done (0)
+2019-01-11 02:23:41 id = 1 (machine1); Seed = 319; Starting new sample
+2019-01-11 02:24:06 id = 3 (machine1); Seed = 316; Done (0)
+2019-01-11 02:24:06 id = 3 (machine1); Seed = 320; Starting new sample
+2019-01-11 02:25:08 id = 2 (machine1); Seed = 314; Done (0)
+2019-01-11 02:25:08 id = 2 (machine1); Seed = 321; Starting new sample
+2019-01-11 02:26:06 id = 0 (machine1); Seed = 318; Done (0)
+2019-01-11 02:26:06 id = 0 (machine1); Seed = 322; Starting new sample
+2019-01-11 02:30:25 id = 2 (machine1); Seed = 321; Done (0)
+2019-01-11 02:30:25 id = 2 (machine1); Seed = 323; Starting new sample
+2019-01-11 02:31:36 id = 1 (machine1); Seed = 319; Done (0)
+2019-01-11 02:31:36 id = 1 (machine1); Seed = 324; Starting new sample
+2019-01-11 02:32:13 id = 4 (machine1); Seed = 315; Done (1)
+2019-01-11 02:32:13 id = 4 (machine1); Seed = 325; Starting new sample
+2019-01-11 02:32:45 id = 0 (machine1); Seed = 322; Done (0)
+2019-01-11 02:32:45 id = 0 (machine1); Seed = 326; Starting new sample
+2019-01-11 02:34:25 id = 3 (machine1); Seed = 320; Done (1)
+2019-01-11 02:34:25 id = 3 (machine1); Seed = 327; Starting new sample
+2019-01-11 02:36:06 id = 0 (machine1); Seed = 326; Done (0)
+2019-01-11 02:36:06 id = 0 (machine1); Seed = 328; Starting new sample
+2019-01-11 02:37:11 id = 1 (machine1); Seed = 324; Done (0)
+2019-01-11 02:37:11 id = 1 (machine1); Seed = 329; Starting new sample
+2019-01-11 02:37:32 id = 2 (machine1); Seed = 323; Done (0)
+2019-01-11 02:37:32 id = 2 (machine1); Seed = 330; Starting new sample
+2019-01-11 02:41:48 id = 0 (machine1); Seed = 328; Done (0)
+2019-01-11 02:41:48 id = 0 (machine1); Seed = 331; Starting new sample
+2019-01-11 02:42:47 id = 4 (machine1); Seed = 325; Done (0)
+2019-01-11 02:42:47 id = 4 (machine1); Seed = 332; Starting new sample
+2019-01-11 02:44:52 id = 0 (machine1); Seed = 331; Done (0)
+2019-01-11 02:44:52 id = 0 (machine1); Seed = 333; Starting new sample
+2019-01-11 02:47:21 id = 0 (machine1); Seed = 333; Done (0)
+2019-01-11 02:47:21 id = 0 (machine1); Seed = 334; Starting new sample
+2019-01-11 02:48:35 id = 1 (machine1); Seed = 329; Done (0)
+2019-01-11 02:48:35 id = 1 (machine1); Seed = 335; Starting new sample
+2019-01-11 02:48:47 id = 3 (machine1); Seed = 327; Done (0)
+2019-01-11 02:48:47 id = 3 (machine1); Seed = 336; Starting new sample
+2019-01-11 02:50:42 id = 1 (machine1); Seed = 335; Done (0)
+2019-01-11 02:50:42 id = 1 (machine1); Seed = 337; Starting new sample
+2019-01-11 02:50:50 id = 3 (machine1); Seed = 336; Done (0)
+2019-01-11 02:50:50 id = 3 (machine1); Seed = 338; Starting new sample
+2019-01-11 02:52:31 id = 1 (machine1); Seed = 337; Done (0)
+2019-01-11 02:52:31 id = 1 (machine1); Seed = 339; Starting new sample
+2019-01-11 02:56:24 id = 3 (machine1); Seed = 338; Done (0)
+2019-01-11 02:56:24 id = 3 (machine1); Seed = 340; Starting new sample
+2019-01-11 02:59:47 id = 4 (machine1); Seed = 332; Done (0)
+2019-01-11 02:59:47 id = 4 (machine1); Seed = 341; Starting new sample
+2019-01-11 03:00:39 id = 1 (machine1); Seed = 339; Done (1)
+2019-01-11 03:00:39 id = 1 (machine1); Seed = 342; Starting new sample
+2019-01-11 03:00:50 id = 2 (machine1); Seed = 330; Done (1)
+2019-01-11 03:00:50 id = 2 (machine1); Seed = 343; Starting new sample
+2019-01-11 03:01:24 id = 3 (machine1); Seed = 340; Done (0)
+2019-01-11 03:01:24 id = 3 (machine1); Seed = 344; Starting new sample
+2019-01-11 03:02:09 id = 4 (machine1); Seed = 341; Done (0)
+2019-01-11 03:02:09 id = 4 (machine1); Seed = 345; Starting new sample
+2019-01-11 03:03:47 id = 1 (machine1); Seed = 342; Done (0)
+2019-01-11 03:03:47 id = 1 (machine1); Seed = 346; Starting new sample
+2019-01-11 03:04:16 id = 3 (machine1); Seed = 344; Done (0)
+2019-01-11 03:04:16 id = 3 (machine1); Seed = 347; Starting new sample
+2019-01-11 03:05:46 id = 1 (machine1); Seed = 346; Done (0)
+2019-01-11 03:05:46 id = 1 (machine1); Seed = 348; Starting new sample
+2019-01-11 03:08:40 id = 1 (machine1); Seed = 348; Done (0)
+2019-01-11 03:08:40 id = 1 (machine1); Seed = 349; Starting new sample
+2019-01-11 03:09:24 id = 3 (machine1); Seed = 347; Done (0)
+2019-01-11 03:09:24 id = 3 (machine1); Seed = 350; Starting new sample
+2019-01-11 03:10:41 id = 2 (machine1); Seed = 343; Done (0)
+2019-01-11 03:10:41 id = 2 (machine1); Seed = 351; Starting new sample
+2019-01-11 03:12:21 id = 0 (machine1); Seed = 334; Done (1)
+2019-01-11 03:12:21 id = 0 (machine1); Seed = 352; Starting new sample
+2019-01-11 03:13:12 id = 4 (machine1); Seed = 345; Done (0)
+2019-01-11 03:13:12 id = 4 (machine1); Seed = 353; Starting new sample
+2019-01-11 03:14:10 id = 3 (machine1); Seed = 350; Done (0)
+2019-01-11 03:14:10 id = 3 (machine1); Seed = 354; Starting new sample
+2019-01-11 03:14:22 id = 1 (machine1); Seed = 349; Done (0)
+2019-01-11 03:14:22 id = 1 (machine1); Seed = 355; Starting new sample
+2019-01-11 03:15:04 id = 0 (machine1); Seed = 352; Done (1)
+2019-01-11 03:15:04 id = 0 (machine1); Seed = 356; Starting new sample
+2019-01-11 03:16:24 id = 2 (machine1); Seed = 351; Done (0)
+2019-01-11 03:16:24 id = 2 (machine1); Seed = 357; Starting new sample
+2019-01-11 03:16:34 id = 3 (machine1); Seed = 354; Done (0)
+2019-01-11 03:16:34 id = 3 (machine1); Seed = 358; Starting new sample
+2019-01-11 03:17:55 id = 0 (machine1); Seed = 356; Done (0)
+2019-01-11 03:17:55 id = 0 (machine1); Seed = 359; Starting new sample
+2019-01-11 03:19:26 id = 3 (machine1); Seed = 358; Done (0)
+2019-01-11 03:19:26 id = 3 (machine1); Seed = 360; Starting new sample
+2019-01-11 03:20:19 id = 1 (machine1); Seed = 355; Done (0)
+2019-01-11 03:20:19 id = 1 (machine1); Seed = 361; Starting new sample
+2019-01-11 03:21:26 id = 4 (machine1); Seed = 353; Done (0)
+2019-01-11 03:21:26 id = 4 (machine1); Seed = 362; Starting new sample
+2019-01-11 03:22:04 id = 3 (machine1); Seed = 360; Done (0)
+2019-01-11 03:22:04 id = 3 (machine1); Seed = 363; Starting new sample
+2019-01-11 03:23:00 id = 1 (machine1); Seed = 361; Done (0)
+2019-01-11 03:23:00 id = 1 (machine1); Seed = 364; Starting new sample
+2019-01-11 03:23:25 id = 4 (machine1); Seed = 362; Done (0)
+2019-01-11 03:23:25 id = 4 (machine1); Seed = 365; Starting new sample
+2019-01-11 03:24:43 id = 3 (machine1); Seed = 363; Done (0)
+2019-01-11 03:24:43 id = 3 (machine1); Seed = 366; Starting new sample
+2019-01-11 03:26:31 id = 1 (machine1); Seed = 364; Done (1)
+2019-01-11 03:26:31 id = 1 (machine1); Seed = 367; Starting new sample
+2019-01-11 03:27:15 id = 0 (machine1); Seed = 359; Done (0)
+2019-01-11 03:27:15 id = 0 (machine1); Seed = 368; Starting new sample
+2019-01-11 03:29:03 id = 4 (machine1); Seed = 365; Done (0)
+2019-01-11 03:29:03 id = 4 (machine1); Seed = 369; Starting new sample
+2019-01-11 03:29:38 id = 3 (machine1); Seed = 366; Done (0)
+2019-01-11 03:29:38 id = 3 (machine1); Seed = 370; Starting new sample
+2019-01-11 03:29:59 id = 1 (machine1); Seed = 367; Done (0)
+2019-01-11 03:29:59 id = 1 (machine1); Seed = 371; Starting new sample
+2019-01-11 03:30:53 id = 2 (machine1); Seed = 357; Done (0)
+2019-01-11 03:30:53 id = 2 (machine1); Seed = 372; Starting new sample
+2019-01-11 03:33:06 id = 3 (machine1); Seed = 370; Done (0)
+2019-01-11 03:33:06 id = 3 (machine1); Seed = 373; Starting new sample
+2019-01-11 03:33:17 id = 1 (machine1); Seed = 371; Done (0)
+2019-01-11 03:33:17 id = 1 (machine1); Seed = 374; Starting new sample
+2019-01-11 03:33:51 id = 2 (machine1); Seed = 372; Done (0)
+2019-01-11 03:33:51 id = 2 (machine1); Seed = 375; Starting new sample
+2019-01-11 03:36:19 id = 1 (machine1); Seed = 374; Done (0)
+2019-01-11 03:36:19 id = 1 (machine1); Seed = 376; Starting new sample
+2019-01-11 03:37:03 id = 2 (machine1); Seed = 375; Done (0)
+2019-01-11 03:37:03 id = 2 (machine1); Seed = 377; Starting new sample
+2019-01-11 03:38:08 id = 4 (machine1); Seed = 369; Done (0)
+2019-01-11 03:38:09 id = 4 (machine1); Seed = 378; Starting new sample
+2019-01-11 03:38:22 id = 0 (machine1); Seed = 368; Done (0)
+2019-01-11 03:38:22 id = 0 (machine1); Seed = 379; Starting new sample
+2019-01-11 03:41:09 id = 3 (machine1); Seed = 373; Done (0)
+2019-01-11 03:41:09 id = 3 (machine1); Seed = 380; Starting new sample
+2019-01-11 03:41:37 id = 4 (machine1); Seed = 378; Done (0)
+2019-01-11 03:41:37 id = 4 (machine1); Seed = 381; Starting new sample
+2019-01-11 03:42:34 id = 2 (machine1); Seed = 377; Done (0)
+2019-01-11 03:42:34 id = 2 (machine1); Seed = 382; Starting new sample
+2019-01-11 03:44:00 id = 1 (machine1); Seed = 376; Done (0)
+2019-01-11 03:44:00 id = 1 (machine1); Seed = 383; Starting new sample
+2019-01-11 03:44:02 id = 0 (machine1); Seed = 379; Done (0)
+2019-01-11 03:44:02 id = 0 (machine1); Seed = 384; Starting new sample
+2019-01-11 03:44:28 id = 4 (machine1); Seed = 381; Done (0)
+2019-01-11 03:44:28 id = 4 (machine1); Seed = 385; Starting new sample
+2019-01-11 03:46:03 id = 3 (machine1); Seed = 380; Done (0)
+2019-01-11 03:46:03 id = 3 (machine1); Seed = 386; Starting new sample
+2019-01-11 03:49:00 id = 0 (machine1); Seed = 384; Done (0)
+2019-01-11 03:49:00 id = 0 (machine1); Seed = 387; Starting new sample
+2019-01-11 03:49:45 id = 2 (machine1); Seed = 382; Done (0)
+2019-01-11 03:49:45 id = 2 (machine1); Seed = 388; Starting new sample
+2019-01-11 03:51:59 id = 0 (machine1); Seed = 387; Done (0)
+2019-01-11 03:51:59 id = 0 (machine1); Seed = 389; Starting new sample
+2019-01-11 03:53:03 id = 3 (machine1); Seed = 386; Done (0)
+2019-01-11 03:53:03 id = 3 (machine1); Seed = 390; Starting new sample
+2019-01-11 03:53:04 id = 4 (machine1); Seed = 385; Done (0)
+2019-01-11 03:53:04 id = 4 (machine1); Seed = 391; Starting new sample
+2019-01-11 03:55:00 id = 1 (machine1); Seed = 383; Done (0)
+2019-01-11 03:55:00 id = 1 (machine1); Seed = 392; Starting new sample
+2019-01-11 03:55:24 id = 4 (machine1); Seed = 391; Done (0)
+2019-01-11 03:55:24 id = 4 (machine1); Seed = 393; Starting new sample
+2019-01-11 03:55:25 id = 0 (machine1); Seed = 389; Done (0)
+2019-01-11 03:55:25 id = 0 (machine1); Seed = 394; Starting new sample
+2019-01-11 03:58:01 id = 2 (machine1); Seed = 388; Done (0)
+2019-01-11 03:58:01 id = 2 (machine1); Seed = 395; Starting new sample
+2019-01-11 03:58:43 id = 4 (machine1); Seed = 393; Done (0)
+2019-01-11 03:58:43 id = 4 (machine1); Seed = 396; Starting new sample
+2019-01-11 04:00:50 id = 3 (machine1); Seed = 390; Done (0)
+2019-01-11 04:00:50 id = 3 (machine1); Seed = 397; Starting new sample
+2019-01-11 04:01:22 id = 2 (machine1); Seed = 395; Done (0)
+2019-01-11 04:01:22 id = 2 (machine1); Seed = 398; Starting new sample
+2019-01-11 04:02:37 id = 1 (machine1); Seed = 392; Done (0)
+2019-01-11 04:02:37 id = 1 (machine1); Seed = 399; Starting new sample
+2019-01-11 04:03:23 id = 2 (machine1); Seed = 398; Done (0)
+2019-01-11 04:03:23 id = 2 (machine1); Seed = 400; Starting new sample
+2019-01-11 04:03:45 id = 4 (machine1); Seed = 396; Done (0)
+2019-01-11 04:03:45 id = 4 (machine1); Seed = 401; Starting new sample
+2019-01-11 04:03:48 id = 3 (machine1); Seed = 397; Done (0)
+2019-01-11 04:03:48 id = 3 (machine1); Seed = 402; Starting new sample
+2019-01-11 04:05:32 id = 1 (machine1); Seed = 399; Done (0)
+2019-01-11 04:05:32 id = 1 (machine1); Seed = 403; Starting new sample
+2019-01-11 04:05:57 id = 3 (machine1); Seed = 402; Done (0)
+2019-01-11 04:05:57 id = 3 (machine1); Seed = 404; Starting new sample
+2019-01-11 04:06:34 id = 4 (machine1); Seed = 401; Done (0)
+2019-01-11 04:06:34 id = 4 (machine1); Seed = 405; Starting new sample
+2019-01-11 04:07:13 id = 0 (machine1); Seed = 394; Done (0)
+2019-01-11 04:07:13 id = 0 (machine1); Seed = 406; Starting new sample
+2019-01-11 04:08:37 id = 1 (machine1); Seed = 403; Done (0)
+2019-01-11 04:08:37 id = 1 (machine1); Seed = 407; Starting new sample
+2019-01-11 04:09:08 id = 3 (machine1); Seed = 404; Done (2)
+2019-01-11 04:09:08 id = 3 (machine1); Seed = 408; Starting new sample
+2019-01-11 04:09:16 id = 2 (machine1); Seed = 400; Done (0)
+2019-01-11 04:09:16 id = 2 (machine1); Seed = 409; Starting new sample
+2019-01-11 04:10:30 id = 0 (machine1); Seed = 406; Done (1)
+2019-01-11 04:10:30 id = 0 (machine1); Seed = 410; Starting new sample
+2019-01-11 04:12:02 id = 4 (machine1); Seed = 405; Done (0)
+2019-01-11 04:12:02 id = 4 (machine1); Seed = 411; Starting new sample
+2019-01-11 04:12:51 id = 2 (machine1); Seed = 409; Done (0)
+2019-01-11 04:12:51 id = 2 (machine1); Seed = 412; Starting new sample
+2019-01-11 04:14:08 id = 3 (machine1); Seed = 408; Done (0)
+2019-01-11 04:14:08 id = 3 (machine1); Seed = 413; Starting new sample
+2019-01-11 04:16:02 id = 2 (machine1); Seed = 412; Done (0)
+2019-01-11 04:16:02 id = 2 (machine1); Seed = 414; Starting new sample
+2019-01-11 04:16:55 id = 1 (machine1); Seed = 407; Done (0)
+2019-01-11 04:16:55 id = 1 (machine1); Seed = 415; Starting new sample
+2019-01-11 04:17:29 id = 4 (machine1); Seed = 411; Done (0)
+2019-01-11 04:17:29 id = 4 (machine1); Seed = 416; Starting new sample
+2019-01-11 04:17:44 id = 3 (machine1); Seed = 413; Done (0)
+2019-01-11 04:17:44 id = 3 (machine1); Seed = 417; Starting new sample
+2019-01-11 04:17:59 id = 2 (machine1); Seed = 414; Done (0)
+2019-01-11 04:17:59 id = 2 (machine1); Seed = 418; Starting new sample
+2019-01-11 04:19:13 id = 1 (machine1); Seed = 415; Done (0)
+2019-01-11 04:19:13 id = 1 (machine1); Seed = 419; Starting new sample
+2019-01-11 04:20:16 id = 2 (machine1); Seed = 418; Done (0)
+2019-01-11 04:20:16 id = 2 (machine1); Seed = 420; Starting new sample
+2019-01-11 04:20:38 id = 0 (machine1); Seed = 410; Done (0)
+2019-01-11 04:20:38 id = 0 (machine1); Seed = 421; Starting new sample
+2019-01-11 04:21:11 id = 4 (machine1); Seed = 416; Done (0)
+2019-01-11 04:21:11 id = 4 (machine1); Seed = 422; Starting new sample
+2019-01-11 04:22:08 id = 1 (machine1); Seed = 419; Done (0)
+2019-01-11 04:22:08 id = 1 (machine1); Seed = 423; Starting new sample
+2019-01-11 04:23:08 id = 4 (machine1); Seed = 422; Done (0)
+2019-01-11 04:23:08 id = 4 (machine1); Seed = 424; Starting new sample
+2019-01-11 04:25:09 id = 4 (machine1); Seed = 424; Done (0)
+2019-01-11 04:25:09 id = 4 (machine1); Seed = 425; Starting new sample
+2019-01-11 04:27:58 id = 4 (machine1); Seed = 425; Done (0)
+2019-01-11 04:27:58 id = 4 (machine1); Seed = 426; Starting new sample
+2019-01-11 04:28:10 id = 3 (machine1); Seed = 417; Done (0)
+2019-01-11 04:28:10 id = 3 (machine1); Seed = 427; Starting new sample
+2019-01-11 04:30:30 id = 2 (machine1); Seed = 420; Done (0)
+2019-01-11 04:30:30 id = 2 (machine1); Seed = 428; Starting new sample
+2019-01-11 04:30:41 id = 0 (machine1); Seed = 421; Done (0)
+2019-01-11 04:30:41 id = 0 (machine1); Seed = 429; Starting new sample
+2019-01-11 04:33:20 id = 2 (machine1); Seed = 428; Done (0)
+2019-01-11 04:33:20 id = 2 (machine1); Seed = 430; Starting new sample
+2019-01-11 04:33:28 id = 0 (machine1); Seed = 429; Done (1)
+2019-01-11 04:33:28 id = 0 (machine1); Seed = 431; Starting new sample
+2019-01-11 04:33:38 id = 3 (machine1); Seed = 427; Done (1)
+2019-01-11 04:33:38 id = 3 (machine1); Seed = 432; Starting new sample
+2019-01-11 04:33:50 id = 1 (machine1); Seed = 423; Done (0)
+2019-01-11 04:33:50 id = 1 (machine1); Seed = 433; Starting new sample
+2019-01-11 04:35:13 id = 4 (machine1); Seed = 426; Done (0)
+2019-01-11 04:35:13 id = 4 (machine1); Seed = 434; Starting new sample
+2019-01-11 04:35:59 id = 0 (machine1); Seed = 431; Done (0)
+2019-01-11 04:35:59 id = 0 (machine1); Seed = 435; Starting new sample
+2019-01-11 04:36:39 id = 1 (machine1); Seed = 433; Done (0)
+2019-01-11 04:36:39 id = 1 (machine1); Seed = 436; Starting new sample
+2019-01-11 04:36:44 id = 3 (machine1); Seed = 432; Done (1)
+2019-01-11 04:36:44 id = 3 (machine1); Seed = 437; Starting new sample
+2019-01-11 04:38:22 id = 2 (machine1); Seed = 430; Done (0)
+2019-01-11 04:38:22 id = 2 (machine1); Seed = 438; Starting new sample
+2019-01-11 04:39:24 id = 0 (machine1); Seed = 435; Done (0)
+2019-01-11 04:39:24 id = 0 (machine1); Seed = 439; Starting new sample
+2019-01-11 04:39:29 id = 3 (machine1); Seed = 437; Done (0)
+2019-01-11 04:39:29 id = 3 (machine1); Seed = 440; Starting new sample
+2019-01-11 04:39:43 id = 4 (machine1); Seed = 434; Done (0)
+2019-01-11 04:39:43 id = 4 (machine1); Seed = 441; Starting new sample
+2019-01-11 04:42:17 id = 1 (machine1); Seed = 436; Done (0)
+2019-01-11 04:42:17 id = 1 (machine1); Seed = 442; Starting new sample
+2019-01-11 04:42:50 id = 4 (machine1); Seed = 441; Done (0)
+2019-01-11 04:42:50 id = 4 (machine1); Seed = 443; Starting new sample
+2019-01-11 04:46:42 id = 1 (machine1); Seed = 442; Done (0)
+2019-01-11 04:46:42 id = 1 (machine1); Seed = 444; Starting new sample
+2019-01-11 04:47:58 id = 4 (machine1); Seed = 443; Done (0)
+2019-01-11 04:47:58 id = 4 (machine1); Seed = 445; Starting new sample
+2019-01-11 04:50:02 id = 2 (machine1); Seed = 438; Done (0)
+2019-01-11 04:50:02 id = 2 (machine1); Seed = 446; Starting new sample
+2019-01-11 04:50:29 id = 0 (machine1); Seed = 439; Done (1)
+2019-01-11 04:50:29 id = 0 (machine1); Seed = 447; Starting new sample
+2019-01-11 04:50:58 id = 4 (machine1); Seed = 445; Done (0)
+2019-01-11 04:50:58 id = 4 (machine1); Seed = 448; Starting new sample
+2019-01-11 04:51:04 id = 1 (machine1); Seed = 444; Done (1)
+2019-01-11 04:51:04 id = 1 (machine1); Seed = 449; Starting new sample
+2019-01-11 04:52:43 id = 2 (machine1); Seed = 446; Done (0)
+2019-01-11 04:52:43 id = 2 (machine1); Seed = 450; Starting new sample
+2019-01-11 04:52:50 id = 1 (machine1); Seed = 449; Done (1)
+2019-01-11 04:52:50 id = 1 (machine1); Seed = 451; Starting new sample
+2019-01-11 04:55:14 id = 2 (machine1); Seed = 450; Done (0)
+2019-01-11 04:55:14 id = 2 (machine1); Seed = 452; Starting new sample
+2019-01-11 04:57:00 id = 2 (machine1); Seed = 452; Done (0)
+2019-01-11 04:57:00 id = 2 (machine1); Seed = 453; Starting new sample
+2019-01-11 04:57:56 id = 1 (machine1); Seed = 451; Done (0)
+2019-01-11 04:57:56 id = 1 (machine1); Seed = 454; Starting new sample
+2019-01-11 04:59:44 id = 0 (machine1); Seed = 447; Done (0)
+2019-01-11 04:59:44 id = 0 (machine1); Seed = 455; Starting new sample
+2019-01-11 04:59:44 id = 4 (machine1); Seed = 448; Done (1)
+2019-01-11 04:59:44 id = 4 (machine1); Seed = 456; Starting new sample
+2019-01-11 05:00:19 id = 1 (machine1); Seed = 454; Done (0)
+2019-01-11 05:00:19 id = 1 (machine1); Seed = 457; Starting new sample
+2019-01-11 05:03:09 id = 4 (machine1); Seed = 456; Done (0)
+2019-01-11 05:03:09 id = 4 (machine1); Seed = 458; Starting new sample
+2019-01-11 05:05:01 id = 3 (machine1); Seed = 440; Done (0)
+2019-01-11 05:05:01 id = 3 (machine1); Seed = 459; Starting new sample
+2019-01-11 05:05:52 id = 1 (machine1); Seed = 457; Done (0)
+2019-01-11 05:05:52 id = 1 (machine1); Seed = 460; Starting new sample
+2019-01-11 05:07:12 id = 2 (machine1); Seed = 453; Done (1)
+2019-01-11 05:07:12 id = 2 (machine1); Seed = 461; Starting new sample
+2019-01-11 05:07:57 id = 0 (machine1); Seed = 455; Done (0)
+2019-01-11 05:07:57 id = 0 (machine1); Seed = 462; Starting new sample
+2019-01-11 05:08:58 id = 1 (machine1); Seed = 460; Done (0)
+2019-01-11 05:08:58 id = 1 (machine1); Seed = 463; Starting new sample
+2019-01-11 05:11:24 id = 4 (machine1); Seed = 458; Done (0)
+2019-01-11 05:11:24 id = 4 (machine1); Seed = 464; Starting new sample
+2019-01-11 05:11:46 id = 3 (machine1); Seed = 459; Done (0)
+2019-01-11 05:11:46 id = 3 (machine1); Seed = 465; Starting new sample
+2019-01-11 05:13:20 id = 2 (machine1); Seed = 461; Done (0)
+2019-01-11 05:13:20 id = 2 (machine1); Seed = 466; Starting new sample
+2019-01-11 05:13:42 id = 0 (machine1); Seed = 462; Done (1)
+2019-01-11 05:13:42 id = 0 (machine1); Seed = 467; Starting new sample
+2019-01-11 05:14:28 id = 1 (machine1); Seed = 463; Done (0)
+2019-01-11 05:14:28 id = 1 (machine1); Seed = 468; Starting new sample
+2019-01-11 05:15:05 id = 3 (machine1); Seed = 465; Done (0)
+2019-01-11 05:15:05 id = 3 (machine1); Seed = 469; Starting new sample
+2019-01-11 05:16:29 id = 0 (machine1); Seed = 467; Done (0)
+2019-01-11 05:16:29 id = 0 (machine1); Seed = 470; Starting new sample
+2019-01-11 05:19:00 id = 0 (machine1); Seed = 470; Done (0)
+2019-01-11 05:19:00 id = 0 (machine1); Seed = 471; Starting new sample
+2019-01-11 05:19:55 id = 4 (machine1); Seed = 464; Done (0)
+2019-01-11 05:19:55 id = 4 (machine1); Seed = 472; Starting new sample
+2019-01-11 05:20:45 id = 2 (machine1); Seed = 466; Done (0)
+2019-01-11 05:20:45 id = 2 (machine1); Seed = 473; Starting new sample
+2019-01-11 05:21:04 id = 3 (machine1); Seed = 469; Done (0)
+2019-01-11 05:21:04 id = 3 (machine1); Seed = 474; Starting new sample
+2019-01-11 05:22:20 id = 1 (machine1); Seed = 468; Done (0)
+2019-01-11 05:22:20 id = 1 (machine1); Seed = 475; Starting new sample
+2019-01-11 05:22:27 id = 0 (machine1); Seed = 471; Done (0)
+2019-01-11 05:22:27 id = 0 (machine1); Seed = 476; Starting new sample
+2019-01-11 05:22:40 id = 4 (machine1); Seed = 472; Done (0)
+2019-01-11 05:22:40 id = 4 (machine1); Seed = 477; Starting new sample
+2019-01-11 05:25:04 id = 0 (machine1); Seed = 476; Done (1)
+2019-01-11 05:25:04 id = 0 (machine1); Seed = 478; Starting new sample
+2019-01-11 05:27:06 id = 1 (machine1); Seed = 475; Done (0)
+2019-01-11 05:27:06 id = 1 (machine1); Seed = 479; Starting new sample
+2019-01-11 05:28:18 id = 4 (machine1); Seed = 477; Done (0)
+2019-01-11 05:28:18 id = 4 (machine1); Seed = 480; Starting new sample
+2019-01-11 05:30:13 id = 2 (machine1); Seed = 473; Done (0)
+2019-01-11 05:30:13 id = 2 (machine1); Seed = 481; Starting new sample
+2019-01-11 05:31:35 id = 4 (machine1); Seed = 480; Done (0)
+2019-01-11 05:31:35 id = 4 (machine1); Seed = 482; Starting new sample
+2019-01-11 05:32:16 id = 0 (machine1); Seed = 478; Done (0)
+2019-01-11 05:32:16 id = 0 (machine1); Seed = 483; Starting new sample
+2019-01-11 05:33:52 id = 3 (machine1); Seed = 474; Done (0)
+2019-01-11 05:33:52 id = 3 (machine1); Seed = 484; Starting new sample
+2019-01-11 05:37:12 id = 1 (machine1); Seed = 479; Done (0)
+2019-01-11 05:37:12 id = 1 (machine1); Seed = 485; Starting new sample
+2019-01-11 05:37:29 id = 0 (machine1); Seed = 483; Done (1)
+2019-01-11 05:37:29 id = 0 (machine1); Seed = 486; Starting new sample
+2019-01-11 05:40:05 id = 1 (machine1); Seed = 485; Done (0)
+2019-01-11 05:40:05 id = 1 (machine1); Seed = 487; Starting new sample
+2019-01-11 05:42:05 id = 2 (machine1); Seed = 481; Done (0)
+2019-01-11 05:42:05 id = 2 (machine1); Seed = 488; Starting new sample
+2019-01-11 05:42:21 id = 3 (machine1); Seed = 484; Done (0)
+2019-01-11 05:42:21 id = 3 (machine1); Seed = 489; Starting new sample
+2019-01-11 05:42:33 id = 0 (machine1); Seed = 486; Done (0)
+2019-01-11 05:42:33 id = 0 (machine1); Seed = 490; Starting new sample
+2019-01-11 05:43:20 id = 1 (machine1); Seed = 487; Done (0)
+2019-01-11 05:43:20 id = 1 (machine1); Seed = 491; Starting new sample
+2019-01-11 05:47:00 id = 1 (machine1); Seed = 491; Done (0)
+2019-01-11 05:47:00 id = 1 (machine1); Seed = 492; Starting new sample
+2019-01-11 05:47:55 id = 4 (machine1); Seed = 482; Done (0)
+2019-01-11 05:47:55 id = 4 (machine1); Seed = 493; Starting new sample
+2019-01-11 05:48:09 id = 0 (machine1); Seed = 490; Done (0)
+2019-01-11 05:48:09 id = 0 (machine1); Seed = 494; Starting new sample
+2019-01-11 05:48:24 id = 3 (machine1); Seed = 489; Done (0)
+2019-01-11 05:48:24 id = 3 (machine1); Seed = 495; Starting new sample
+2019-01-11 05:50:51 id = 1 (machine1); Seed = 492; Done (0)
+2019-01-11 05:50:51 id = 1 (machine1); Seed = 496; Starting new sample
+2019-01-11 05:53:53 id = 2 (machine1); Seed = 488; Done (1)
+2019-01-11 05:53:53 id = 2 (machine1); Seed = 497; Starting new sample
+2019-01-11 05:54:11 id = 3 (machine1); Seed = 495; Done (0)
+2019-01-11 05:54:11 id = 3 (machine1); Seed = 498; Starting new sample
+2019-01-11 05:54:12 id = 1 (machine1); Seed = 496; Done (0)
+2019-01-11 05:54:12 id = 1 (machine1); Seed = 499; Starting new sample
+2019-01-11 05:56:51 id = 0 (machine1); Seed = 494; Done (0)
+2019-01-11 05:56:51 id = 0 (machine1); Seed = 500; Starting new sample
+2019-01-11 05:56:54 id = 3 (machine1); Seed = 498; Done (0)
+2019-01-11 05:56:54 id = 3 (machine1); Seed = 501; Starting new sample
+2019-01-11 05:57:03 id = 4 (machine1); Seed = 493; Done (0)
+2019-01-11 05:57:03 id = 4 (machine1); Seed = 502; Starting new sample
+2019-01-11 05:59:22 id = 3 (machine1); Seed = 501; Done (0)
+2019-01-11 05:59:22 id = 3 (machine1); Seed = 503; Starting new sample
+2019-01-11 05:59:38 id = 4 (machine1); Seed = 502; Done (0)
+2019-01-11 05:59:38 id = 4 (machine1); Seed = 504; Starting new sample
+2019-01-11 06:00:36 id = 1 (machine1); Seed = 499; Done (0)
+2019-01-11 06:00:36 id = 1 (machine1); Seed = 505; Starting new sample
+2019-01-11 06:01:09 id = 3 (machine1); Seed = 503; Done (0)
+2019-01-11 06:01:09 id = 3 (machine1); Seed = 506; Starting new sample
+2019-01-11 06:01:45 id = 4 (machine1); Seed = 504; Done (0)
+2019-01-11 06:01:45 id = 4 (machine1); Seed = 507; Starting new sample
+2019-01-11 06:02:06 id = 0 (machine1); Seed = 500; Done (0)
+2019-01-11 06:02:06 id = 0 (machine1); Seed = 508; Starting new sample
+2019-01-11 06:03:45 id = 3 (machine1); Seed = 506; Done (0)
+2019-01-11 06:03:45 id = 3 (machine1); Seed = 509; Starting new sample
+2019-01-11 06:04:39 id = 4 (machine1); Seed = 507; Done (0)
+2019-01-11 06:04:39 id = 4 (machine1); Seed = 510; Starting new sample
+2019-01-11 06:05:03 id = 0 (machine1); Seed = 508; Done (0)
+2019-01-11 06:05:03 id = 0 (machine1); Seed = 511; Starting new sample
+2019-01-11 06:05:54 id = 3 (machine1); Seed = 509; Done (0)
+2019-01-11 06:05:54 id = 3 (machine1); Seed = 512; Starting new sample
+2019-01-11 06:07:04 id = 4 (machine1); Seed = 510; Done (0)
+2019-01-11 06:07:04 id = 4 (machine1); Seed = 513; Starting new sample
+2019-01-11 06:07:28 id = 2 (machine1); Seed = 497; Done (1)
+2019-01-11 06:07:28 id = 2 (machine1); Seed = 514; Starting new sample
+2019-01-11 06:08:46 id = 3 (machine1); Seed = 512; Done (0)
+2019-01-11 06:08:46 id = 3 (machine1); Seed = 515; Starting new sample
+2019-01-11 06:09:46 id = 4 (machine1); Seed = 513; Done (1)
+2019-01-11 06:09:46 id = 4 (machine1); Seed = 516; Starting new sample
+2019-01-11 06:09:55 id = 0 (machine1); Seed = 511; Done (0)
+2019-01-11 06:09:55 id = 0 (machine1); Seed = 517; Starting new sample
+2019-01-11 06:11:02 id = 2 (machine1); Seed = 514; Done (0)
+2019-01-11 06:11:02 id = 2 (machine1); Seed = 518; Starting new sample
+2019-01-11 06:11:47 id = 4 (machine1); Seed = 516; Done (0)
+2019-01-11 06:11:47 id = 4 (machine1); Seed = 519; Starting new sample
+2019-01-11 06:12:09 id = 3 (machine1); Seed = 515; Done (0)
+2019-01-11 06:12:09 id = 3 (machine1); Seed = 520; Starting new sample
+2019-01-11 06:12:30 id = 0 (machine1); Seed = 517; Done (0)
+2019-01-11 06:12:30 id = 0 (machine1); Seed = 521; Starting new sample
+2019-01-11 06:14:06 id = 1 (machine1); Seed = 505; Done (0)
+2019-01-11 06:14:06 id = 1 (machine1); Seed = 522; Starting new sample
+2019-01-11 06:14:56 id = 0 (machine1); Seed = 521; Done (0)
+2019-01-11 06:14:56 id = 0 (machine1); Seed = 523; Starting new sample
+2019-01-11 06:17:30 id = 1 (machine1); Seed = 522; Done (0)
+2019-01-11 06:17:30 id = 1 (machine1); Seed = 524; Starting new sample
+2019-01-11 06:17:47 id = 3 (machine1); Seed = 520; Done (0)
+2019-01-11 06:17:47 id = 3 (machine1); Seed = 525; Starting new sample
+2019-01-11 06:19:36 id = 4 (machine1); Seed = 519; Done (0)
+2019-01-11 06:19:36 id = 4 (machine1); Seed = 526; Starting new sample
+2019-01-11 06:20:07 id = 1 (machine1); Seed = 524; Done (0)
+2019-01-11 06:20:07 id = 1 (machine1); Seed = 527; Starting new sample
+2019-01-11 06:21:15 id = 3 (machine1); Seed = 525; Done (0)
+2019-01-11 06:21:15 id = 3 (machine1); Seed = 528; Starting new sample
+2019-01-11 06:21:58 id = 4 (machine1); Seed = 526; Done (0)
+2019-01-11 06:21:58 id = 4 (machine1); Seed = 529; Starting new sample
+2019-01-11 06:22:19 id = 0 (machine1); Seed = 523; Done (0)
+2019-01-11 06:22:19 id = 0 (machine1); Seed = 530; Starting new sample
+2019-01-11 06:22:33 id = 1 (machine1); Seed = 527; Done (0)
+2019-01-11 06:22:33 id = 1 (machine1); Seed = 531; Starting new sample
+2019-01-11 06:23:47 id = 3 (machine1); Seed = 528; Done (0)
+2019-01-11 06:23:47 id = 3 (machine1); Seed = 532; Starting new sample
+2019-01-11 06:25:14 id = 1 (machine1); Seed = 531; Done (0)
+2019-01-11 06:25:14 id = 1 (machine1); Seed = 533; Starting new sample
+2019-01-11 06:25:36 id = 4 (machine1); Seed = 529; Done (0)
+2019-01-11 06:25:36 id = 4 (machine1); Seed = 534; Starting new sample
+2019-01-11 06:27:38 id = 0 (machine1); Seed = 530; Done (0)
+2019-01-11 06:27:38 id = 0 (machine1); Seed = 535; Starting new sample
+2019-01-11 06:28:52 id = 2 (machine1); Seed = 518; Done (0)
+2019-01-11 06:28:52 id = 2 (machine1); Seed = 536; Starting new sample
+2019-01-11 06:32:23 id = 3 (machine1); Seed = 532; Done (0)
+2019-01-11 06:32:23 id = 3 (machine1); Seed = 537; Starting new sample
+2019-01-11 06:33:27 id = 0 (machine1); Seed = 535; Done (0)
+2019-01-11 06:33:27 id = 0 (machine1); Seed = 538; Starting new sample
+2019-01-11 06:33:29 id = 4 (machine1); Seed = 534; Done (1)
+2019-01-11 06:33:29 id = 4 (machine1); Seed = 539; Starting new sample
+2019-01-11 06:33:44 id = 1 (machine1); Seed = 533; Done (0)
+2019-01-11 06:33:44 id = 1 (machine1); Seed = 540; Starting new sample
+2019-01-11 06:34:40 id = 3 (machine1); Seed = 537; Done (0)
+2019-01-11 06:34:40 id = 3 (machine1); Seed = 541; Starting new sample
+2019-01-11 06:35:34 id = 4 (machine1); Seed = 539; Done (0)
+2019-01-11 06:35:34 id = 4 (machine1); Seed = 542; Starting new sample
+2019-01-11 06:36:03 id = 0 (machine1); Seed = 538; Done (1)
+2019-01-11 06:36:03 id = 0 (machine1); Seed = 543; Starting new sample
+2019-01-11 06:36:55 id = 2 (machine1); Seed = 536; Done (0)
+2019-01-11 06:36:55 id = 2 (machine1); Seed = 544; Starting new sample
+2019-01-11 06:37:25 id = 3 (machine1); Seed = 541; Done (0)
+2019-01-11 06:37:25 id = 3 (machine1); Seed = 545; Starting new sample
+2019-01-11 06:38:41 id = 4 (machine1); Seed = 542; Done (0)
+2019-01-11 06:38:41 id = 4 (machine1); Seed = 546; Starting new sample
+2019-01-11 06:38:53 id = 1 (machine1); Seed = 540; Done (0)
+2019-01-11 06:38:53 id = 1 (machine1); Seed = 547; Starting new sample
+2019-01-11 06:40:10 id = 2 (machine1); Seed = 544; Done (0)
+2019-01-11 06:40:10 id = 2 (machine1); Seed = 548; Starting new sample
+2019-01-11 06:40:29 id = 4 (machine1); Seed = 546; Done (0)
+2019-01-11 06:40:29 id = 4 (machine1); Seed = 549; Starting new sample
+2019-01-11 06:40:31 id = 3 (machine1); Seed = 545; Done (1)
+2019-01-11 06:40:31 id = 3 (machine1); Seed = 550; Starting new sample
+2019-01-11 06:41:03 id = 0 (machine1); Seed = 543; Done (0)
+2019-01-11 06:41:03 id = 0 (machine1); Seed = 551; Starting new sample
+2019-01-11 06:45:14 id = 4 (machine1); Seed = 549; Done (0)
+2019-01-11 06:45:14 id = 4 (machine1); Seed = 552; Starting new sample
+2019-01-11 06:46:05 id = 2 (machine1); Seed = 548; Done (0)
+2019-01-11 06:46:05 id = 2 (machine1); Seed = 553; Starting new sample
+2019-01-11 06:46:22 id = 3 (machine1); Seed = 550; Done (2)
+2019-01-11 06:46:22 id = 3 (machine1); Seed = 554; Starting new sample
+2019-01-11 06:47:15 id = 4 (machine1); Seed = 552; Done (1)
+2019-01-11 06:47:15 id = 4 (machine1); Seed = 555; Starting new sample
+2019-01-11 06:47:56 id = 1 (machine1); Seed = 547; Done (0)
+2019-01-11 06:47:56 id = 1 (machine1); Seed = 556; Starting new sample
+2019-01-11 06:48:52 id = 2 (machine1); Seed = 553; Done (0)
+2019-01-11 06:48:52 id = 2 (machine1); Seed = 557; Starting new sample
+2019-01-11 06:49:31 id = 3 (machine1); Seed = 554; Done (0)
+2019-01-11 06:49:31 id = 3 (machine1); Seed = 558; Starting new sample
+2019-01-11 06:49:57 id = 0 (machine1); Seed = 551; Done (0)
+2019-01-11 06:49:57 id = 0 (machine1); Seed = 559; Starting new sample
+2019-01-11 06:50:07 id = 1 (machine1); Seed = 556; Done (0)
+2019-01-11 06:50:07 id = 1 (machine1); Seed = 560; Starting new sample
+2019-01-11 06:51:50 id = 4 (machine1); Seed = 555; Done (1)
+2019-01-11 06:51:50 id = 4 (machine1); Seed = 561; Starting new sample
+2019-01-11 06:53:20 id = 1 (machine1); Seed = 560; Done (0)
+2019-01-11 06:53:20 id = 1 (machine1); Seed = 562; Starting new sample
+2019-01-11 06:54:09 id = 2 (machine1); Seed = 557; Done (1)
+2019-01-11 06:54:09 id = 2 (machine1); Seed = 563; Starting new sample
+2019-01-11 06:54:20 id = 3 (machine1); Seed = 558; Done (1)
+2019-01-11 06:54:20 id = 3 (machine1); Seed = 564; Starting new sample
+2019-01-11 06:56:26 id = 2 (machine1); Seed = 563; Done (0)
+2019-01-11 06:56:26 id = 2 (machine1); Seed = 565; Starting new sample
+2019-01-11 06:58:11 id = 0 (machine1); Seed = 559; Done (0)
+2019-01-11 06:58:11 id = 0 (machine1); Seed = 566; Starting new sample
+2019-01-11 06:59:14 id = 2 (machine1); Seed = 565; Done (1)
+2019-01-11 06:59:14 id = 2 (machine1); Seed = 567; Starting new sample
+2019-01-11 07:00:33 id = 0 (machine1); Seed = 566; Done (0)
+2019-01-11 07:00:33 id = 0 (machine1); Seed = 568; Starting new sample
+2019-01-11 07:04:16 id = 2 (machine1); Seed = 567; Done (0)
+2019-01-11 07:04:16 id = 2 (machine1); Seed = 569; Starting new sample
+2019-01-11 07:05:12 id = 3 (machine1); Seed = 564; Done (0)
+2019-01-11 07:05:12 id = 3 (machine1); Seed = 570; Starting new sample
+2019-01-11 07:05:33 id = 4 (machine1); Seed = 561; Done (0)
+2019-01-11 07:05:33 id = 4 (machine1); Seed = 571; Starting new sample
+2019-01-11 07:06:28 id = 2 (machine1); Seed = 569; Done (1)
+2019-01-11 07:06:28 id = 2 (machine1); Seed = 572; Starting new sample
+2019-01-11 07:06:59 id = 1 (machine1); Seed = 562; Done (0)
+2019-01-11 07:06:59 id = 1 (machine1); Seed = 573; Starting new sample
+2019-01-11 07:07:40 id = 3 (machine1); Seed = 570; Done (0)
+2019-01-11 07:07:40 id = 3 (machine1); Seed = 574; Starting new sample
+2019-01-11 07:09:00 id = 2 (machine1); Seed = 572; Done (0)
+2019-01-11 07:09:00 id = 2 (machine1); Seed = 575; Starting new sample
+2019-01-11 07:10:06 id = 3 (machine1); Seed = 574; Done (0)
+2019-01-11 07:10:06 id = 3 (machine1); Seed = 576; Starting new sample
+2019-01-11 07:10:50 id = 4 (machine1); Seed = 571; Done (0)
+2019-01-11 07:10:50 id = 4 (machine1); Seed = 577; Starting new sample
+2019-01-11 07:12:20 id = 1 (machine1); Seed = 573; Done (0)
+2019-01-11 07:12:20 id = 1 (machine1); Seed = 578; Starting new sample
+2019-01-11 07:12:56 id = 3 (machine1); Seed = 576; Done (1)
+2019-01-11 07:12:56 id = 3 (machine1); Seed = 579; Starting new sample
+2019-01-11 07:14:04 id = 2 (machine1); Seed = 575; Done (1)
+2019-01-11 07:14:04 id = 2 (machine1); Seed = 580; Starting new sample
+2019-01-11 07:14:35 id = 0 (machine1); Seed = 568; Done (0)
+2019-01-11 07:14:35 id = 0 (machine1); Seed = 581; Starting new sample
+2019-01-11 07:14:50 id = 3 (machine1); Seed = 579; Done (0)
+2019-01-11 07:14:50 id = 3 (machine1); Seed = 582; Starting new sample
+2019-01-11 07:17:56 id = 0 (machine1); Seed = 581; Done (0)
+2019-01-11 07:17:56 id = 0 (machine1); Seed = 583; Starting new sample
+2019-01-11 07:18:07 id = 1 (machine1); Seed = 578; Done (0)
+2019-01-11 07:18:07 id = 1 (machine1); Seed = 584; Starting new sample
+2019-01-11 07:19:57 id = 4 (machine1); Seed = 577; Done (0)
+2019-01-11 07:19:57 id = 4 (machine1); Seed = 585; Starting new sample
+2019-01-11 07:21:09 id = 1 (machine1); Seed = 584; Done (0)
+2019-01-11 07:21:09 id = 1 (machine1); Seed = 586; Starting new sample
+2019-01-11 07:21:54 id = 2 (machine1); Seed = 580; Done (0)
+2019-01-11 07:21:54 id = 2 (machine1); Seed = 587; Starting new sample
+2019-01-11 07:22:09 id = 4 (machine1); Seed = 585; Done (0)
+2019-01-11 07:22:09 id = 4 (machine1); Seed = 588; Starting new sample
+2019-01-11 07:24:21 id = 1 (machine1); Seed = 586; Done (0)
+2019-01-11 07:24:21 id = 1 (machine1); Seed = 589; Starting new sample
+2019-01-11 07:24:41 id = 2 (machine1); Seed = 587; Done (0)
+2019-01-11 07:24:41 id = 2 (machine1); Seed = 590; Starting new sample
+2019-01-11 07:25:38 id = 3 (machine1); Seed = 582; Done (0)
+2019-01-11 07:25:38 id = 3 (machine1); Seed = 591; Starting new sample
+2019-01-11 07:27:28 id = 1 (machine1); Seed = 589; Done (0)
+2019-01-11 07:27:28 id = 1 (machine1); Seed = 592; Starting new sample
+2019-01-11 07:28:46 id = 3 (machine1); Seed = 591; Done (1)
+2019-01-11 07:28:46 id = 3 (machine1); Seed = 593; Starting new sample
+2019-01-11 07:29:46 id = 2 (machine1); Seed = 590; Done (0)
+2019-01-11 07:29:46 id = 2 (machine1); Seed = 594; Starting new sample
+2019-01-11 07:32:46 id = 2 (machine1); Seed = 594; Done (0)
+2019-01-11 07:32:46 id = 2 (machine1); Seed = 595; Starting new sample
+2019-01-11 07:33:12 id = 1 (machine1); Seed = 592; Done (0)
+2019-01-11 07:33:12 id = 1 (machine1); Seed = 596; Starting new sample
+2019-01-11 07:33:14 id = 4 (machine1); Seed = 588; Done (1)
+2019-01-11 07:33:14 id = 4 (machine1); Seed = 597; Starting new sample
+2019-01-11 07:33:43 id = 0 (machine1); Seed = 583; Done (0)
+2019-01-11 07:33:43 id = 0 (machine1); Seed = 598; Starting new sample
+2019-01-11 07:34:51 id = 3 (machine1); Seed = 593; Done (0)
+2019-01-11 07:34:51 id = 3 (machine1); Seed = 599; Starting new sample
+2019-01-11 07:35:44 id = 2 (machine1); Seed = 595; Done (0)
+2019-01-11 07:35:44 id = 2 (machine1); Seed = 600; Starting new sample
+2019-01-11 07:37:58 id = 1 (machine1); Seed = 596; Done (0)
+2019-01-11 07:37:58 id = 1 (machine1); Seed = 601; Starting new sample
+2019-01-11 07:38:25 id = 3 (machine1); Seed = 599; Done (1)
+2019-01-11 07:38:25 id = 3 (machine1); Seed = 602; Starting new sample
+2019-01-11 07:38:58 id = 2 (machine1); Seed = 600; Done (0)
+2019-01-11 07:38:58 id = 2 (machine1); Seed = 603; Starting new sample
+2019-01-11 07:39:02 id = 0 (machine1); Seed = 598; Done (1)
+2019-01-11 07:39:02 id = 0 (machine1); Seed = 604; Starting new sample
+2019-01-11 07:40:36 id = 1 (machine1); Seed = 601; Done (0)
+2019-01-11 07:40:36 id = 1 (machine1); Seed = 605; Starting new sample
+2019-01-11 07:41:24 id = 0 (machine1); Seed = 604; Done (0)
+2019-01-11 07:41:24 id = 0 (machine1); Seed = 606; Starting new sample
+2019-01-11 07:41:39 id = 2 (machine1); Seed = 603; Done (1)
+2019-01-11 07:41:39 id = 2 (machine1); Seed = 607; Starting new sample
+2019-01-11 07:42:18 id = 1 (machine1); Seed = 605; Done (1)
+2019-01-11 07:42:18 id = 1 (machine1); Seed = 608; Starting new sample
+2019-01-11 07:43:51 id = 4 (machine1); Seed = 597; Done (1)
+2019-01-11 07:43:51 id = 4 (machine1); Seed = 609; Starting new sample
+2019-01-11 07:44:25 id = 1 (machine1); Seed = 608; Done (0)
+2019-01-11 07:44:25 id = 1 (machine1); Seed = 610; Starting new sample
+2019-01-11 07:46:02 id = 3 (machine1); Seed = 602; Done (0)
+2019-01-11 07:46:02 id = 3 (machine1); Seed = 611; Starting new sample
+2019-01-11 07:47:11 id = 2 (machine1); Seed = 607; Done (0)
+2019-01-11 07:47:11 id = 2 (machine1); Seed = 612; Starting new sample
+2019-01-11 07:48:05 id = 3 (machine1); Seed = 611; Done (0)
+2019-01-11 07:48:05 id = 3 (machine1); Seed = 613; Starting new sample
+2019-01-11 07:49:21 id = 4 (machine1); Seed = 609; Done (0)
+2019-01-11 07:49:21 id = 4 (machine1); Seed = 614; Starting new sample
+2019-01-11 07:50:50 id = 3 (machine1); Seed = 613; Done (0)
+2019-01-11 07:50:50 id = 3 (machine1); Seed = 615; Starting new sample
+2019-01-11 07:52:27 id = 4 (machine1); Seed = 614; Done (0)
+2019-01-11 07:52:27 id = 4 (machine1); Seed = 616; Starting new sample
+2019-01-11 07:53:23 id = 2 (machine1); Seed = 612; Done (0)
+2019-01-11 07:53:23 id = 2 (machine1); Seed = 617; Starting new sample
+2019-01-11 07:55:53 id = 2 (machine1); Seed = 617; Done (0)
+2019-01-11 07:55:53 id = 2 (machine1); Seed = 618; Starting new sample
+2019-01-11 07:56:37 id = 1 (machine1); Seed = 610; Done (0)
+2019-01-11 07:56:37 id = 1 (machine1); Seed = 619; Starting new sample
+2019-01-11 07:58:20 id = 4 (machine1); Seed = 616; Done (0)
+2019-01-11 07:58:20 id = 4 (machine1); Seed = 620; Starting new sample
+2019-01-11 07:58:36 id = 0 (machine1); Seed = 606; Done (0)
+2019-01-11 07:58:36 id = 0 (machine1); Seed = 621; Starting new sample
+2019-01-11 07:59:12 id = 2 (machine1); Seed = 618; Done (0)
+2019-01-11 07:59:12 id = 2 (machine1); Seed = 622; Starting new sample
+2019-01-11 08:00:54 id = 0 (machine1); Seed = 621; Done (0)
+2019-01-11 08:00:54 id = 0 (machine1); Seed = 623; Starting new sample
+2019-01-11 08:02:20 id = 2 (machine1); Seed = 622; Done (0)
+2019-01-11 08:02:20 id = 2 (machine1); Seed = 624; Starting new sample
+2019-01-11 08:03:20 id = 1 (machine1); Seed = 619; Done (0)
+2019-01-11 08:03:20 id = 1 (machine1); Seed = 625; Starting new sample
+2019-01-11 08:04:51 id = 2 (machine1); Seed = 624; Done (0)
+2019-01-11 08:04:51 id = 2 (machine1); Seed = 626; Starting new sample
+2019-01-11 08:05:51 id = 3 (machine1); Seed = 615; Done (0)
+2019-01-11 08:05:51 id = 3 (machine1); Seed = 627; Starting new sample
+2019-01-11 08:06:00 id = 4 (machine1); Seed = 620; Done (0)
+2019-01-11 08:06:00 id = 4 (machine1); Seed = 628; Starting new sample
+2019-01-11 08:06:08 id = 0 (machine1); Seed = 623; Done (0)
+2019-01-11 08:06:08 id = 0 (machine1); Seed = 629; Starting new sample
+2019-01-11 08:07:01 id = 2 (machine1); Seed = 626; Done (0)
+2019-01-11 08:07:01 id = 2 (machine1); Seed = 630; Starting new sample
+2019-01-11 08:08:04 id = 3 (machine1); Seed = 627; Done (0)
+2019-01-11 08:08:04 id = 3 (machine1); Seed = 631; Starting new sample
+2019-01-11 08:10:54 id = 3 (machine1); Seed = 631; Done (0)
+2019-01-11 08:10:55 id = 3 (machine1); Seed = 632; Starting new sample
+2019-01-11 08:13:43 id = 3 (machine1); Seed = 632; Done (0)
+2019-01-11 08:13:43 id = 3 (machine1); Seed = 633; Starting new sample
+2019-01-11 08:15:26 id = 4 (machine1); Seed = 628; Done (0)
+2019-01-11 08:15:26 id = 4 (machine1); Seed = 634; Starting new sample
+2019-01-11 08:16:03 id = 3 (machine1); Seed = 633; Done (0)
+2019-01-11 08:16:03 id = 3 (machine1); Seed = 635; Starting new sample
+2019-01-11 08:19:33 id = 3 (machine1); Seed = 635; Done (0)
+2019-01-11 08:19:33 id = 3 (machine1); Seed = 636; Starting new sample
+2019-01-11 08:20:56 id = 2 (machine1); Seed = 630; Done (0)
+2019-01-11 08:20:56 id = 2 (machine1); Seed = 637; Starting new sample
+2019-01-11 08:21:16 id = 1 (machine1); Seed = 625; Done (0)
+2019-01-11 08:21:16 id = 1 (machine1); Seed = 638; Starting new sample
+2019-01-11 08:21:29 id = 4 (machine1); Seed = 634; Done (0)
+2019-01-11 08:21:29 id = 4 (machine1); Seed = 639; Starting new sample
+2019-01-11 08:22:26 id = 3 (machine1); Seed = 636; Done (0)
+2019-01-11 08:22:26 id = 3 (machine1); Seed = 640; Starting new sample
+2019-01-11 08:22:57 id = 0 (machine1); Seed = 629; Done (0)
+2019-01-11 08:22:57 id = 0 (machine1); Seed = 641; Starting new sample
+2019-01-11 08:26:40 id = 4 (machine1); Seed = 639; Done (0)
+2019-01-11 08:26:40 id = 4 (machine1); Seed = 642; Starting new sample
+2019-01-11 08:28:49 id = 1 (machine1); Seed = 638; Done (0)
+2019-01-11 08:28:49 id = 1 (machine1); Seed = 643; Starting new sample
+2019-01-11 08:29:28 id = 3 (machine1); Seed = 640; Done (2)
+2019-01-11 08:29:28 id = 3 (machine1); Seed = 644; Starting new sample
+2019-01-11 08:29:30 id = 0 (machine1); Seed = 641; Done (0)
+2019-01-11 08:29:30 id = 0 (machine1); Seed = 645; Starting new sample
+2019-01-11 08:31:04 id = 4 (machine1); Seed = 642; Done (0)
+2019-01-11 08:31:04 id = 4 (machine1); Seed = 646; Starting new sample
+2019-01-11 08:35:53 id = 3 (machine1); Seed = 644; Done (1)
+2019-01-11 08:35:53 id = 3 (machine1); Seed = 647; Starting new sample
+2019-01-11 08:36:18 id = 2 (machine1); Seed = 637; Done (0)
+2019-01-11 08:36:18 id = 2 (machine1); Seed = 648; Starting new sample
+2019-01-11 08:36:36 id = 0 (machine1); Seed = 645; Done (0)
+2019-01-11 08:36:36 id = 0 (machine1); Seed = 649; Starting new sample
+2019-01-11 08:38:17 id = 3 (machine1); Seed = 647; Done (0)
+2019-01-11 08:38:17 id = 3 (machine1); Seed = 650; Starting new sample
+2019-01-11 08:42:21 id = 2 (machine1); Seed = 648; Done (1)
+2019-01-11 08:42:21 id = 2 (machine1); Seed = 651; Starting new sample
+2019-01-11 08:44:38 id = 1 (machine1); Seed = 643; Done (0)
+2019-01-11 08:44:38 id = 1 (machine1); Seed = 652; Starting new sample
+2019-01-11 08:45:11 id = 2 (machine1); Seed = 651; Done (0)
+2019-01-11 08:45:11 id = 2 (machine1); Seed = 653; Starting new sample
+2019-01-11 08:46:21 id = 4 (machine1); Seed = 646; Done (0)
+2019-01-11 08:46:21 id = 4 (machine1); Seed = 654; Starting new sample
+2019-01-11 08:46:25 id = 3 (machine1); Seed = 650; Done (1)
+2019-01-11 08:46:25 id = 3 (machine1); Seed = 655; Starting new sample
+2019-01-11 08:47:21 id = 1 (machine1); Seed = 652; Done (0)
+2019-01-11 08:47:21 id = 1 (machine1); Seed = 656; Starting new sample
+2019-01-11 08:50:30 id = 1 (machine1); Seed = 656; Done (0)
+2019-01-11 08:50:30 id = 1 (machine1); Seed = 657; Starting new sample
+2019-01-11 08:51:04 id = 2 (machine1); Seed = 653; Done (0)
+2019-01-11 08:51:04 id = 2 (machine1); Seed = 658; Starting new sample
+2019-01-11 08:51:52 id = 3 (machine1); Seed = 655; Done (0)
+2019-01-11 08:51:52 id = 3 (machine1); Seed = 659; Starting new sample
+2019-01-11 08:53:33 id = 0 (machine1); Seed = 649; Done (0)
+2019-01-11 08:53:33 id = 0 (machine1); Seed = 660; Starting new sample
+2019-01-11 08:53:41 id = 4 (machine1); Seed = 654; Done (0)
+2019-01-11 08:53:41 id = 4 (machine1); Seed = 661; Starting new sample
+2019-01-11 08:55:09 id = 0 (machine1); Seed = 660; Done (0)
+2019-01-11 08:55:09 id = 0 (machine1); Seed = 662; Starting new sample
+2019-01-11 08:56:02 id = 1 (machine1); Seed = 657; Done (1)
+2019-01-11 08:56:02 id = 1 (machine1); Seed = 663; Starting new sample
+2019-01-11 08:57:30 id = 3 (machine1); Seed = 659; Done (0)
+2019-01-11 08:57:30 id = 3 (machine1); Seed = 664; Starting new sample
+2019-01-11 08:58:36 id = 1 (machine1); Seed = 663; Done (0)
+2019-01-11 08:58:36 id = 1 (machine1); Seed = 665; Starting new sample
+2019-01-11 08:59:05 id = 2 (machine1); Seed = 658; Done (0)
+2019-01-11 08:59:05 id = 2 (machine1); Seed = 666; Starting new sample
+2019-01-11 08:59:54 id = 3 (machine1); Seed = 664; Done (0)
+2019-01-11 08:59:54 id = 3 (machine1); Seed = 667; Starting new sample
+2019-01-11 09:00:07 id = 0 (machine1); Seed = 662; Done (0)
+2019-01-11 09:00:07 id = 0 (machine1); Seed = 668; Starting new sample
+2019-01-11 09:01:17 id = 1 (machine1); Seed = 665; Done (0)
+2019-01-11 09:01:17 id = 1 (machine1); Seed = 669; Starting new sample
+2019-01-11 09:02:13 id = 2 (machine1); Seed = 666; Done (1)
+2019-01-11 09:02:13 id = 2 (machine1); Seed = 670; Starting new sample
+2019-01-11 09:02:37 id = 0 (machine1); Seed = 668; Done (0)
+2019-01-11 09:02:37 id = 0 (machine1); Seed = 671; Starting new sample
+2019-01-11 09:04:54 id = 3 (machine1); Seed = 667; Done (0)
+2019-01-11 09:04:54 id = 3 (machine1); Seed = 672; Starting new sample
+2019-01-11 09:06:47 id = 1 (machine1); Seed = 669; Done (0)
+2019-01-11 09:06:47 id = 1 (machine1); Seed = 673; Starting new sample
+2019-01-11 09:07:41 id = 3 (machine1); Seed = 672; Done (0)
+2019-01-11 09:07:41 id = 3 (machine1); Seed = 674; Starting new sample
+2019-01-11 09:08:11 id = 2 (machine1); Seed = 670; Done (1)
+2019-01-11 09:08:11 id = 2 (machine1); Seed = 675; Starting new sample
+2019-01-11 09:10:02 id = 4 (machine1); Seed = 661; Done (0)
+2019-01-11 09:10:02 id = 4 (machine1); Seed = 676; Starting new sample
+2019-01-11 09:10:16 id = 2 (machine1); Seed = 675; Done (0)
+2019-01-11 09:10:16 id = 2 (machine1); Seed = 677; Starting new sample
+2019-01-11 09:12:55 id = 2 (machine1); Seed = 677; Done (0)
+2019-01-11 09:12:55 id = 2 (machine1); Seed = 678; Starting new sample
+2019-01-11 09:13:07 id = 3 (machine1); Seed = 674; Done (0)
+2019-01-11 09:13:07 id = 3 (machine1); Seed = 679; Starting new sample
+2019-01-11 09:13:58 id = 1 (machine1); Seed = 673; Done (0)
+2019-01-11 09:13:58 id = 1 (machine1); Seed = 680; Starting new sample
+2019-01-11 09:15:20 id = 4 (machine1); Seed = 676; Done (0)
+2019-01-11 09:15:20 id = 4 (machine1); Seed = 681; Starting new sample
+2019-01-11 09:16:28 id = 3 (machine1); Seed = 679; Done (0)
+2019-01-11 09:16:28 id = 3 (machine1); Seed = 682; Starting new sample
+2019-01-11 09:18:09 id = 4 (machine1); Seed = 681; Done (0)
+2019-01-11 09:18:09 id = 4 (machine1); Seed = 683; Starting new sample
+2019-01-11 09:18:41 id = 3 (machine1); Seed = 682; Done (0)
+2019-01-11 09:18:41 id = 3 (machine1); Seed = 684; Starting new sample
+2019-01-11 09:18:43 id = 2 (machine1); Seed = 678; Done (0)
+2019-01-11 09:18:43 id = 2 (machine1); Seed = 685; Starting new sample
+2019-01-11 09:19:03 id = 1 (machine1); Seed = 680; Done (0)
+2019-01-11 09:19:03 id = 1 (machine1); Seed = 686; Starting new sample
+2019-01-11 09:21:32 id = 1 (machine1); Seed = 686; Done (0)
+2019-01-11 09:21:32 id = 1 (machine1); Seed = 687; Starting new sample
+2019-01-11 09:21:43 id = 3 (machine1); Seed = 684; Done (0)
+2019-01-11 09:21:43 id = 3 (machine1); Seed = 688; Starting new sample
+2019-01-11 09:23:05 id = 0 (machine1); Seed = 671; Done (0)
+2019-01-11 09:23:05 id = 0 (machine1); Seed = 689; Starting new sample
+2019-01-11 09:23:10 id = 2 (machine1); Seed = 685; Done (0)
+2019-01-11 09:23:10 id = 2 (machine1); Seed = 690; Starting new sample
+2019-01-11 09:25:45 id = 0 (machine1); Seed = 689; Done (0)
+2019-01-11 09:25:45 id = 0 (machine1); Seed = 691; Starting new sample
+2019-01-11 09:26:20 id = 2 (machine1); Seed = 690; Done (0)
+2019-01-11 09:26:20 id = 2 (machine1); Seed = 692; Starting new sample
+2019-01-11 09:26:28 id = 3 (machine1); Seed = 688; Done (0)
+2019-01-11 09:26:28 id = 3 (machine1); Seed = 693; Starting new sample
+2019-01-11 09:26:47 id = 1 (machine1); Seed = 687; Done (0)
+2019-01-11 09:26:47 id = 1 (machine1); Seed = 694; Starting new sample
+2019-01-11 09:28:27 id = 0 (machine1); Seed = 691; Done (0)
+2019-01-11 09:28:27 id = 0 (machine1); Seed = 695; Starting new sample
+2019-01-11 09:29:14 id = 4 (machine1); Seed = 683; Done (0)
+2019-01-11 09:29:14 id = 4 (machine1); Seed = 696; Starting new sample
+2019-01-11 09:31:14 id = 3 (machine1); Seed = 693; Done (0)
+2019-01-11 09:31:14 id = 3 (machine1); Seed = 697; Starting new sample
+2019-01-11 09:31:15 id = 4 (machine1); Seed = 696; Done (0)
+2019-01-11 09:31:15 id = 4 (machine1); Seed = 698; Starting new sample
+2019-01-11 09:32:08 id = 1 (machine1); Seed = 694; Done (1)
+2019-01-11 09:32:08 id = 1 (machine1); Seed = 699; Starting new sample
+2019-01-11 09:32:34 id = 2 (machine1); Seed = 692; Done (0)
+2019-01-11 09:32:34 id = 2 (machine1); Seed = 700; Starting new sample
+2019-01-11 09:33:37 id = 4 (machine1); Seed = 698; Done (1)
+2019-01-11 09:33:37 id = 4 (machine1); Seed = 701; Starting new sample
+2019-01-11 09:34:32 id = 1 (machine1); Seed = 699; Done (1)
+2019-01-11 09:34:32 id = 1 (machine1); Seed = 702; Starting new sample
+2019-01-11 09:35:15 id = 2 (machine1); Seed = 700; Done (0)
+2019-01-11 09:35:15 id = 2 (machine1); Seed = 703; Starting new sample
+2019-01-11 09:36:11 id = 4 (machine1); Seed = 701; Done (0)
+2019-01-11 09:36:11 id = 4 (machine1); Seed = 704; Starting new sample
+2019-01-11 09:37:59 id = 0 (machine1); Seed = 695; Done (0)
+2019-01-11 09:37:59 id = 0 (machine1); Seed = 705; Starting new sample
+2019-01-11 09:39:10 id = 4 (machine1); Seed = 704; Done (0)
+2019-01-11 09:39:10 id = 4 (machine1); Seed = 706; Starting new sample
+2019-01-11 09:40:49 id = 2 (machine1); Seed = 703; Done (0)
+2019-01-11 09:40:49 id = 2 (machine1); Seed = 707; Starting new sample
+2019-01-11 09:40:57 id = 0 (machine1); Seed = 705; Done (0)
+2019-01-11 09:40:57 id = 0 (machine1); Seed = 708; Starting new sample
+2019-01-11 09:44:03 id = 4 (machine1); Seed = 706; Done (0)
+2019-01-11 09:44:03 id = 4 (machine1); Seed = 709; Starting new sample
+2019-01-11 09:44:29 id = 3 (machine1); Seed = 697; Done (0)
+2019-01-11 09:44:29 id = 3 (machine1); Seed = 710; Starting new sample
+2019-01-11 09:44:37 id = 0 (machine1); Seed = 708; Done (0)
+2019-01-11 09:44:37 id = 0 (machine1); Seed = 711; Starting new sample
+2019-01-11 09:46:21 id = 4 (machine1); Seed = 709; Done (0)
+2019-01-11 09:46:21 id = 4 (machine1); Seed = 712; Starting new sample
+2019-01-11 09:48:54 id = 2 (machine1); Seed = 707; Done (0)
+2019-01-11 09:48:54 id = 2 (machine1); Seed = 713; Starting new sample
+2019-01-11 09:52:06 id = 0 (machine1); Seed = 711; Done (0)
+2019-01-11 09:52:06 id = 0 stopped. RunningProcessors = 4
+2019-01-11 09:54:24 id = 2 (machine1); Seed = 713; Done (1)
+2019-01-11 09:54:24 id = 2 stopped. RunningProcessors = 3
+2019-01-11 09:54:39 id = 3 (machine1); Seed = 710; Done (1)
+2019-01-11 09:54:39 id = 3 stopped. RunningProcessors = 2
+2019-01-11 09:54:54 id = 4 (machine1); Seed = 712; Done (0)
+2019-01-11 09:54:54 id = 4 stopped. RunningProcessors = 1
+2019-01-11 09:55:46 id = 1 (machine1); Seed = 702; Done (0)
+2019-01-11 09:55:46 id = 1 stopped. RunningProcessors = 0
+2019-01-11 09:55:46 Stop

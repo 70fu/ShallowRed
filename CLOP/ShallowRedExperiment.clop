@@ -1,14 +1,8 @@
-#
-# DummyExperiment.clop
-#
-# Example of experiment definition
-#
-
 # Name (used for .log and .dat files)
-Name DummyExperiment
+Name ShallowRedExperiment
 
 # Script for running a game. See DummyScript.py for details.
-Script ./DummyScript.py
+Script ./ShallowRed_CLOP.py
 
 # Parameter(s) to be optimized
 # <parameter_type> <name> <min> <max>
@@ -19,23 +13,21 @@ Script ./DummyScript.py
 #  IntegerGammaParameter
 # For GammaParameter, quadratic regression is performed on log(x)
 # Warning: 123 and not 123.0 should be used for IntegerParameter
-LinearParameter p1  0.0 1.0
-LinearParameter p2  0.0 1.0
-LinearParameter p3  0.0 1.0
-LinearParameter p4  0.0 1.0
-LinearParameter p5  0.0 1.0
+LinearParameter C  0.0 100.0
+LinearParameter minmaxInfluence  0.0 1.0
 
 # This could be the list of machine names in a distributed experiment.
 # In order to run 4 games in parallel, 2 on machine1, 2 on machine2: 
 Processor machine1
 Processor machine1
-Processor machine2
-Processor machine2
+Processor machine1
+Processor machine1
+Processor machine1
 
 # Call the script "Replications" times in a row with identical parameter values
 # Replications may be used to alternate colors, for instance.
 # Seed % Replications would indicate color.
-Replications 2
+Replications 1
 
 # Parameters of statistical model of outcome
 # For binary outcome (Win/Loss, no draws), use "DrawElo 0"
