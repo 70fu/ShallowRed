@@ -16,11 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * TODO Keep Subtree of Search tree for next turn
- */
 public class ShallowRed implements MancalaAgent {
 
+    private MCTSTree root;
     private MancalaGamePool gamePool = new MancalaGamePool();
     private MCTSTreePool nodePool = new MCTSTreePool();
     private Random r = new Random();
@@ -173,6 +171,52 @@ public class ShallowRed implements MancalaAgent {
                 minMaxValue = playerMult * Math.max(playerMult * minMaxValue, playerMult * child.minMaxValue);
             }
         }
+
+        MCTSTree searchRoot(MancalaGame searchGame)
+        {
+            if(game.getBoard().equals(searchGame.getBoard()))
+                return this;
+
+            //if enemy did last turn and now it's my turn, check equality
+            if(parent!=null && parent.game.getCurrentPlayer()!=searchGame.getCurrentPlayer() && game.getCurrentPlayer()!=searchGame.getCurrentPlayer())
+            {
+                return null;
+            }
+            else
+            {
+                //go deeper, check games of children
+                for (int i = 0; i < children.size(); ++i)
+                {
+                    MCTSTree result = children.get(i).searchRoot(searchGame);
+                    if(result!=null)
+                        return result;
+                }
+
+                return null;//game was not in this subtree
+            }
+        }
+    }
+
+    private void reuseSubtree(MancalaGame game)
+    {
+        //if there is no root, create a new node
+        if(root==null)
+            root = nodePool.obtain().set(game);
+        else
+        {
+            root = root.searchRoot(game);
+
+            //if not found (=path was not visited once) create new node
+            if(root==null)
+                root = nodePool.obtain().set(game);
+            else
+            {
+                //clear parent
+                root.parent = null;
+                root.actionId = 0;
+            }
+
+        }
     }
 
     @Override
@@ -195,8 +239,8 @@ public class ShallowRed implements MancalaAgent {
 
         long start = System.currentTimeMillis();
 
-        //create root of monte carlo tree, convert MancalaGame from framework to our Mancala game
-        ShallowRed.MCTSTree root = nodePool.obtain().set(new MancalaGame(game));
+        //search root of monte carlo tree, convert MancalaGame from framework to our Mancala game
+        reuseSubtree(new MancalaGame(game));
 
         while ((System.currentTimeMillis() - start) < (computationTime*1000 - 100)) {
             ShallowRed.MCTSTree best = treePolicy(root);
@@ -207,7 +251,13 @@ public class ShallowRed implements MancalaAgent {
         //get best move
         int selected = root.getBestMove();
         //System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
-        //System.out.println("Selected action: "+selected.actionId);
+        /*System.out.println("Selected action: "+selected);
+
+        for(MCTSTree child : root.children)
+        {
+            System.out.println(child.actionId+": "+child.winCount + " / " + child.visitCount+" | Avg: "+child.winCount/(float)child.visitCount+" |  MinMaxValue: "+child.minMaxValue);
+        }
+        System.out.println("Total Visit count: "+root.visitCount);*/
 
         return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected)]);
     }
@@ -247,7 +297,7 @@ public class ShallowRed implements MancalaAgent {
         for(MCTSTree child : best.children)
             expandSelectionFilter[child.actionId] = false;
 
-        return best.move(selector.select(best.game,expandHeuristics,expandWeights, expandSelectionFilter));//TODO subtract already expanded nodes
+        return best.move(selector.select(best.game,expandHeuristics,expandWeights, expandSelectionFilter));
     }
 
     private int defaultPolicy(MancalaGame game) {

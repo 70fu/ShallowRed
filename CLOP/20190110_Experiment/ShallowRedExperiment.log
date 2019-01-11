@@ -1434,3 +1434,23 @@
 2019-01-11 09:55:46 id = 1 (machine1); Seed = 702; Done (0)
 2019-01-11 09:55:46 id = 1 stopped. RunningProcessors = 0
 2019-01-11 09:55:46 Stop
+2019-01-11 18:51:46 ===== Starting: ShallowRedExperiment =====
+2019-01-11 18:51:46 Found existing ShallowRedExperiment.dat
+2019-01-11 18:51:46 Renaming ShallowRedExperiment.dat to ShallowRedExperiment-old.dat
+2019-01-11 18:51:46 Reading ShallowRedExperiment-old.dat...
+2019-01-11 18:51:46 Backup done.
+2019-01-11 18:51:46 Samples = 714; Results = 714; Mismatches = 0.
+2019-01-11 18:56:36 ===== Starting: ShallowRedExperiment =====
+2019-01-11 18:56:36 Found existing ShallowRedExperiment.dat
+2019-01-11 18:56:36 Removing ShallowRedExperiment-old.dat
+2019-01-11 18:56:36 Renaming ShallowRedExperiment.dat to ShallowRedExperiment-old.dat
+2019-01-11 18:56:36 Reading ShallowRedExperiment-old.dat...
+2019-01-11 18:56:36 Backup done.
+2019-01-11 18:56:36 Samples = 714; Results = 714; Mismatches = 0.
+2019-01-11 18:57:56 ===== Starting: ShallowRedExperiment =====
+2019-01-11 18:57:56 Found existing ShallowRedExperiment.dat
+2019-01-11 18:57:56 Removing ShallowRedExperiment-old.dat
+2019-01-11 18:57:56 Renaming ShallowRedExperiment.dat to ShallowRedExperiment-old.dat
+2019-01-11 18:57:56 Reading ShallowRedExperiment-old.dat...
+2019-01-11 18:57:56 Backup done.
+2019-01-11 18:57:56 Samples = 714; Results = 714; Mismatches = 0.

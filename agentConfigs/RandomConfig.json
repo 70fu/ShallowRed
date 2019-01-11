@@ -1,6 +1,6 @@
 {
   "C":2.3,
-  "minmaxInfluence":1,
+  "minmaxInfluence":0.9,
   "selector":{"type":"random"},
   "expand":{},
   "simulation":{}
