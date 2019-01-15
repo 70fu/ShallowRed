@@ -177,6 +177,18 @@ public class MancalaBoard {
     }
 
     /**
+     * Postconditions:
+     *      @return all stones in all slots, excluding depots
+     */
+    public int getTotalStones()
+    {
+        int sum = 0;
+        for(int i = 0;i<14;++i)
+            sum+=slots[i];
+        return sum-slots[DEPOT_A]-slots[DEPOT_B];
+    }
+
+    /**
      * Preconditions:
      *      @param playerId, 0 or 1
      *      @param id, must be a valid id
