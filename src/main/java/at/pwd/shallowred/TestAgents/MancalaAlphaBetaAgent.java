@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class MancalaAlphaBetaAgent implements MancalaAgent {
 
-    private static final int DEPTH = 11;
+    private static final int DEPTH = 10;
     private int currentPlayer;
     private String currentBest;
 

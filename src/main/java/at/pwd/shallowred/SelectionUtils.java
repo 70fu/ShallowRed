@@ -218,13 +218,18 @@ public class SelectionUtils
 
     public void setSelectionAlg(JsonObject sAlg)
     {
+        setSelectionAlg(getFromJSON(sAlg));
+    }
+
+    private SelectionAlgorithm getFromJSON(JsonObject sAlg)
+    {
         String type = sAlg.get("type").asString();
         if(type.equalsIgnoreCase("random"))
-            setSelectionAlg(new RandomSelection());
+            return new RandomSelection();
         else if(type.equalsIgnoreCase("roulette"))
-            setSelectionAlg(new RouletteWheelSelection());
+            return new RouletteWheelSelection();
         else if(type.equalsIgnoreCase("tournament"))
-            setSelectionAlg(new TournamentSelection(sAlg.get("size").asInt()));
+            return new TournamentSelection(sAlg.get("size").asInt());
         else
             throw new IllegalArgumentException("Wrong selector json, must be json object with type: [random, roulette, tournament]");
     }

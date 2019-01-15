@@ -39,8 +39,8 @@ jvmOptions="-Xmx2g"
 #path to ShallowRedCLI jar file
 pathToJarFile = str(Path("..","out","artifacts","ShallowRedCLI","shallowred_main.jar").resolve())
 
-computingTime=1
-enemyAI="ALPHABETA"
+computingTime=2
+enemyAI="SHALLOWRED"
 #loads this config for the ShallowRed ai and changes it by the parameter values provided by CLOP
 baseConfigPath = Path("BaseConfig.json").resolve()
 enemyConfigPath = str(Path("CLOPEnemy.json").resolve())
@@ -83,27 +83,18 @@ def argumentsToJSONConfig(arguments):
 
 	for i in range(0,len(arguments), 2):
 		#split parameter name with / and use it as path
+		dictV=config
 		pathList = arguments[i].split('/')
-		while True:
-			dictV=config
+		for key in pathList[:-1]:
+			dictV = dictV[key]
 
-		
-			for key in pathList[:-1]:
-				dictV = dictV[key]
-
-			#set value, try to convert to number
-			value = arguments[i+1]
-			if is_float(value) and not is_int(value):
-				value = float(value)
-			elif is_int(value):
-				value = int(value)
-			dictV[pathList[-1]] = value
-			
-			if pathList[0] == "expand":
-				pathList[0] = "simulation"
-				continue
-			else:
-				break
+		#set value, try to convert to number
+		value = arguments[i+1]
+		if is_float(value) and not is_int(value):
+			value = float(value)
+		elif is_int(value):
+			value = int(value)
+		dictV[pathList[-1]] = value
 
 	configString = json.dumps(config)
 	return "\"" + configString.replace('"', '\\"') + "\""
