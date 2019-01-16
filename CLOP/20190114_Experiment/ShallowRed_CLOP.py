@@ -39,7 +39,7 @@ jvmOptions="-Xmx2g"
 #path to ShallowRedCLI jar file
 pathToJarFile = str(Path("..","out","artifacts","ShallowRedCLI","shallowred_main.jar").resolve())
 
-computingTime=2
+computingTime=1
 enemyAI="ALPHABETA"
 #loads this config for the ShallowRed ai and changes it by the parameter values provided by CLOP
 baseConfigPath = Path("BaseConfig.json").resolve()

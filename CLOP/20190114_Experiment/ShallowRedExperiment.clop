@@ -13,14 +13,14 @@ Script ./ShallowRed_CLOP.py
 #  IntegerGammaParameter
 # For GammaParameter, quadratic regression is performed on log(x)
 # Warning: 123 and not 123.0 should be used for IntegerParameter
-LinearParameter C  0.0 2.0
-LinearParameter minmaxInfluence  0.8 1.0
-#LinearParameter expand/0/weight  0.0 1.0
-#LinearParameter expand/1/weight  0.0 1.0
-#LinearParameter expand/2/weight  0.0 1.0
-#LinearParameter expand/3/weight  0.0 1.0
-#LinearParameter expand/4/weight  0.0 1.0
-#LinearParameter expand/5/weight  0.0 1.0
+#LinearParameter C  0.0 20.0
+#LinearParameter minmaxInfluence  0.5 1.0
+LinearParameter expand/0/weight  0.0 1.0
+LinearParameter expand/1/weight  0.0 1.0
+LinearParameter expand/2/weight  0.0 1.0
+LinearParameter expand/3/weight  0.0 1.0
+LinearParameter expand/4/weight  0.0 1.0
+LinearParameter expand/5/weight  0.0 1.0
 
 # This could be the list of machine names in a distributed experiment.
 # In order to run 4 games in parallel, 2 on machine1, 2 on machine2: 
@@ -28,9 +28,9 @@ Processor machine1
 Processor machine1
 Processor machine1
 Processor machine1
-#Processor machine1
-#Processor machine1
-#Processor machine1
+Processor machine1
+Processor machine1
+Processor machine1
 
 # Call the script "Replications" times in a row with identical parameter values
 # Replications may be used to alternate colors, for instance.
