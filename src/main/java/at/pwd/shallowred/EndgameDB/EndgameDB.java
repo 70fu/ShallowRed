@@ -11,7 +11,7 @@ public class EndgameDB
     /**
      * The DB stores boards until this amount of stones
      */
-    public static final int MAX_STONES = 0;//TODO set
+    public static final int MAX_STONES = -1;//TODO set
     /**
      * Amount of slot elements used in the permutation representation
      */

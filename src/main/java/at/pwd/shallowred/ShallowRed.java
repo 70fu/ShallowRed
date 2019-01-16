@@ -5,6 +5,7 @@ import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
 import at.pwd.shallowred.CustomGame.MancalaBoard;
 import at.pwd.shallowred.CustomGame.MancalaGame;
 import at.pwd.shallowred.CustomGame.MancalaGamePool;
+import at.pwd.shallowred.EndgameDB.EndgameDB;
 import at.pwd.shallowred.Heuristics.Heuristic;
 import at.pwd.shallowred.Heuristics.HeuristicSettings;
 import at.pwd.shallowred.Utils.Pool;
@@ -25,6 +26,9 @@ public class ShallowRed implements MancalaAgent {
     private double C;
 
     private static final int[] MINMAX_PLAYER_MULT = new int[]{1,-1};
+
+    //this is used as minimax value when a proven win can be reached
+    private static final float PROVEN_GAME_VALUE = 10000000;
 
     private static final boolean[] SIMULATION_SELECTION_FILTER = new boolean[]{true,true,true,true,true,true,true};
     private final boolean[] expandSelectionFilter = new boolean[7];
@@ -146,10 +150,27 @@ public class ShallowRed implements MancalaAgent {
             tree.actionId = actionId;
             tree.parent = this;
 
-            //calculate initial heuristic value for minmaxValue
-            int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
-            int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
-            tree.minMaxValue = (aDepot-bDepot+(aDepot+bDepot))/(double)(2*(aDepot+bDepot));
+            //calculate initial value for minmaxValue
+            if(newGame.getWinner()!=MancalaGame.NOBODY)
+            {
+                //terminal node reached look who is the winner
+                tree.minMaxValue=newGame.getWinner()==MancalaBoard.PLAYER_A?PROVEN_GAME_VALUE:-PROVEN_GAME_VALUE;
+            }
+            else if(EndgameDB.hasValueStored(newGame))
+            {
+                //calculate if this game is a win using the difference of stones stored in the database
+                int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
+                int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
+                int dbValue = EndgameDB.loadDBValue(newGame)*MINMAX_PLAYER_MULT[newGame.getCurrentPlayer()];
+                tree.minMaxValue = aDepot-bDepot+dbValue>0?PROVEN_GAME_VALUE:-PROVEN_GAME_VALUE;
+            }
+            else
+            {
+                //calculate heuristic value using difference of stones
+                int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
+                int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
+                tree.minMaxValue = (aDepot - bDepot + (aDepot + bDepot)) / (double) (2 * (aDepot + bDepot));
+            }
 
             this.children.add(tree);
 
@@ -239,8 +260,11 @@ public class ShallowRed implements MancalaAgent {
 
         long start = System.currentTimeMillis();
 
+        //convert given mancala game to our MancalaGame class
+        MancalaGame convertedGame = new MancalaGame(game);
+
         //search root of monte carlo tree, convert MancalaGame from framework to our Mancala game
-        reuseSubtree(new MancalaGame(game));
+        reuseSubtree(convertedGame);
 
         while ((System.currentTimeMillis() - start) < (computationTime*1000 - 100)) {
             ShallowRed.MCTSTree best = treePolicy(root);
