@@ -11,25 +11,25 @@ public class EndgameDB
     /**
      * The DB stores boards until this amount of stones
      */
-    private static final int MAX_STONES = 0;//TODO set
+    public static final int MAX_STONES = 0;//TODO set
     /**
      * Amount of slot elements used in the permutation representation
      */
-    private static final int SLOT_AMOUNT = 12-1;
+    public static final int SLOT_AMOUNT = 12-1;
 
     /**
      * (n + 5)! / (n! * 5!), where n = amount of stones on board
      * calculated till 42 currently
      */
-    private static final long[] EMPTY_SIDE_OFFSET = new long[]{1, 6, 21, 56, 126, 252, 462, 792, 1287, 2002, 3003, 4368, 6188, 8568, 11628, 15504, 20349, 26334, 33649, 42504, 53130, 65780, 80730, 98280, 118755, 142506, 169911, 201376, 237336, 278256, 324632, 376992, 435897, 501942, 575757, 658008, 749398, 850668, 962598, 1086008, 1221759, 1370754, 1533939};
+    public static final long[] EMPTY_SIDE_OFFSET = new long[]{1, 6, 21, 56, 126, 252, 462, 792, 1287, 2002, 3003, 4368, 6188, 8568, 11628, 15504, 20349, 26334, 33649, 42504, 53130, 65780, 80730, 98280, 118755, 142506, 169911, 201376, 237336, 278256, 324632, 376992, 435897, 501942, 575757, 658008, 749398, 850668, 962598, 1086008, 1221759, 1370754, 1533939};
 
     /**
      * TODO
      * calculated till 26
      */
-    private static final long[] DB_PART_OFFSETS = new long[]{0, 0, 6, 63, 371, 1610, 5726, 17640, 48672, 122967, 288925, 638638, 1339702, 2685592, 5173168, 9618940, 17329596, 30347142, 51794988, 86358629, 140943425, 225562610, 354521310, 547977300, 833976780, 1251083925};//TODO calculate
+    public static final long[] DB_PART_OFFSETS = new long[]{0, 0, 6, 63, 371, 1610, 5726, 17640, 48672, 122967, 288925, 638638, 1339702, 2685592, 5173168, 9618940, 17329596, 30347142, 51794988, 86358629, 140943425, 225562610, 354521310, 547977300, 833976780, 1251083925};//TODO calculate
 
-    private static final long[] FACTORIAL_TABLE = new long[]
+    public static final long[] FACTORIAL_TABLE = new long[]
             {
                     1,//0!
                     1,//1!
@@ -80,7 +80,7 @@ public class EndgameDB
      * Postconditions:
      *      @return the index of the entry in the endgame db for given game in he view of current player
      */
-    private static long getIndex(MancalaGame game)
+    public static long getIndex(MancalaGame game)
     {
 
         int stones = game.getBoard().getTotalStones();
@@ -99,8 +99,8 @@ public class EndgameDB
 
                 //calculate (stones+slots-1)!/ max of stones! and (slots-1)!
                 //works without overflow with 72 stones on field (= (82!)/(72!))
-                int min = Math.min(stones,slots);//never higher than SLOT_AMOUNT-1
-                int max = Math.max(stones,slots);
+                int min = Math.min(stones,slots-1);//never higher than SLOT_AMOUNT-1
+                int max = Math.max(stones,slots-1);
                 long fraction = 1;
                 for(int factor = stones+slots-1;factor>max;--factor)
                     fraction*=factor;
