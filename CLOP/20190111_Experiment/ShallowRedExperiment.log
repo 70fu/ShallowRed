@@ -4919,3 +4919,17 @@ failed to execute command: java -Xmx2g -jar /home/simon/git/ShallowRed/out/artif
 2019-01-15 11:52:35 Reading ShallowRedExperiment-old.dat...
 2019-01-15 11:52:35 Backup done.
 2019-01-15 11:52:35 Samples = 2425; Results = 2425; Mismatches = 0.
+2019-01-17 22:26:46 ===== Starting: ShallowRedExperiment =====
+2019-01-17 22:26:46 Found existing ShallowRedExperiment.dat
+2019-01-17 22:26:46 Removing ShallowRedExperiment-old.dat
+2019-01-17 22:26:46 Renaming ShallowRedExperiment.dat to ShallowRedExperiment-old.dat
+2019-01-17 22:26:46 Reading ShallowRedExperiment-old.dat...
+2019-01-17 22:26:46 Backup done.
+2019-01-17 22:26:46 Samples = 2425; Results = 2425; Mismatches = 0.
+2019-01-17 22:28:06 ===== Starting: ShallowRedExperiment =====
+2019-01-17 22:28:06 Found existing ShallowRedExperiment.dat
+2019-01-17 22:28:06 Removing ShallowRedExperiment-old.dat
+2019-01-17 22:28:06 Renaming ShallowRedExperiment.dat to ShallowRedExperiment-old.dat
+2019-01-17 22:28:06 Reading ShallowRedExperiment-old.dat...
+2019-01-17 22:28:06 Backup done.
+2019-01-17 22:28:06 Samples = 2425; Results = 2425; Mismatches = 0.
