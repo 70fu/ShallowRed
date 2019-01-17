@@ -32,6 +32,9 @@ public class PlayGameCommand implements Callable<Void>
         SHALLOWRED
     }
 
+    @Option(names={"-c","--count"}, description = "Amount of games played. (default: ${DEFAULT-VALUE})")
+    private int gameCount = 1;
+
     @Option(names={"-t","--computingTime"}, description="The number of seconds each agent is allowed to think (default: ${DEFAULT-VALUE})")
     private int computingTime = 10;
 
@@ -97,79 +100,82 @@ public class PlayGameCommand implements Callable<Void>
                 throw new ParameterException(commandSpec.commandLine(), "Given logDirectory is not a directory: " + logDirPath.toString());
         }
 
-        char resultChar = drawChar;
-        //used for repeatOnSameSideWin
-        boolean repeat;
-        int repeatCount = 0;
-        do
+        while(gameCount-->0)
         {
-            repeat = false;
-
-            //construct Board
-            MancalaBoard board;
-            if(randomBoard)
-                board = MancalaBoard.generateRandomBoard(ThreadLocalRandom.current(),NUM_STONES,true);
-            else//Load normal starting board with 6 stones per field
-                board = new MancalaBoard(STONES_PER_SLOT);
-
-            if (!switchSides)
+            char resultChar = drawChar;
+            //used for repeatOnSameSideWin
+            boolean repeat;
+            int repeatCount = 0;
+            do
             {
-                GameUtils.Result result;
-                if (enemyStarts)
-                    result = GameUtils.playAgainst(enemyAgent, playerAgent, 1, computingTime, 1, repeatOnError, logDirPath, board);
-                else
-                    result = GameUtils.playAgainst(playerAgent, enemyAgent, 1, computingTime, 1, repeatOnError, logDirPath, board);
+                repeat = false;
 
-                //analyze result and print character
-                if (result.timesDraw == 1)
-                    resultChar = drawChar;
-                else if (result.timesError == 1)
-                {
-                    System.err.println("An agent error occured during the game");
-                    break;
-                }
-                else if (result.timesWonA == 1)
-                    resultChar = enemyStarts ? lossChar : winChar;
-                else if (result.timesWonB == 1)
-                    resultChar = enemyStarts ? winChar : lossChar;
-            }
-            else
-            {
-                GameUtils.Result result = GameUtils.playAgainst(playerAgent,enemyAgent,1,computingTime,1,repeatOnError,logDirPath, board);
-                GameUtils.Result result2 = GameUtils.playAgainst(enemyAgent,playerAgent,1,computingTime,1,repeatOnError,logDirPath, board);
+                //construct Board
+                MancalaBoard board;
+                if (randomBoard)
+                    board = MancalaBoard.generateRandomBoard(ThreadLocalRandom.current(), NUM_STONES, true);
+                else//Load normal starting board with 6 stones per field
+                    board = new MancalaBoard(STONES_PER_SLOT);
 
-                //add result2 to result (A & B are switched)
-                result.timesWonA += result2.timesWonB;
-                result.timesWonB += result2.timesWonA;
-                result.timesDraw += result2.timesDraw;
-                result.timesError += result2.timesError;
-
-                //analyze result and print character
-                if(result.timesError>0)
+                if (!switchSides)
                 {
-                    System.err.println("An agent error occured during the game");
-                    break;
-                }
-                else if(result.timesDraw==2)
-                    resultChar = drawChar;
-                else if(result.timesWonA==result.timesWonB)
-                {
-                    if(repeatOnSameSideWin)
-                        repeat = true;
+                    GameUtils.Result result;
+                    if (enemyStarts)
+                        result = GameUtils.playAgainst(enemyAgent, playerAgent, 1, computingTime, 1, repeatOnError, logDirPath, board);
                     else
-                        resultChar=drawChar;
-                }
-                else if(result.timesWonA>result.timesWonB)
-                    resultChar = winChar;
-                else //if(result.timesWonA<result.timesWonB
-                    resultChar = lossChar;
-            }
-        }
-        while(((resultChar==drawChar && repeatOnDraw) || repeat) && repeatCount++<MAX_REPEATS);
+                        result = GameUtils.playAgainst(playerAgent, enemyAgent, 1, computingTime, 1, repeatOnError, logDirPath, board);
 
-        //print result
-        if(repeatCount<MAX_REPEATS)
-            System.out.println(resultChar);
+                    //analyze result and print character
+                    if (result.timesDraw == 1)
+                        resultChar = drawChar;
+                    else if (result.timesError == 1)
+                    {
+                        System.err.println("An agent error occured during the game");
+                        break;
+                    }
+                    else if (result.timesWonA == 1)
+                        resultChar = enemyStarts ? lossChar : winChar;
+                    else if (result.timesWonB == 1)
+                        resultChar = enemyStarts ? winChar : lossChar;
+                }
+                else
+                {
+                    GameUtils.Result result = GameUtils.playAgainst(playerAgent, enemyAgent, 1, computingTime, 1, repeatOnError, logDirPath, board);
+                    GameUtils.Result result2 = GameUtils.playAgainst(enemyAgent, playerAgent, 1, computingTime, 1, repeatOnError, logDirPath, board);
+
+                    //add result2 to result (A & B are switched)
+                    result.timesWonA += result2.timesWonB;
+                    result.timesWonB += result2.timesWonA;
+                    result.timesDraw += result2.timesDraw;
+                    result.timesError += result2.timesError;
+
+                    //analyze result and print character
+                    if (result.timesError > 0)
+                    {
+                        System.err.println("An agent error occured during the game");
+                        break;
+                    }
+                    else if (result.timesDraw == 2)
+                        resultChar = drawChar;
+                    else if (result.timesWonA == result.timesWonB)
+                    {
+                        if (repeatOnSameSideWin)
+                            repeat = true;
+                        else
+                            resultChar = drawChar;
+                    }
+                    else if (result.timesWonA > result.timesWonB)
+                        resultChar = winChar;
+                    else //if(result.timesWonA<result.timesWonB
+                        resultChar = lossChar;
+                }
+            }
+            while (((resultChar == drawChar && repeatOnDraw) || repeat) && repeatCount++ < MAX_REPEATS);
+
+            //print result
+            if (repeatCount < MAX_REPEATS)
+                System.out.println(resultChar);
+        }
 
         return null;
     }
