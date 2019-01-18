@@ -3,6 +3,10 @@ package at.pwd.shallowred.EndgameDB;
 import at.pwd.shallowred.CustomGame.MancalaBoard;
 import at.pwd.shallowred.CustomGame.MancalaGame;
 
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+
 /**
  * Endgame Database interface for Mancala
  */
@@ -11,7 +15,7 @@ public class EndgameDB
     /**
      * The DB stores boards until this amount of stones
      */
-    public static final int MAX_STONES = -1;//TODO set
+    public static final int MAX_STONES = 10;//TODO set
     /**
      * Amount of slot elements used in the permutation representation
      */
@@ -44,7 +48,28 @@ public class EndgameDB
                     3628800//10!
             };
 
+    private static final String PATH_TO_DB = "EndgameDB.bin";
+
+    private static MappedByteBuffer dbFile;
+
     private EndgameDB() {}
+
+    /**
+     * Client-History-Constraint: needs to be called once before calling loadDBValue
+     */
+    public static void loadDB()
+    {
+        RandomAccessFile raf = null;
+        try
+        {
+            raf = new RandomAccessFile(PATH_TO_DB,"r");
+            dbFile = raf.getChannel().map(FileChannel.MapMode.READ_ONLY,0,raf.length());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();//TODO what should we do here
+        }
+    }
 
     /**
      * Preconditions:
@@ -66,9 +91,15 @@ public class EndgameDB
     public static int loadDBValue(MancalaGame game)
     {
         long index = getIndex(game);
+        //System.out.println(game);
+        int value = dbFile.get((int)index);
+        //convert to unsigned
+        value = value & 0xFF;
+        value -= 128;
 
-        //TODO calculate byte, where value is stored and load
-        return 0;
+        //System.out.println(index);
+        //System.out.println(value);
+        return value;
     }
 
     /**

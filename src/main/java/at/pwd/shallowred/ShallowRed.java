@@ -58,6 +58,9 @@ public class ShallowRed implements MancalaAgent {
 
     public ShallowRed(String jsonConfig)
     {
+        //load endgame db
+        EndgameDB.loadDB();
+
         selector = new SelectionUtils();
         loadJSONConfig(jsonConfig);
     }
