@@ -49,7 +49,9 @@ public class ShallowRed implements MancalaAgent {
     //id of this agent
     private int playerId;
 
-    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,  \"minmaxInfluence\":0,  \"selector\":{\"type\":\"roulette\"},  \"expand\": {    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  },  \"simulation\":{    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  }}";
+    private boolean useEndgameDB = false;
+
+    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,  \"minmaxInfluence\":0,  \"selector\":{\"type\":\"roulette\"},  \"expand\": {    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  },  \"simulation\":{    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  }, \"useEndgameDB\": true}";
 
     public ShallowRed()
     {
@@ -159,7 +161,7 @@ public class ShallowRed implements MancalaAgent {
                 //terminal node reached look who is the winner
                 tree.minMaxValue=newGame.getWinner()==MancalaBoard.PLAYER_A?PROVEN_GAME_VALUE:-PROVEN_GAME_VALUE;
             }
-            else if(EndgameDB.hasValueStored(newGame))
+            else if(useEndgameDB && EndgameDB.hasValueStored(newGame))
             {
                 //calculate if this game is a win using the difference of stones stored in the database
                 int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
@@ -431,6 +433,9 @@ public class ShallowRed implements MancalaAgent {
         simulationWeights = new float[simulationHeuristicIds.length];
         loadHeuristics(sim, simulationHeuristicIds,simulationWeights);
 
+        //load if endgamedb should be used
+        useEndgameDB = root.getBoolean("useEndgameDB",false);
+
         simulationHeuristics = HeuristicSettings.generateHeuristicArray(simulationHeuristicIds);
 
         return true;
@@ -462,7 +467,9 @@ public class ShallowRed implements MancalaAgent {
                 add("minmaxInfluence",minmaxInfluence).
                 add("selector",selector.getSelectionAlg().toJSON()).
                 add("expand",exp).
-                add("simulation",sim).toString(WriterConfig.PRETTY_PRINT);
+                add("simulation",sim).
+                add("useEndgameDB",useEndgameDB).
+                toString(WriterConfig.PRETTY_PRINT);
 
     }
 
