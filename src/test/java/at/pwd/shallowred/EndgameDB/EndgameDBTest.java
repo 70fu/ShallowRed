@@ -17,14 +17,16 @@ import java.util.stream.Stream;
 class EndgameDBTest
 {
 
-    private static final int RANDOM_TEST_BOARD_COUNT = 1000;
+    private static final int RANDOM_TEST_BOARD_COUNT = 10000;
     private static final int[] MINMAX_PLAYER_MULT = new int[]{1,-1};
 
-    private static final Random r = new Random(100);
+    private static final Random r = new Random(System.nanoTime());
 
     @Test
     void loadDBValue()
     {
+        List<Float> dbDurations = new ArrayList<>(RANDOM_TEST_BOARD_COUNT);
+
         EndgameDB.loadDB();
 
         for(int i = 0;i<RANDOM_TEST_BOARD_COUNT;++i)
@@ -38,7 +40,7 @@ class EndgameDBTest
                 continue;
             }
 
-            int expected = EndgameDB.loadDBValue(game);
+            int expected = loadDBValueAndStoreTime(game,dbDurations);
 
             //play according to db
             while(game.getWinner()==MancalaGame.NOBODY)
@@ -54,7 +56,7 @@ class EndgameDBTest
                     if(child.getWinner()==MancalaGame.NOBODY)
                     {
                         int gameDiff = child.getBoard().getFields()[MancalaBoard.DEPOT_A]-child.getBoard().getFields()[MancalaBoard.DEPOT_B];
-                        if (EndgameDB.loadDBValue(child)*MINMAX_PLAYER_MULT[child.getCurrentPlayer()]+gameDiff == expected)
+                        if (loadDBValueAndStoreTime(child,dbDurations)*MINMAX_PLAYER_MULT[child.getCurrentPlayer()]+gameDiff == expected)
                         {
                             game = child;
                             moveFound = true;
@@ -83,6 +85,21 @@ class EndgameDBTest
 
             Assertions.assertEquals(expected,game.getBoard().getFields()[MancalaBoard.DEPOT_A]-game.getBoard().getFields()[MancalaBoard.DEPOT_B]);
         }
+
+        //print duration of dbaccess
+        System.out.println("DB ACCESS DURATIONS:");
+        System.out.println(dbDurations.parallelStream().mapToDouble(v->v).summaryStatistics().toString());
+    }
+
+    int loadDBValueAndStoreTime(MancalaGame game, List<Float> durationsInMillis)
+    {
+        long start = System.nanoTime();
+        int value = EndgameDB.loadDBValue(game);
+        long duration = System.nanoTime()-start;
+        durationsInMillis.add(duration/1000000f);
+
+        return value;
+
     }
 
     @ParameterizedTest
