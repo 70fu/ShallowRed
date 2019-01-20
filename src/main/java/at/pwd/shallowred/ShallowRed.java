@@ -84,7 +84,8 @@ public class ShallowRed implements MancalaAgent {
         private ShallowRed.MCTSTree parent;
         private List<ShallowRed.MCTSTree> children = new ArrayList<>(6);
         int actionId;
-        //calculated using minmax and differences of stones in depot, the bigger the better for player 0
+        //calculated using minmax and differences of stones in depot, the bigger the better for player 0,
+        //is set to PROVEN_GAME_VALUE if this node is a guaranteed win, -PROVEN_GAME_VALUE on a proven loss otherwise [0,1]
         double minMaxValue;
 
         MCTSTree()
@@ -102,9 +103,13 @@ public class ShallowRed implements MancalaAgent {
         }
 
         ShallowRed.MCTSTree getBestNode() {
-            ShallowRed.MCTSTree best = null;
+            ShallowRed.MCTSTree best = children.get(0);
             double value = 0;
             for (ShallowRed.MCTSTree m : children) {
+                //ignore nodes where the result is already set
+                if(m.minMaxValue<0 || m.minMaxValue>1)
+                    continue;
+
                 double wC = (double)m.winCount;
                 double vC = (double)m.visitCount;
                 double currentValue =  (1-minmaxInfluence)*wC/vC + //mcts exploitation term
@@ -163,6 +168,7 @@ public class ShallowRed implements MancalaAgent {
             }
             else if(useEndgameDB && EndgameDB.hasValueStored(newGame))
             {
+                //dbLookups++;//TODO remove
                 //calculate if this game is a win using the difference of stones stored in the database
                 int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
                 int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
@@ -248,6 +254,9 @@ public class ShallowRed implements MancalaAgent {
     @Override
     public MancalaAgentAction doTurn(int computationTime, at.pwd.boardgame.game.mancala.MancalaGame game) {
 
+        //dbLookups = 0;//TODO remov
+        long start = System.currentTimeMillis();
+
         //create mapping list between our own implementation and the existing one
         if(mancalaMapping == null){
             mancalaMapping = new String[14];//index is the ID of a slot from the mancalaboard, the content is the String ID from the existing implementation
@@ -262,8 +271,6 @@ public class ShallowRed implements MancalaAgent {
 
             playerId = game.getState().getCurrentPlayer();
         }
-
-        long start = System.currentTimeMillis();
 
         //convert given mancala game to our MancalaGame class
         MancalaGame convertedGame = new MancalaGame(game);
@@ -280,16 +287,25 @@ public class ShallowRed implements MancalaAgent {
         //get best move
         int selected = root.getBestMove();
         //System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
-        /*System.out.println("Selected action: "+selected);
+        /*System.out.println(MancalaGame.playerIdToString(convertedGame.getCurrentPlayer()));
+        System.out.println("Selected action: "+selected);
 
         for(MCTSTree child : root.children)
         {
             System.out.println(child.actionId+": "+child.winCount + " / " + child.visitCount+" | Avg: "+child.winCount/(float)child.visitCount+" |  MinMaxValue: "+child.minMaxValue);
         }
-        System.out.println("Total Visit count: "+root.visitCount);*/
+        System.out.println("Total Visit count: "+root.visitCount);
+        cumVisitCount+=root.visitCount;
+        System.out.println("Avg Visit Count/turn: "+cumVisitCount/(float)++turns);
+        System.out.println("DB Lookups: "+dbLookups);
+        System.out.println();*/
 
         return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected)]);
     }
+
+    /*long dbLookups = 0;
+    long cumVisitCount = 0;//TODO remove
+    long turns = 0;*/
 
     private void backup(ShallowRed.MCTSTree current, int winner) {
         int hasWon = (winner==playerId)?1:0;
