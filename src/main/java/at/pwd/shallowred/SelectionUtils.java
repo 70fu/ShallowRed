@@ -8,6 +8,7 @@ import com.eclipsesource.json.JsonObject;
 import java.util.Random;
 
 /**
+ * Utility class to choose the next turn
  * Selection algorithm needs to be set, before calling a select method
  */
 public class SelectionUtils

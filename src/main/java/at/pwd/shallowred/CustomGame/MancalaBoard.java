@@ -255,7 +255,7 @@ public class MancalaBoard {
         return game;
     }
 
-    //copied from SetUpController.java
+    //copied from SetUpController.java from provided framework in order to convert between our MancalaGame implementation and the MancalaBoard/-Game from the framework
     private static final String BOARD_GENERATOR_TRANSFORMER = "/board_generator.xsl";
     private InputStream generateBoard() {
         Map<String, String> params = new HashMap<>();

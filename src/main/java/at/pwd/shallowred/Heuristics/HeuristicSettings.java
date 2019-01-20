@@ -1,5 +1,6 @@
 package at.pwd.shallowred.Heuristics;
 
+//this class is not used anymore since the ShallowRed agent can be configured using json files
 public class HeuristicSettings
 {
     private HeuristicSettings(){}

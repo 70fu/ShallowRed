@@ -9,6 +9,7 @@ import at.pwd.boardgame.game.mancala.agent.MancalaAgentAction;
 import java.util.List;
 
 /**
+ * This is taken from the provided framework, so we can use this agent for our command line utility (see package at.pwd.shallowred.CLI)
  * Created by rfischer on 18/04/2017.
  */
 public class MancalaAlphaBetaAgent implements MancalaAgent {

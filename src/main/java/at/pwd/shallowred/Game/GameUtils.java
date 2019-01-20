@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+//Utility class to play games between agents, can also play games in parallel
 public class GameUtils
 {
     public static class Result

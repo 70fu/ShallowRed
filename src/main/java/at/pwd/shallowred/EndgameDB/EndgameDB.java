@@ -9,7 +9,8 @@ import java.nio.channels.FileChannel;
 
 /**
  * Endgame Database interface for Mancala.
- * Our Database stores the result for every board (with max MAX_STONES stones), assuming that both players play perfectly
+ * Our Database stores the result for every board (with max MAX_STONES stones), assuming that both players play perfectly.
+ *  The database is layered, first come all boards with 1 stone, then 2, then 3, ...
  */
 public class EndgameDB
 {
@@ -29,7 +30,10 @@ public class EndgameDB
     public static final long[] EMPTY_SIDE_OFFSET = new long[]{1, 6, 21, 56, 126, 252, 462, 792, 1287, 2002, 3003, 4368, 6188, 8568, 11628, 15504, 20349, 26334, 33649, 42504, 53130, 65780, 80730, 98280, 118755, 142506, 169911, 201376, 237336, 278256, 324632, 376992, 435897, 501942, 575757, 658008, 749398, 850668, 962598, 1086008, 1221759, 1370754, 1533939};
 
     /**
-     * TODO
+     * n = amount of stones on board
+     * possible boards with n-1 stones - half of possible boards with n stones where one side is empty
+     * DB_PART_OFFSETS[0] = 0
+     * DB_PART_OFFSETS[n] = ((n-1) + 11)! / ((n-1)! * 11!) - ((n-1) + 5)! / ((n-1)! * 5!) + DB_PART_OFFSETS[n-1]
      * calculated till 42
      */
     public static final long[] DB_PART_OFFSETS = new long[]{0, 0, 6, 63, 371, 1610, 5726, 17640, 48672, 122967, 288925, 638638, 1339702, 2685592, 5173168, 9618940, 17329596, 30347142, 51794988, 86358629, 140943425, 225562610, 354521310, 547977300, 833976780, 1251083925, 1851746715, 2706568956L, 3909689868L, 5585508576L, 7897031760L, 11056169096L, 15336353480L, 21087921932L, 28756759122L, 38906779275L, 52246904463L, 69663288682L, 92257638382L, 121392592048L, 158745244840L, 206370040051L, 266772398137L};

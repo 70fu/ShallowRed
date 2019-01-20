@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ * This is taken from the provided framework, so we can use this agent for our command line utility (see package at.pwd.shallowred.CLI)
  * Created by rfischer on 18/04/2017.
  */
 public class MancalaMCTSAgent implements MancalaAgent {

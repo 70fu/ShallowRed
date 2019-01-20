@@ -247,7 +247,7 @@ public class HeuristicFunctions
     }
 
     /*
-    Find somehow similar boards in endgame database, by reducing stones at fields where they do not matter (too much)
+    Find somehow similar boards in endgame database, by reducing stones at fields where they do not matter (too much) TODO
      */
 
 

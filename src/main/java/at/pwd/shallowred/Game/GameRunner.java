@@ -1,9 +1,12 @@
 package at.pwd.shallowred.Game;
 
+import at.pwd.shallowred.TestAgents.MancalaAlphaBetaAgent;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+//Just a class with main method to test out various things
 public class GameRunner
 {
     private static final String CONFIG_PATH = "out/artifacts/ShallowRedCLI/";
@@ -50,7 +53,7 @@ public class GameRunner
                 }
             }*/
 
-            GameUtils.Result result = GameUtils.playAgainst(new ShallowRedFactory(config.toString()),new ShallowRedFactory(config2.toString()),1,10,1,false,logDir);
+            GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ShallowRedFactory(config2.toString()),1,2,1,false,logDir);
             //GameUtils.Result result = GameUtils.playAgainst(new ShallowRedFactory(config.toString()),new ReflectionAgentFactory(MancalaMCTSAgent.class),10,5,5,false);
             //GameUtils.Result result = GameUtils.playAgainst(new ReflectionAgentFactory(MancalaAlphaBetaAgent.class),new ShallowRedFactory(config.toString()),1,10,1,false);
             System.out.println(result);

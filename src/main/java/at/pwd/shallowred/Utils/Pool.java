@@ -2,6 +2,7 @@ package at.pwd.shallowred.Utils;
 
 import java.util.ArrayList;
 
+//Utility class to reuse objects
 public abstract class Pool<T>
 {
     private ArrayList<T> free;

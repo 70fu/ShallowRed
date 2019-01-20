@@ -13,8 +13,6 @@ import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.WriterConfig;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class ShallowRed implements MancalaAgent {
@@ -79,15 +77,16 @@ public class ShallowRed implements MancalaAgent {
     private class MCTSTree {
         private MancalaGame game;
         private ShallowRed.MCTSTree parent;
-        private List<ShallowRed.MCTSTree> children = new ArrayList<>(6);
+        private ShallowRed.MCTSTree[] children = new ShallowRed.MCTSTree[6];
 
         //calculated using minmax and differences of stones in depot, the bigger the better for player 0,
         //is set to PROVEN_GAME_VALUE if this node is a guaranteed win, -PROVEN_GAME_VALUE on a proven loss otherwise [0,1]
-        double minMaxValue;
+        private double minMaxValue;
         private int visitCount;
         private int winCount;
 
-        byte actionId;
+        private byte actionId;
+        private byte childrenCount = 0;
 
 
         MCTSTree()
@@ -105,11 +104,12 @@ public class ShallowRed implements MancalaAgent {
         }
 
         ShallowRed.MCTSTree getBestNode() {
-            ShallowRed.MCTSTree best = children.get(0);
+            ShallowRed.MCTSTree best = children[0];
             double value = 0;
-            for (ShallowRed.MCTSTree m : children) {
+            for(int i = 0;i<childrenCount;++i) {
+                ShallowRed.MCTSTree m  = children[i];
                 //ignore nodes where the result is already set
-                if(m.minMaxValue<0 || m.minMaxValue>1)
+                if(m.isProven())
                     continue;
 
                 double wC = (double)m.winCount;
@@ -119,7 +119,7 @@ public class ShallowRed implements MancalaAgent {
                                         C*Math.sqrt(2*Math.log(visitCount) / vC);//Exploration term
 
 
-                if (best == null || currentValue > value) {
+                if (currentValue > value) {
                     value = currentValue;
                     best = m;
                 }
@@ -132,7 +132,8 @@ public class ShallowRed implements MancalaAgent {
         {
             ShallowRed.MCTSTree best = null;
             double value = 0;
-            for (ShallowRed.MCTSTree m : children) {
+            for(int i = 0;i<childrenCount;++i) {
+                ShallowRed.MCTSTree m  = children[i];
                 double wC = (double)m.winCount;
                 double vC = (double)m.visitCount;
                 double currentValue =  (1-minmaxInfluence)*wC/vC + //mcts exploitation term
@@ -148,8 +149,16 @@ public class ShallowRed implements MancalaAgent {
             return best;
         }
 
+        /**
+         * @return true if this node is a proven loss or win by the endgamedb or terminal node
+         */
+        boolean isProven()
+        {
+            return minMaxValue<0 || minMaxValue>1;
+        }
+
         boolean isFullyExpanded() {
-            return children.size() == game.getSelectableCount();
+            return childrenCount == game.getSelectableCount();
         }
 
         ShallowRed.MCTSTree move(byte actionId) {
@@ -166,7 +175,12 @@ public class ShallowRed implements MancalaAgent {
             if(newGame.getWinner()!=MancalaGame.NOBODY)
             {
                 //terminal node reached look who is the winner
-                tree.minMaxValue=newGame.getWinner()==MancalaBoard.PLAYER_A?PROVEN_GAME_VALUE:-PROVEN_GAME_VALUE;
+                if(newGame.getWinner()==MancalaBoard.PLAYER_A)
+                    tree.minMaxValue = PROVEN_GAME_VALUE;
+                else if(newGame.getWinner()==MancalaBoard.PLAYER_B)
+                    tree.minMaxValue = -PROVEN_GAME_VALUE;
+                else
+                    tree.minMaxValue = 0.5;
             }
             else if(useEndgameDB && EndgameDB.hasValueStored(newGame))
             {
@@ -174,7 +188,11 @@ public class ShallowRed implements MancalaAgent {
                 int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
                 int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
                 int dbValue = EndgameDB.loadDBValue(newGame)*MINMAX_PLAYER_MULT[newGame.getCurrentPlayer()];
-                tree.minMaxValue = aDepot-bDepot+dbValue>0?PROVEN_GAME_VALUE:-PROVEN_GAME_VALUE;
+                int value = aDepot-bDepot+dbValue;
+                if(value==0)
+                    tree.minMaxValue = 0.5;
+                else
+                    tree.minMaxValue = value>0?PROVEN_GAME_VALUE:-PROVEN_GAME_VALUE;
             }
             else
             {
@@ -184,23 +202,37 @@ public class ShallowRed implements MancalaAgent {
                 tree.minMaxValue = (aDepot - bDepot + (aDepot + bDepot)) / (double) (2 * (aDepot + bDepot));
             }
 
-            this.children.add(tree);
+            addChild(tree);
 
             updateMinMaxValue();
 
             return tree;
         }
 
+        void addChild(ShallowRed.MCTSTree child)
+        {
+            //add new child
+            this.children[childrenCount] = child;
+            ++childrenCount;
+        }
+
+        void clearChildren()
+        {
+            for(int i = 0;i<childrenCount;++i)
+                children[i] = null;
+            childrenCount = 0;
+        }
+
         void updateMinMaxValue()
         {
-            if(children.isEmpty())
+            if(childrenCount==0)
                 return;
 
             int playerMult = MINMAX_PLAYER_MULT[game.getCurrentPlayer()];
-            minMaxValue = children.get(0).minMaxValue;
-            for(int i = 1;i<children.size();++i)
+            minMaxValue = children[0].minMaxValue;
+            for(int i = 1;i<childrenCount;++i)
             {
-                MCTSTree child = children.get(i);
+                MCTSTree child = children[i];
                 minMaxValue = playerMult * Math.max(playerMult * minMaxValue, playerMult * child.minMaxValue);
             }
         }
@@ -218,9 +250,9 @@ public class ShallowRed implements MancalaAgent {
             else
             {
                 //go deeper, check games of children
-                for (int i = 0; i < children.size(); ++i)
+                for (int i = 0; i < childrenCount; ++i)
                 {
-                    MCTSTree result = children.get(i).searchRoot(searchGame);
+                    MCTSTree result = children[i].searchRoot(searchGame);
                     if(result!=null)
                         return result;
                 }
@@ -248,7 +280,7 @@ public class ShallowRed implements MancalaAgent {
                 if(root.parent!=null)
                 {
                     //remove children from parent
-                    root.parent.children.clear();
+                    root.clearChildren();
                     //clear parent
                     root.parent = null;
 
@@ -288,15 +320,17 @@ public class ShallowRed implements MancalaAgent {
 
         while ((System.currentTimeMillis() - start) < (computationTime*1000 - 100)) {
             ShallowRed.MCTSTree best = treePolicy(root);
-            int winner = defaultPolicy(best.game);
+            int winner = -1;
+            if(!best.isProven())
+                winner = defaultPolicy(best.game);
             backup(best, winner);
         }
-        
+
         //get best move
         root = root.getBestMove();
 
         //detatch parts of the tree for gc
-        root.parent.children.clear();
+        root.clearChildren();
         root.parent = null;
 
         return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),root.actionId)]);
@@ -331,11 +365,17 @@ public class ShallowRed implements MancalaAgent {
     }
 
     private ShallowRed.MCTSTree expand(ShallowRed.MCTSTree best) {
+        if(best.isProven() && best!=root)
+            return best;
+
         //filter already expanded moves
         for(int i = 1;i<=6;++i)
             expandSelectionFilter[i]=true;
-        for(MCTSTree child : best.children)
+        for(int i = 0;i<best.childrenCount;++i)
+        {
+            MCTSTree child = best.children[i];
             expandSelectionFilter[child.actionId] = false;
+        }
 
         return best.move((byte)selector.select(best.game,expandHeuristics,expandWeights, expandSelectionFilter));
     }
