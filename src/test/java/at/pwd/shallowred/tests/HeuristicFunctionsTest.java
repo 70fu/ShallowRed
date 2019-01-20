@@ -47,56 +47,56 @@ class HeuristicFunctionsTest
     {
         return Stream.of(
                 //EXTRA TURN
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,1,4,3,17,12,0,0,0,0,0,0,0,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,1,4,3,17,12,0,0,0,0,0,0,0,0}),
                         new HWrapper(HeuristicFunctions::extraTurn),
                         new float[]{0,1,0,1,1,0,0}),
                 //same as above for the other player
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new int[]{0,0,0,0,0,0,0,0,1,4,3,17,12,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{0,0,0,0,0,0,0,0,1,4,3,17,12,0}),
                         new HWrapper(HeuristicFunctions::extraTurn),
                         new float[]{0,1,0,1,1,0,0}),
 
                 //STEAL STONES
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,8,0,0,13,2,0,0,2,2,4,3,2,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,8,0,0,13,2,0,0,2,2,4,3,2,0}),
                         new HWrapper(HeuristicFunctions::stealStones),
                         new float[]{0,2f/9f,0,0,4f/9f,3/9f,0}),
                 //same as above for the other player
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new int[]{0,2,2,4,3,2,0,0,8,0,0,13,2,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{0,2,2,4,3,2,0,0,8,0,0,13,2,0}),
                         new HWrapper(HeuristicFunctions::stealStones),
                         new float[]{0,2f/9f,0,0,4f/9f,3/9f,0}),
 
                 //MOVE OVER DEPOT
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,2,2,2,30,6,0,1,0,0,0,0,0,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,2,2,2,30,6,0,1,0,0,0,0,0,0}),
                         new HWrapper(HeuristicFunctions::moveOverDepot),
                         new float[]{0,1,0,0,1,1,0}),
                 //same as above for the other player
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new int[]{0,0,0,0,0,0,0,0,2,2,2,30,6,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{0,0,0,0,0,0,0,0,2,2,2,30,6,0}),
                         new HWrapper(HeuristicFunctions::moveOverDepot),
                         new float[]{0,1,0,0,1,1,0}),
 
                 //EXTRA TURN CHAINING
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,4,2,3,17,12,0,0,0,0,0,0,0,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,4,2,3,17,12,0,0,0,0,0,0,0,0}),
                         new HWrapper(HeuristicFunctions::extraTurnChaining),
                         new float[]{0,0,1,0,0,0,0}),
                 //same as above for the other player
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new int[]{0,0,0,0,0,0,0,0,4,2,3,17,12,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{0,0,0,0,0,0,0,0,4,2,3,17,12,0}),
                         new HWrapper(HeuristicFunctions::extraTurnChaining),
                         new float[]{0,0,1,0,0,0,0}),
 
                 //STEAL OPPORTUNITY
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,1,1,1,0,1,1,0,1,2,3,4,5,6}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,1,1,1,0,1,1,0,1,2,3,4,5,6}),
                         new HWrapper(HeuristicFunctions::stealOpportunity),
                         new float[]{0,6/18f,5/18f,4/18f,0,2/18f,1/18f}),
                 //same as above for the other player
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new int[]{0,1,2,3,4,5,6,0,1,1,1,0,1,1}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{0,1,2,3,4,5,6,0,1,1,1,0,1,1}),
                         new HWrapper(HeuristicFunctions::stealOpportunity),
                         new float[]{0,6/18f,5/18f,4/18f,0,2/18f,1/18f}),
 
                 //PREVENT STEAL LIGHT
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,1,5,2,11,0,11,0,0,0,2,0,1,0}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,1,5,2,11,0,11,0,0,0,2,0,1,0}),
                         new HWrapper(HeuristicFunctions::preventStealLight),
                         new float[]{0,1/3f,2/3f,1/3f,1,0,1}),
                 //same as above for the other player
-                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new int[]{0,0,0,2,0,1,0,0,1,5,2,11,0,11}),
+                Arguments.of(new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{0,0,0,2,0,1,0,0,1,5,2,11,0,11}),
                         new HWrapper(HeuristicFunctions::preventStealLight),
                         new float[]{0,1/3f,2/3f,1/3f,1,0,1})
         );

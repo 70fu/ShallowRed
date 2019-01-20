@@ -41,8 +41,8 @@ class SelectionUtilsTest
     @BeforeAll
     static void setup()
     {
-        game = new MancalaGame(MancalaBoard.PLAYER_A,new int[]{0,1,2,3,0,5,0,7,8,9,10,11,12,13});
-        mirrored = new MancalaGame(MancalaBoard.PLAYER_B,new int[]{7,8,9,10,11,12,13,0,1,2,3,0,5,0});
+        game = new MancalaGame(MancalaBoard.PLAYER_A,new byte[]{0,1,2,3,0,5,0,7,8,9,10,11,12,13});
+        mirrored = new MancalaGame(MancalaBoard.PLAYER_B,new byte[]{7,8,9,10,11,12,13,0,1,2,3,0,5,0});
         selector = new SelectionUtils();
         //set selection algorithm that takes the move with maximum weight
         selector.setSelectionAlg(new SelectionUtils.SelectionAlgorithm()

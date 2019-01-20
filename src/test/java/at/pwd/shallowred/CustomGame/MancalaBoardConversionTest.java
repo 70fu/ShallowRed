@@ -88,7 +88,7 @@ class MancalaBoardConversionTest
 
     boolean everySlotFilled(MancalaBoard board, boolean excludedDepots)
     {
-        int[] slots = board.getFields();
+        byte[] slots = board.getFields();
         for(int i = 0;i<14;++i)
         {
             if(excludedDepots && (i==MancalaBoard.DEPOT_A || i==MancalaBoard.DEPOT_B))

@@ -24,10 +24,10 @@ import java.util.Random;
 
 public class MancalaBoard {
 
-    private int[] slots;
+    private byte[] slots;
 
-    public static final int PLAYER_A = 0;
-    public static final int PLAYER_B = 1;
+    public static final byte PLAYER_A = 0;
+    public static final byte PLAYER_B = 1;
     public static final int DEPOT_A = 0;
     public static final int DEPOT_B = 7;
 
@@ -36,7 +36,7 @@ public class MancalaBoard {
      * Creates an empty MancalaBoard
      */
     public MancalaBoard(){
-        slots = new int[14];
+        slots = new byte[14];
     }
 
     /**
@@ -44,7 +44,7 @@ public class MancalaBoard {
      * Preconditions:
      *      @param slots, must have length 14
      */
-    public MancalaBoard(int[] slots)
+    public MancalaBoard(byte[] slots)
     {
         this.slots = slots;
     }
@@ -59,7 +59,7 @@ public class MancalaBoard {
         this();
 
         for(int i = 0;i<14;++i)
-            slots[i]=stonesPerSlot;
+            slots[i]=(byte)stonesPerSlot;
 
         //reset depots
         slots[DEPOT_A] = 0;
@@ -78,11 +78,11 @@ public class MancalaBoard {
         //TODO: TEST THIS!
 
         String slotID = game.getBoard().getDepotOfPlayer(0);
-        slots[0] = game.getState().stonesIn(slotID);
+        slots[0] = (byte)game.getState().stonesIn(slotID);
 
         for(int i = 13; i >= 1;i--){
             slotID = game.getBoard().next(slotID);
-            slots[i] = game.getState().stonesIn(slotID);
+            slots[i] = (byte)game.getState().stonesIn(slotID);
         }
 
 
@@ -126,7 +126,7 @@ public class MancalaBoard {
     }
 
 
-    public int[] getFields(){
+    public byte[] getFields(){
         return slots;
     }
 

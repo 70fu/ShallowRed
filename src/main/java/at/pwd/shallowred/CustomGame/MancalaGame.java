@@ -5,14 +5,14 @@ import static at.pwd.shallowred.CustomGame.MancalaBoard.*;
 public class MancalaGame {
 
     private MancalaBoard board;
-    private int currentPlayer;
+    private byte currentPlayer;
     /**
      * -1, if no winner, otherwise the player id of the winning player
      *  2, for a draw
      */
-    private int winner = NOBODY;
-    public static final int NOBODY = -1;
-    public static final int DRAW = 2;
+    private byte winner = NOBODY;
+    public static final byte NOBODY = -1;
+    public static final byte DRAW = 2;
 
     public MancalaGame()
     {
@@ -25,7 +25,7 @@ public class MancalaGame {
      *      @param currentPlayer, 0 or 1
      *      @param slots, length==14 && all values are positive
      */
-    public MancalaGame(int currentPlayer,int[] slots)
+    public MancalaGame(byte currentPlayer,byte[] slots)
     {
         this.currentPlayer = currentPlayer;
         board = new MancalaBoard(slots);
@@ -39,7 +39,7 @@ public class MancalaGame {
     {
         board = new MancalaBoard(game);
 
-        currentPlayer = game.getState().getCurrentPlayer();
+        currentPlayer = (byte)game.getState().getCurrentPlayer();
 
         updateWinningState();//could be deleted before submission and replaced with: winner=NOBODY
     }
@@ -72,7 +72,7 @@ public class MancalaGame {
     public boolean performTurn(int id) {
         int slot = MancalaBoard.index(currentPlayer,id);
         int stones = board.clearSlot(slot);
-        int[] slots = board.getFields();
+        byte[] slots = board.getFields();
 
         //how many rounds can I make with stones
         int rounds = stones/13;
@@ -133,7 +133,7 @@ public class MancalaGame {
      * Postconditions:
      *      @return id of current player
      */
-    public int getCurrentPlayer()
+    public byte getCurrentPlayer()
     {
         return currentPlayer;
     }
@@ -142,9 +142,9 @@ public class MancalaGame {
      * Postconditions:
      *      @return id of enemy of current player
      */
-    public int getEnemyPlayer()
+    public byte getEnemyPlayer()
     {
-        return 1-currentPlayer;
+        return (byte)(1-currentPlayer);
     }
 
     /**
@@ -209,7 +209,7 @@ public class MancalaGame {
      */
     public boolean updateWinningState()//TODO this should not be public
     {
-        int[] slots = board.getFields();
+        byte[] slots = board.getFields();
 
         int sumA = 0;
         for(int x = 1;x<7;++x)
