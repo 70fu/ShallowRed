@@ -49,6 +49,11 @@ Each of these heuristics have a weight, that tells how important this heuristic 
 But even after playing over 12000 games against the AlphaBetaAgent of the framework with different combinations of weights, CLOP [2] was not able to find a combination of weights, that could consistently beat the AlphaBetaAgent.  
 Less than 10 games have been won against the AlphaBetaAgent. 
 
+In order to accellerate our agent we attempted to precompute a Database which contained the best possible outcome (stored as the difference between DepotA and DepotB) for each possible MancalaBoard in the game. (Ranging from 1 Stone on the field to 25 Stones)
+The database was precomputed using a C++ application which stored the results in a single .bin file in binary form.
+While having potential, we stumbled upon a few issues which weilded worse results if this database was used in our agent.
+So the database was dropped.
+
 ## References
 1. Marc Lanctot, Mark H. M. Winands, Tom Pepels & Nathan R. Sturtevant (2014). Monte Carlo Tree Search with Heuristic Evaluations using Implicit Minimax Backups. CoRR, abs/1406.0486, .
 2. Coulom R. (2012) CLOP: Confident Local Optimization for Noisy Black-Box Parameter Tuning. In: van den Herik H.J., Plaat A. (eds) Advances in Computer Games. ACG 2011. Lecture Notes in Computer Science, vol 7168. Springer, Berlin, Heidelberg
