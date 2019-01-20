@@ -9,7 +9,7 @@ Simon Reiser (11777770)
 2. Import the agent by adding **shallowred_main.jar**, which is also provided in our submission, and enter **at.pwd.shallowred.ShallowRed** as class name.
 
 **Important**: 
-- The application needs to be **restarted after playing one game.**
+- The application needs to be **restarted after playing one game**, to reinstantiate the ShallowRed-Agent.
 - It's not possible to play two ShallowRed-Agents against each other using provided application, since only a single instance of the ShallowRed-Agent is created
 
 
