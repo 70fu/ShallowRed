@@ -28,7 +28,7 @@ Our AI uses MCTS with the following modifications:
 - The heuristical value **h** is set to ∞ on a proven win or -∞ if the node is a proven loss, since it only matters to win with any difference of stones.
 - On every turn the relevant subtree of the search tree of the last turn is reused.
 - The parameters **α** and **C** of our modified UCB formula are automatically tuned using CLOP [2] using the AlphaBeta-Agent of the framework with increased depth and other ShallowRed-Agents. We also performed several tournaments between differently configured ShallowRed-Agents.
-- We have calculated an endgame database, which stores the difference of stones of the resulting board, if all players play perfectly, for boards, containing up to a certain amount of stones (ignoring depots).
+- We have calculated an endgame database, which stores for boards up to 25 stones the difference of stones of the resulting board, if all players play perfectly.
 
 We also use our own optimized implementation of Kalaha.
 
