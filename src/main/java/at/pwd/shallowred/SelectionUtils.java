@@ -191,11 +191,6 @@ public class SelectionUtils
     private float[] weights = new float[7];
     private float[] weightSum = new float[7];
 
-    /*public SelectionUtils(JsonObject json)
-    {
-        //TODO
-    }*/
-
     public SelectionUtils()
     {
 
@@ -234,10 +229,6 @@ public class SelectionUtils
             throw new IllegalArgumentException("Wrong selector json, must be json object with type: [random, roulette, tournament]");
     }
 
-
-
-    //TODO may only use light heuristics in simulation, since the simulation should be fast
-    //TODO switch to endgame database if there are not many stones left
     public int select(MancalaGame game, Heuristic[] heuristics, float[] heuristicWeights, boolean[] filter)
     {
         //reset weights

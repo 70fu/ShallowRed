@@ -68,14 +68,11 @@ public class MancalaBoard {
 
     /**
      * Creates a mancalaboard from given game
-     *
-     * Because the API is HORRIBLE!
      */
     public MancalaBoard(at.pwd.boardgame.game.mancala.MancalaGame game)
     {
         this();
         
-        //TODO: TEST THIS!
 
         String slotID = game.getBoard().getDepotOfPlayer(0);
         slots[0] = (byte)game.getState().stonesIn(slotID);
@@ -236,8 +233,6 @@ public class MancalaBoard {
         builder.append(String.format("%c      (%3d ) (%3d ) (%3d ) (%3d ) (%3d ) (%3d )      %c",edgeCharacter,slots[6],slots[5],slots[4],slots[3],slots[2],slots[1],edgeCharacter));
         return builder.toString();
     }
-
-    //TODO test everything from below here
 
     /**
      * Postconditions:

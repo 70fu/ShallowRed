@@ -57,7 +57,6 @@ public class GameThread extends Thread
 
     private void reset(MancalaAgent agentA, MancalaAgent agentB, int computingTime)
     {
-        //TODO set game
         MancalaBoard defaultBoard = new MancalaBoard(6);
         reset(agentA,agentB,computingTime,defaultBoard.toMancalaGame());
     }

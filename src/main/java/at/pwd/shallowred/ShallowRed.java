@@ -168,7 +168,6 @@ public class ShallowRed implements MancalaAgent {
             }
             else if(useEndgameDB && EndgameDB.hasValueStored(newGame))
             {
-                //dbLookups++;//TODO remove
                 //calculate if this game is a win using the difference of stones stored in the database
                 int aDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_A];
                 int bDepot = newGame.getBoard().getFields()[MancalaBoard.DEPOT_B];
@@ -258,7 +257,6 @@ public class ShallowRed implements MancalaAgent {
     @Override
     public MancalaAgentAction doTurn(int computationTime, at.pwd.boardgame.game.mancala.MancalaGame game) {
 
-        //dbLookups = 0;//TODO remov
         long start = System.currentTimeMillis();
 
         //create mapping list between our own implementation and the existing one
@@ -273,8 +271,8 @@ public class ShallowRed implements MancalaAgent {
                 mancalaMapping[i] = slotID;
             }
 
-            playerId = game.getState().getCurrentPlayer();
         }
+        playerId = game.getState().getCurrentPlayer();
 
         //convert given mancala game to our MancalaGame class
         MancalaGame convertedGame = new MancalaGame(game);
@@ -290,27 +288,9 @@ public class ShallowRed implements MancalaAgent {
 
         //get best move
         int selected = root.getBestMove();
-        //System.out.println("Selected action " + selected.winCount + " / " + selected.visitCount);
-        /*System.out.println(MancalaGame.playerIdToString(convertedGame.getCurrentPlayer()));
-        System.out.println("Selected action: "+selected);
-
-        for(MCTSTree child : root.children)
-        {
-            System.out.println(child.actionId+": "+child.winCount + " / " + child.visitCount+" | Avg: "+child.winCount/(float)child.visitCount+" |  MinMaxValue: "+child.minMaxValue);
-        }
-        System.out.println("Total Visit count: "+root.visitCount);
-        cumVisitCount+=root.visitCount;
-        System.out.println("Avg Visit Count/turn: "+cumVisitCount/(float)++turns);
-        System.out.println("DB Lookups: "+dbLookups);
-        System.out.println();*/
-        //System.out.println("Total Visit count: "+root.visitCount);
 
         return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected)]);
     }
-
-    /*long dbLookups = 0;
-    long cumVisitCount = 0;//TODO remove
-    long turns = 0;*/
 
     private void backup(ShallowRed.MCTSTree current, int winner) {
         int hasWon = (winner==playerId)?1:0;

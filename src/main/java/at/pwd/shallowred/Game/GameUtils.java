@@ -163,7 +163,7 @@ public class GameUtils
                 for(GameThreadWatcher w : watcherThreads)
                     w.interrupt();
 
-                throw new InterruptedException();//TODO should this really happen
+                throw new InterruptedException();
             }
         }
 

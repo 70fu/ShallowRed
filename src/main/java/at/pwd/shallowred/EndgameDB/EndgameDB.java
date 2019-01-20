@@ -15,7 +15,7 @@ public class EndgameDB
     /**
      * The DB stores boards until this amount of stones
      */
-    public static final int MAX_STONES = 25;//TODO set
+    public static final int MAX_STONES = 25;
     /**
      * Amount of slot elements used in the permutation representation
      */
@@ -67,7 +67,7 @@ public class EndgameDB
         }
         catch (Exception e)
         {
-            e.printStackTrace();//TODO what should we do here
+            e.printStackTrace();//TODO what should we do here, if the endgame database has not been found
         }
     }
 

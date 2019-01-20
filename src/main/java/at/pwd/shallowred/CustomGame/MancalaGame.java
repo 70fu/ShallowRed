@@ -207,7 +207,7 @@ public class MancalaGame {
      *      if there are no stones on at least one side, all remaining stones are given to the depot of the slot owner
      *      @return true ... game has ended, false ... game has not been ended
      */
-    public boolean updateWinningState()//TODO this should not be public
+    public boolean updateWinningState()
     {
         byte[] slots = board.getFields();
 
