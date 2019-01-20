@@ -5,10 +5,10 @@ Sebastian Serwin (01427028)
 Simon Reiser (11777770)
 
 ## Submission Content
-- **shallowred.zip**: Source code of the java project.
+- **ShallowRed**: Source code of the java project.
 - **shallowred_main.jar**: Built jar file of the java project.
-- **MancalaBaker.zip**: Source code of the C++ project, used for calculating the endgame database.
-- **EndgameDB_ShallowRed.bin**: Endgame database for up to 25 stones on the board (excluding depots)
+- **MancalaBaker**: Source code of the C++ project, used for calculating the endgame database.
+- **ShallowRed/EndgameDB_ShallowRed.bin**: Endgame database for up to 25 stones on the board (excluding depots)
 - **readmeAssets & README.md**: Readme file in Markdown format.
 
 ## Setup
