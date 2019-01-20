@@ -4,6 +4,13 @@
 Sebastian Serwin (01427028)  
 Simon Reiser (11777770)
 
+## Submission Content
+- **shallowred.zip**: Source code of the java project.
+- **shallowred_main.jar**: Built jar file of the java project.
+- **MancalaBaker.zip**: Source code of the C++ project, used for calculating the endgame database.
+- **EndgameDB_ShallowRed.bin**: Endgame database
+- **readmeAssets & README.md**: Readme file in Markdown format.
+
 ## Setup
 1. The file **EndgameDB_ShallowRed.bin** must be placed in the working directory, which is the app directory if the provided Mancala Boardgame Engine executable file is used.
 2. Import the agent by adding **shallowred_main.jar**, which is also provided in our submission, and enter **at.pwd.shallowred.ShallowRed** as class name.
