@@ -243,6 +243,10 @@ public class ShallowRed implements MancalaAgent {
                 root = nodePool.obtain().set(game);
             else
             {
+                //detatch from rest of the tree, so GC can clean up
+                //remove children from parent
+                root.parent.children.clear();
+
                 //clear parent
                 root.parent = null;
                 root.actionId = 0;
@@ -299,6 +303,7 @@ public class ShallowRed implements MancalaAgent {
         System.out.println("Avg Visit Count/turn: "+cumVisitCount/(float)++turns);
         System.out.println("DB Lookups: "+dbLookups);
         System.out.println();*/
+        //System.out.println("Total Visit count: "+root.visitCount);
 
         return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected)]);
     }
