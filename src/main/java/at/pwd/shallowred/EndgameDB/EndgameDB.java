@@ -8,12 +8,13 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * Endgame Database interface for Mancala
+ * Endgame Database interface for Mancala.
+ * Our Database stores the result for every board (with max MAX_STONES stones), assuming that both players play perfectly
  */
 public class EndgameDB
 {
     /**
-     * The DB stores boards until this amount of stones
+     * The DB stores boards until this amount of stones (inclusive)
      */
     public static final int MAX_STONES = 25;
     /**
@@ -91,21 +92,19 @@ public class EndgameDB
     public static int loadDBValue(MancalaGame game)
     {
         long index = getIndex(game);
-        //System.out.println(game);
         int value = dbFile.get((int)index);
         //convert to unsigned
         value = value & 0xFF;
         value -= 128;
 
-        //System.out.println(index);
-        //System.out.println(value);
         return value;
     }
 
     /**
      * This algorithm is based off this stackoverflow answer: https://stackoverflow.com/a/14374455
-     * TODO describe adaption
-     * Slot is lexicographically less than stone
+     * A Mancala board can be seen as a permutation with duplicate elements with two different kinds of elements: stones and the slots as 11 seperator elements (depots are ignored).
+     * Slot seperators is lexicographically less than a stone element
+     * Due to the choice of the algorithm half of the boards, which have no stones on one side, are indexed first, this way we can exclude those in the indexing process
      * Preconditions:
      *      @param game != null && game.getWinner()==MancalaGame.NOBODY
      * Postconditions:

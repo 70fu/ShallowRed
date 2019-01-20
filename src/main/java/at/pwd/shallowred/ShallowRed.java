@@ -77,16 +77,18 @@ public class ShallowRed implements MancalaAgent {
     }
 
     private class MCTSTree {
-        private int visitCount;
-        private int winCount;
-
         private MancalaGame game;
         private ShallowRed.MCTSTree parent;
         private List<ShallowRed.MCTSTree> children = new ArrayList<>(6);
-        int actionId;
+
         //calculated using minmax and differences of stones in depot, the bigger the better for player 0,
         //is set to PROVEN_GAME_VALUE if this node is a guaranteed win, -PROVEN_GAME_VALUE on a proven loss otherwise [0,1]
         double minMaxValue;
+        private int visitCount;
+        private int winCount;
+
+        byte actionId;
+
 
         MCTSTree()
         {
@@ -126,9 +128,9 @@ public class ShallowRed implements MancalaAgent {
             return best;
         }
 
-        int getBestMove()
+        ShallowRed.MCTSTree getBestMove()
         {
-            int best = 0;
+            ShallowRed.MCTSTree best = null;
             double value = 0;
             for (ShallowRed.MCTSTree m : children) {
                 double wC = (double)m.winCount;
@@ -137,9 +139,9 @@ public class ShallowRed implements MancalaAgent {
                         minmaxInfluence*(game.getCurrentPlayer()-m.minMaxValue)*-MINMAX_PLAYER_MULT[game.getCurrentPlayer()]; //minMaxValue if PLAYER_A, 1-minMaxValue if PLAYER_B
 
 
-                if (best == 0 || currentValue > value) {
+                if (best == null || currentValue > value) {
                     value = currentValue;
-                    best = m.actionId;
+                    best = m;
                 }
             }
 
@@ -150,7 +152,7 @@ public class ShallowRed implements MancalaAgent {
             return children.size() == game.getSelectableCount();
         }
 
-        ShallowRed.MCTSTree move(int actionId) {
+        ShallowRed.MCTSTree move(byte actionId) {
             //obtain a copy
             MancalaGame newGame = gamePool.obtain().copy(this.game);
             //perform turn
@@ -243,11 +245,15 @@ public class ShallowRed implements MancalaAgent {
             else
             {
                 //detatch from rest of the tree, so GC can clean up
-                //remove children from parent
-                root.parent.children.clear();
+                if(root.parent!=null)
+                {
+                    //remove children from parent
+                    root.parent.children.clear();
+                    //clear parent
+                    root.parent = null;
 
-                //clear parent
-                root.parent = null;
+                }
+
                 root.actionId = 0;
             }
 
@@ -285,11 +291,15 @@ public class ShallowRed implements MancalaAgent {
             int winner = defaultPolicy(best.game);
             backup(best, winner);
         }
-
+        
         //get best move
-        int selected = root.getBestMove();
+        root = root.getBestMove();
 
-        return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),selected)]);
+        //detatch parts of the tree for gc
+        root.parent.children.clear();
+        root.parent = null;
+
+        return new MancalaAgentAction(mancalaMapping[MancalaBoard.index(game.getState().getCurrentPlayer(),root.actionId)]);
     }
 
     private void backup(ShallowRed.MCTSTree current, int winner) {
@@ -327,7 +337,7 @@ public class ShallowRed implements MancalaAgent {
         for(MCTSTree child : best.children)
             expandSelectionFilter[child.actionId] = false;
 
-        return best.move(selector.select(best.game,expandHeuristics,expandWeights, expandSelectionFilter));
+        return best.move((byte)selector.select(best.game,expandHeuristics,expandWeights, expandSelectionFilter));
     }
 
     private int defaultPolicy(MancalaGame game) {
