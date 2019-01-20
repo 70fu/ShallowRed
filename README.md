@@ -8,7 +8,9 @@ Simon Reiser (11777770)
 1. The file **EndgameDB_ShallowRed.bin** must be placed in the working directory, which is the app directory if the provided .exe file is used.
 2. Import the agent by adding **shallowred_main.jar**, which is also provided in our submission, and enter **at.pwd.shallowred.ShallowRed** as class name.
 
-**Important**: The application needs to be **restarted after playing one game.**
+**Important**: 
+- The application needs to be **restarted after playing one game.**
+- It's not possible to play two ShallowRed-Agents against each other using provided application, since only a single instance of the ShallowRed-Agent is created
 
 
 ## Approach
