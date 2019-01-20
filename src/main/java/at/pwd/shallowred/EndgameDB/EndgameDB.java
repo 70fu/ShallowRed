@@ -15,7 +15,7 @@ public class EndgameDB
     /**
      * The DB stores boards until this amount of stones
      */
-    public static final int MAX_STONES = 21;//TODO set
+    public static final int MAX_STONES = 25;//TODO set
     /**
      * Amount of slot elements used in the permutation representation
      */
@@ -48,7 +48,7 @@ public class EndgameDB
                     3628800//10!
             };
 
-    private static final String PATH_TO_DB = "EndgameDB.bin";
+    private static final String PATH_TO_DB = "EndgameDB_ShallowRed.bin";
 
     private static MappedByteBuffer dbFile;
 
