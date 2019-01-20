@@ -51,7 +51,7 @@ public class ShallowRed implements MancalaAgent {
 
     private boolean useEndgameDB = false;
 
-    private static final String DEFAULT_CONFIG = "{  \"C\":0.7071067811865475,  \"minmaxInfluence\":0,  \"selector\":{\"type\":\"roulette\"},  \"expand\": {    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  },  \"simulation\":{    \"0\": {      \"weight\": 0.5    },    \"1\": {      \"weight\": 1    },    \"2\": {      \"weight\": 0.05    },    \"3\": {      \"weight\": 0.05    },    \"4\": {      \"weight\": 0.05    },    \"5\": {      \"weight\": 0.75    }  }, \"useEndgameDB\": true}";
+    private static final String DEFAULT_CONFIG = "{  \"C\":0.8,  \"minmaxInfluence\":0.975,  \"selector\":{\"type\":\"random\"},  \"expand\": {},  \"simulation\":{}, \"useEndgameDB\": true}";
 
     public ShallowRed()
     {
