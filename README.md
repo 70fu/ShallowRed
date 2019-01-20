@@ -8,12 +8,11 @@ Simon Reiser (11777770)
 - **shallowred.zip**: Source code of the java project.
 - **shallowred_main.jar**: Built jar file of the java project.
 - **MancalaBaker.zip**: Source code of the C++ project, used for calculating the endgame database.
-- **EndgameDB_ShallowRed.bin**: Endgame database
+- **EndgameDB_ShallowRed.bin**: Endgame database for up to 25 stones on the board (excluding depots)
 - **readmeAssets & README.md**: Readme file in Markdown format.
 
 ## Setup
-1. The file **EndgameDB_ShallowRed.bin** must be placed in the working directory, which is the app directory if the provided Mancala Boardgame Engine executable file is used.
-2. Import the agent by adding **shallowred_main.jar**, which is also provided in our submission, and enter **at.pwd.shallowred.ShallowRed** as class name.
+Import the agent by adding **shallowred_main.jar**, which is also provided in our submission, and enter **at.pwd.shallowred.ShallowRed** as class name.
 
 **Important**: 
 - The application needs to be **restarted after playing one game**, to reinstantiate the ShallowRed-Agent.
@@ -38,7 +37,6 @@ Our AI uses MCTS with the following modifications:
 - The heuristical value **h** is set to ∞ on a proven win or -∞ if the node is a proven loss, since it only matters to win with any difference of stones.
 - On every turn the relevant subtree of the search tree of the last turn is reused.
 - The parameters **α** and **C** of our modified UCB formula are automatically tuned using CLOP [2] using the AlphaBeta-Agent of the framework with increased depth and other ShallowRed-Agents. We also performed several tournaments between differently configured ShallowRed-Agents.
-- We have calculated an endgame database, which stores for all boards up to 25 stones the difference of stones of the resulting board, if all players play perfectly.
 
 We also use our own optimized implementation of Kalaha.
 
@@ -49,10 +47,11 @@ Each of these heuristics have a weight, that tells how important this heuristic 
 But even after playing over 12000 games against the AlphaBetaAgent of the framework with different combinations of weights, CLOP [2] was not able to find a combination of weights, that could consistently beat the AlphaBetaAgent.  
 Less than 10 games have been won against the AlphaBetaAgent. 
 
-In order to accellerate our agent we attempted to precompute a Database which contained the best possible outcome (stored as the difference between DepotA and DepotB) for each possible MancalaBoard in the game. (Ranging from 1 Stone on the field to 25 Stones)
-The database was precomputed using a C++ application which stored the results in a single .bin file in binary form.
-While having potential, we stumbled upon a few issues which weilded worse results if this database was used in our agent.
-So the database was dropped.
+In order to improve our agent, we attempted to precompute an endgame database, which stores, for all boards up to a certain amount of stones, the difference of stones of the resulting board, if both players play perfectly.
+The database was precomputed using a C++ application, which stored the results in a single .bin file in binary form.
+Since the code for using and generating the database was finished the week before the deadline, we could not solve all issues, because the agent performed worse when using the database. The endgame database may have also been too small.
+
+For the tournament, we decided to disable the database, but the code for the generation and the database itself is included in the submission.
 
 ## References
 1. Marc Lanctot, Mark H. M. Winands, Tom Pepels & Nathan R. Sturtevant (2014). Monte Carlo Tree Search with Heuristic Evaluations using Implicit Minimax Backups. CoRR, abs/1406.0486, .
