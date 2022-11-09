@@ -1,24 +1,10 @@
 # Shallowred
 
+ShallowRed is an AI for the two-player strategy game [Kalah](https://en.wikipedia.org/wiki/Kalah). It was developed during the course *Strategy Game Programming* (although the course is only about programming AIs for Strategy Games) at *Vienna University of Technology*. It achieved the 2nd place in the tournament of all AIs submitted in the course (total of 8 AIs).
+
 ## Team
 Sebastian Serwin (01427028)  
 Simon Reiser (11777770)
-
-## Submission Content
-- **ShallowRed**: Source code of the java project.
-- **shallowred_main.jar**: Built jar file of the java project.
-- **MancalaBaker**: Source code of the C++ project, used for calculating the endgame database.
-- **ShallowRed/EndgameDB_ShallowRed.bin**: Endgame database for up to 25 stones on the board (excluding depots)
-- **readmeAssets & README.md**: Readme file in Markdown format.
-
-## Setup
-Import the agent by adding **shallowred_main.jar**, which is also provided in our submission, and enter **at.pwd.shallowred.ShallowRed** as class name.
-
-**Important**: 
-- The application needs to be **restarted after playing one game**, to reinstantiate the ShallowRed-Agent.
-- It's not possible to play two ShallowRed-Agents against each other using provided application, since only a single instance of the ShallowRed-Agent is created
-- Our AI only works with 6 slots per player.
-
 
 ## Approach
 Our AI uses MCTS with the following modifications:
@@ -38,20 +24,9 @@ Our AI uses MCTS with the following modifications:
 - On every turn the relevant subtree of the search tree of the last turn is reused.
 - The parameters **α** and **C** of our modified UCB formula are automatically tuned using CLOP [2] using the AlphaBeta-Agent of the framework with increased depth and other ShallowRed-Agents. We also performed several tournaments between differently configured ShallowRed-Agents.
 
-We also use our own optimized implementation of Kalaha.
+We also use our own optimized implementation of Kalaha and not the implementation provided by the course.
 
-## Failed Attempts
-Our first idea was to improve the simulation games of MCTS using simple heuristics. We have written 6 simple heuristics, which rate each possible turn for a given board.  
-Each of these heuristics have a weight, that tells how important this heuristic is.  
-
-But even after playing over 12000 games against the AlphaBetaAgent of the framework with different combinations of weights, CLOP [2] was not able to find a combination of weights, that could consistently beat the AlphaBetaAgent.  
-Less than 10 games have been won against the AlphaBetaAgent. 
-
-In order to improve our agent, we attempted to precompute an endgame database, which stores, for all boards up to a certain amount of stones, the difference of stones of the resulting board, if both players play perfectly.
-The database was precomputed using a C++ application, which stored the results in a single .bin file in binary form.
-Since the code for using and generating the database was finished the week before the deadline, we could not solve all issues, because the agent performed worse when using the database. The endgame database may have also been too small.
-
-For the tournament, we decided to disable the database, but the code for the generation and the database itself is included in the submission.
+See [SUBMISSION.md](SUBMISSION.md) for failed attempts and approaches.
 
 ## References
 1. Marc Lanctot, Mark H. M. Winands, Tom Pepels & Nathan R. Sturtevant (2014). Monte Carlo Tree Search with Heuristic Evaluations using Implicit Minimax Backups. CoRR, abs/1406.0486, .
